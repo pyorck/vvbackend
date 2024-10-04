@@ -52,11 +52,11 @@ function closeAllDropdowns() {
 
 // API TO GET AIRPORT
 
-const geonamesUsername = 'YOUR_GEONAMES_USERNAME'; // Replace with your Geonames username
+const geonamesUsername = 'pyorck'; // Replace with your Geonames username
 
 // Fetch city coordinates from Geonames API
 function fetchCityCoordinates(cityName) {
-    const geonamesUrl = `http://api.geonames.org/searchJSON?q=${cityName}&maxRows=1&username=${geonamesUsername}`;
+    const geonamesUrl = `https://secure.geonames.org/searchJSON?q=${cityName}&maxRows=1&username=${geonamesUsername}`;
 
     fetch(geonamesUrl)
         .then(response => {
