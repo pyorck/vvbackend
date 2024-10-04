@@ -68,7 +68,7 @@ document.getElementById('city-input').addEventListener('input', function () {
 
 // Fetch city coordinates from Geonames API
 function fetchCityCoordinates(cityName) {
-    const geonamesUrl = `http://api.geonames.org/searchJSON?q=${cityName}&maxRows=1&username=${geonamesUsername}`;
+    const geonamesUrl = `https://api.geonames.org/searchJSON?q=${cityName}&maxRows=1&username=${geonamesUsername}`;
 
     fetch(geonamesUrl)
         .then(response => {
@@ -95,7 +95,7 @@ function fetchCityCoordinates(cityName) {
 
 // Fetch nearby airports using Geonames API
 function fetchNearbyAirports(lat, lon) {
-    const nearbyAirportsUrl = `http://api.geonames.org/findNearbyAirportsJSON?lat=${lat}&lng=${lon}&username=${geonamesUsername}`;
+    const nearbyAirportsUrl = `https://api.geonames.org/findNearbyAirportsJSON?lat=${lat}&lng=${lon}&username=${geonamesUsername}`;
 
     fetch(nearbyAirportsUrl)
         .then(response => {
