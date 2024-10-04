@@ -1,0 +1,529 @@
+body {
+    font-family: Oswald, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;             
+    flex-direction: column;      
+    justify-content: center;    
+    align-items: center;       
+    height: 75vh;               
+    min-height: 80vh;           
+    max-height: 80vh;
+}
+ 
+/* TOP SECTION CSS TOP GAP KEKW */ /* TOP SECTION CSS TOP GAP KEKW */
+
+.top-section {
+    background-color: #000000;   /* Background color */
+    color: white;                /* Text color */
+    padding: clamp(0.3rem, 4vw, 0.9rem); /* Flexible padding based on screen size */
+    display: flex;               /* Use flexbox */
+    justify-content: center;     /* Center horizontally */
+    align-items: center;         /* Center vertically */
+    height: clamp(0.4rem, 3vw, 1.5rem);  /* Flexible height */
+    z-index: 1;
+}
+
+.nav-links {
+    display: flex;
+    gap: 35px;                   /* Space between links */
+    align-items: center;         /* Center vertically */
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: clamp(0.9rem, 1vw, 1.2rem); /* Avoid too small/large sizes */
+    font-weight: bold;
+    transition: color 0.1s ease, scale 0.5s ease;
+}
+
+.nav-links a:hover {
+    color: #fff800;              /* Hover color */
+    scale: 1.2;
+}
+
+/* For the BANNER section */ /* so-called section-left */
+
+.section-left {
+    background-color: rgba(252, 250, 227, 0.4);  
+    color: rgb(0, 0, 0);       
+    font-size: clamp(1rem, 1.5vw, 1.8rem); 
+    display: flex;               /* Flexbox for centering content */
+    flex-direction: column;      /* Stack content vertically */
+    justify-content: center;     /* Center horizontally */
+    align-items: center;         /* Center vertically */
+    position: absolute;          /* Position it below the top section */
+    top: 2.6rem;                  /* Adjust to be below the top section */
+    left: 0;                     /* Align it to the left */
+    width: 100%;                
+    z-index: 2;                 /* Ensure it's on top of section-right, which is section below D: */
+    padding: 0.5rem 0;             /* Adjust padding to minimize space */
+    height: 12vh;                /* Banner height */
+    max-height: 12vh;
+}
+
+.section-left p {
+    margin: 0;                   /* Remove margin to avoid space */
+    display: inline-flex;
+    align-items: center;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.logo img {
+    margin-top: 1px;
+    height: 70px;
+}
+
+
+/* For the MAIN section */ /* so-called section-right */
+
+.section-right {
+    background-color: #000000;
+    background-image: url('pics/background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 100%;               
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    position: relative;
+    flex-direction: column;
+}
+
+    /* SEARCHBOX CONTAINER */    /* SEARCHBOX CONTAINER */    /* SEARCHBOX CONTAINER */
+    /* SEARCHBOX CONTAINER */    /* SEARCHBOX CONTAINER */    /* SEARCHBOX CONTAINER */
+    /* SEARCHBOX CONTAINER */    /* SEARCHBOX CONTAINER */    /* SEARCHBOX CONTAINER */
+  
+    .finder-box {
+        display: flex;
+        flex-direction: column; /* Stack items vertically on smaller screens */
+        gap: 10px;
+        align-items: center;
+        justify-content: center;
+        padding: 15px;
+        background-color: rgba(255, 255, 255, 0); /* White background with opacity */
+
+        margin: 0 auto; /* Center the box horizontally */
+        position: absolute;
+        top: 18%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 50%; /* Make it fit smaller screens */
+        max-width: 500px; /* Limit the width on larger screens */
+    }
+    
+    .finder-box select,
+    .finder-box input[type="number"],
+    .finder-box button {
+        padding: 10px;
+        font-size: 14px;
+        border-radius: 8px; /* Smaller rounded corners */
+        border: 1px solid #ddd;
+        background-color: rgba(255, 255, 255, 0.9); /* Subtle white for dropdowns */
+        width: 100%; /* Full width for better mobile layout */
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1); /* Lighter shadow */
+    }
+    
+    .finder-box select:focus,
+    .finder-box input[type="number"]:focus {
+        outline: none;
+        border-color: #000000; /* Green border on focus */
+    }
+    
+    .finder-box button {
+        color: rgb(0, 0, 0);
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        width: 100%; /* Button takes full width */
+        background-color: rgba(255, 255, 255, 0.9);  
+    }
+    
+    .finder-box button:hover {
+        background-color: rgba(255, 247, 176, 0.9); 
+        transform: scale(1.02); /* Slight grow effect */
+    }
+
+        /* CUSTOM-DROPDOWN */ /* CUSTOM-DROPDOWN */ /* CUSTOM-DROPDOWN */
+        /* CUSTOM-DROPDOWN */ /* CUSTOM-DROPDOWN */ /* CUSTOM-DROPDOWN */
+
+        .custom-dropdown {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+        
+        .dropdown {
+            position: relative;
+            font-family: Oswald, sans-serif;
+        }
+        
+        .dropdown-button {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: rgba(255, 255, 255, 0.9);
+            cursor: pointer;
+            transition: background-color 0.3s;
+            position: relative;
+            font-family: Oswald, sans-serif;
+        }
+        
+        .dropdown-button:hover {
+            background-color: rgba(240, 240, 240, 0.9);
+        }
+        
+        .dropdown-placeholder {
+            font-size: 14px;
+            color: #888; /* Lighter for placeholder */
+            position: absolute;
+            top: 5px;
+            left: 12px;
+            pointer-events: none;
+        }
+        
+        .selected-item {
+            margin-top: 15px;
+            margin-left: 1px;
+            font-size: 16px;
+            display: block; /* Always show the selected item */
+        }
+        
+        .dropdown-options {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-height: 200px;
+            overflow-y: auto;
+            z-index: 10;
+            display: none; /* Initially hidden */
+        }
+        
+        .dropdown-options .dropdown-item {
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .dropdown-options .dropdown-item:hover {
+            background-color: #f0f0f0;
+        }
+        
+        .dropdown-options .option-icon {
+            margin-right: 10px;
+            width: 20px;
+            height: 20px;
+        }
+        
+        .dropdown-options .dropdown-item.selected {
+            background-color: #e6f7ff; /* Highlight the selected item */
+        }
+        
+        .dropdown-button.open + .dropdown-options {
+            display: block; /* Show the dropdown options on click */
+        }    
+
+        .dropdown-item {
+            display: flex;
+            align-items: center; /* Center align items vertically */
+            padding: 5px; /* Add some padding for better touch targets */
+        }
+        
+        .option-icon {
+            width: 20px; /* Set the width of the icon */
+            height: 20px; /* Set the height of the icon */
+            margin-right: 5px; /* Add space between icon and text */
+            margin-bottom: -3px;
+            position: inline-block;
+        }
+
+        .custom-dropdown {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+        
+        .autocomplete-container {
+            position: relative;
+            width: 100%;
+        }
+        
+        .autocomplete-input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+        
+        .dropdown-options {
+            position: absolute;
+            width: 100%;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            max-height: 200px;
+            overflow-y: auto;
+            z-index: 9999;
+            display: none; /* Hidden initially */
+        }
+        
+        .dropdown-item {
+            padding: 10px;
+            cursor: pointer;
+        }
+        
+        .dropdown-item:hover {
+            background-color: #f1f1f1;
+        }
+    
+
+    
+    /* SEARCHBOX CONTAINER END */ /* SEARCHBOX CONTAINER END */ /* SEARCHBOX CONTAINER END */
+    /* SEARCHBOX CONTAINER END */ /* SEARCHBOX CONTAINER END */ /* SEARCHBOX CONTAINER END */
+    /* SEARCHBOX CONTAINER END */ /* SEARCHBOX CONTAINER END */ /* SEARCHBOX CONTAINER END */
+
+
+        /* Plane - button */  /* Plane - button */  /* Plane - button */
+
+        .button-link3 {
+            display: inline-block;
+            position: relative;
+            z-index: 10;
+            scale: 1.2;
+            animation: flyAnimation 1.5s ease-in-out infinite alternate;
+            margin-top: 38rem;
+        }
+
+        .button-container2 {
+            position: relative;
+            z-index: 10;
+        }
+
+        @keyframes flyAnimation {
+            0% {
+                transform: translateY(10px) rotate(15deg); /* Starting position */
+            }
+            50% {
+                transform: translateY(-20px) rotate(15deg); /* Slightly upwards */
+            }
+            100% {
+                transform: translateY(10px) rotate(15deg); /* Back to starting position */
+            }
+        }
+
+        /* Clouds effect */ /* Clouds effect */ /* Clouds effect */
+
+        .clouds-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 5;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        
+        .clouds {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .cloud {
+            position: absolute;
+            bottom: 13vh;
+            z-index: 0;
+            animation: moveCloud 5s linear infinite; /* Apply both movement and fade-out */
+            opacity: 1;
+            scale: 0.3;
+        }
+        
+        /* Cloud sizes */
+        .big {
+            width: 800px;
+            height: 300px;
+            animation-duration: 8s;
+            fill: #d8d8d8;
+        }
+        
+        .distant {
+            width: 350px;
+            height: 200px;
+            animation-duration: 7.5s;
+            fill: #d8d8d8;
+        }
+        
+        .small {
+            width: 200px;
+            height: 100px;
+            animation-duration: 7s;
+            fill: #d8d8d8;
+        }
+        
+        .massive {
+            width: 500px;
+            height: 350px;
+            animation-duration: 6.5s;
+            fill: #aaaaaa;
+        }
+        
+        .medium {
+            width: 250px;
+            height: 250px;
+            animation-duration: 6s;
+            fill: #d8d8d8;
+        }
+        
+        .smallest {
+            width: 150px;
+            height: 75px;
+            animation-duration: 5.5s;
+            fill: #aaaaaa;
+        }
+        
+        .midsmallest {
+            width: 100px;
+            height: 75px;
+            animation-duration: 5s;
+            fill: #aaaaaa;
+        }
+        
+        /* Keyframes for movement and opacity */
+        @keyframes moveCloud {
+            0% {
+                transform: translateX(250vw); /* Start off-screen on the right */
+                opacity: 1; /* Fully visible */
+            }
+            100% {
+                transform: translateX(-100vw); /* End off-screen on the left */
+                opacity: 0.4; /* Fully faded out */
+            }
+        }
+
+
+/* FOOTER LINKS + VAIVING LTD. */ /* FOOTER LINKS + VAIVING LTD. */ /* FOOTER LINKS + VAIVING LTD. */
+
+.site-footer {
+    background-color: #000000;
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: auto;            /* Push footer to bottom */
+}
+
+/* Button styles (center aligned) */
+.button-link {
+    display: inline-block;
+    width: 3rem;                   /* Set fixed width to make it square */
+    height: 3rem;                  /* Set fixed height to match width */
+    background-color: #000000;
+    color: white;
+    border-radius: 0.75rem;         /* Slightly rounded corners */
+    text-align: center;             /* Center the content */
+    line-height: 3rem;              /* Vertically center text/icon inside */
+    font-size: 1.2rem;              /* Adjust font size to fit */
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.button-link:hover {
+    background-color: #b5e4ff;      /* Hover color */
+    transform: scale(1.05);         /* Slightly increase size on hover */
+}
+
+.button-link2 {
+    display: inline-block;
+    width: 3rem;                   /* Ensure it remains square */
+    height: 3rem;                  /* Ensure it remains square */
+    background-color: #000000;
+    color: white;
+    border-radius: 0.75rem;         /* Rounded corners */
+    text-align: center;
+    line-height: 3rem;              /* Vertically center content */
+    font-size: 1.2rem;              /* Ensure proper font sizing */
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.button-link2:hover {
+    background-color: #ffd0a3;      /* Hover color */
+    transform: scale(1.05);         /* Slight scaling on hover */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

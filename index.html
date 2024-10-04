@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaiving</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="pics/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="pics/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="pics/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@250&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@barba/core"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+</head>
+<body>
+    <div class="site-wrapper">
+    <div data-barba="wrapper">
+        <div data-barba="container">
+            <div class="top-section">
+                <nav class="nav-links">
+                    <a href="index.html">HOME</a>
+                    <a href="#home">LOG IN</a>
+                    <a href="#about">REGISTER</a>
+                    <a href="#contact">CONTACT</a>
+                </nav>
+            </div>
+
+            <div class="container">
+                <div class="section section-left">
+                <p>YOU VIBE, WE VIBE. TOGETHER, WE ARE</p>
+                <div class="logo"><img src="pics/logo-vv-v2.png"></div>
+                </div>
+                
+                <div class="section-right">
+                    <div class="finder-box">
+                        
+
+                        <!-- FROM -->
+                        <div class="custom-dropdown">
+                            <div class="dropdown-button">
+                                <input type="text" id="city-input" class="autocomplete-input" placeholder="Enter City or Town">
+                                <div id="suggestions" class="dropdown-options"></div>
+                            </div>
+                        </div>
+                  
+                        <!-- BUDGET -->
+                        <div class="custom-dropdown">
+                            <div class="dropdown">
+                                <button class="dropdown-button">
+                                    <span class="dropdown-placeholder">Budget class</span>
+                                    <span class="selected-item">Which category?</span>
+                                </button>
+                                <div class="dropdown-options">
+                                    <div class="dropdown-item" data-value="low">
+                                        <img src="pics/low.svg" alt="Icon" class="option-icon">Low-cost
+                                    </div>
+                                    <div class="dropdown-item" data-value="mid">
+                                        <img src="pics/mid.svg" alt="Icon" class="option-icon">Mid-cost
+                                    </div>
+                                    <div class="dropdown-item" data-value="high">
+                                        <img src="pics/diamond.svg" alt="Icon" class="option-icon">Luxury
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                         <!-- PREF -->
+                         <div class="custom-dropdown">
+                            <div class="dropdown">
+                                <button class="dropdown-button">
+                                    <span class="dropdown-placeholder">Month</span>
+                                    <span class="selected-item">When?</span>
+                                </button>
+                                <div class="dropdown-options">
+                                    <div class="dropdown-item" data-value="bcn">
+                                        <strong>This month</strong>&nbsp;Let's go now!
+                                    </div>
+                                    <div class="dropdown-item" data-value="bcn">
+                                        <strong>Next month</strong>&nbsp;Need some time
+                                    </div>
+                                    <div class="dropdown-item" data-value="bcn">
+                                        <strong>Next two months</strong>&nbsp;Hold your horses!
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                         <!-- PREF -->
+                        <div class="custom-dropdown">
+                            <div class="dropdown">
+                                <button class="dropdown-button">
+                                    <span class="dropdown-placeholder">Preference</span>
+                                    <span class="selected-item">Any day or weekends only?</span>
+                                </button>
+                                <div class="dropdown-options">
+                                    <div class="dropdown-item" data-value="bcn">
+                                        <strong>All week</strong>&nbsp;Mon-Sun
+                                    </div>
+                                    <div class="dropdown-item" data-value="bcn">
+                                        <strong>Weekends only</strong>&nbsp;Fri-Sun
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                        <div class="button-container2">
+                        <a href="index.html" data-barba="link" class="button-link3">
+                            <img src="pics/plane.png" alt="Icon" style="position: relative; width: 100px; height: 100px; vertical-align: middle" class="plane-img">
+                        </a>
+                        </div>
+                  </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            <div class="clouds-wrapper">
+                <div class="clouds">
+                    <!-- Front slowest cloud -->
+                    <svg class="cloud big" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="762px" height="331px" viewBox="0 0 762 331" enable-background="new 0 0 762 331" xml:space="preserve">
+                        <path d="M715.394,228h-16.595c0.79-5.219,1.201-10.562,1.201-16c0-58.542-47.458-106-106-106 c-8.198,0-16.178,0.932-23.841,2.693C548.279,45.434,488.199,0,417.5,0c-84.827,0-154.374,65.401-160.98,148.529 C245.15,143.684,232.639,141,219.5,141c-49.667,0-90.381,38.315-94.204,87H46.607C20.866,228,0,251.058,0,279.5 S20.866,331,46.607,331h668.787C741.133,331,762,307.942,762,279.5S741.133,228,715.394,228z"></path>
+                    </svg>
+
+                    <!-- Distant smaller cloud -->
+                    <svg class="cloud distant" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="762px" height="331px" viewBox="0 0 762 331" enable-background="new 0 0 762 331" xml:space="preserve">
+                        <path d="M715.394,228h-16.595c0.79-5.219,1.201-10.562,1.201-16c0-58.542-47.458-106-106-106 c-8.198,0-16.178,0.932-23.841,2.693C548.279,45.434,488.199,0,417.5,0c-84.827,0-154.374,65.401-160.98,148.529 C245.15,143.684,232.639,141,219.5,141c-49.667,0-90.381,38.315-94.204,87H46.607C20.866,228,0,251.058,0,279.5 S20.866,331,46.607,331h668.787C741.133,331,762,307.942,762,279.5S741.133,228,715.394,228z"></path>
+                    </svg>
+
+                    <!-- Small slow cloud -->
+                    <svg class="cloud small" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="762px" height="331px" viewBox="0 0 762 331" enable-background="new 0 0 762 331" xml:space="preserve">
+                        <path d="M715.394,228h-16.595c0.79-5.219,1.201-10.562,1.201-16c0-58.542-47.458-106-106-106 c-8.198,0-16.178,0.932-23.841,2.693C548.279,45.434,488.199,0,417.5,0c-84.827,0-154.374,65.401-160.98,148.529 C245.15,143.684,232.639,141,219.5,141c-49.667,0-90.381,38.315-94.204,87H46.607C20.866,228,0,251.058,0,279.5 S20.866,331,46.607,331h668.787C741.133,331,762,307.942,762,279.5S741.133,228,715.394,228z"></path>
+                    </svg>
+
+                    <!-- Super-slow massive cloud -->
+                    <svg class="cloud massive" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="762px" height="331px" viewBox="0 0 762 331" enable-background="new 0 0 762 331" xml:space="preserve">
+                        <path d="M715.394,228h-16.595c0.79-5.219,1.201-10.562,1.201-16c0-58.542-47.458-106-106-106 c-8.198,0-16.178,0.932-23.841,2.693C548.279,45.434,488.199,0,417.5,0c-84.827,0-154.374,65.401-160.98,148.529 C245.15,143.684,232.639,141,219.5,141c-49.667,0-90.381,38.315-94.204,87H46.607C20.866,228,0,251.058,0,279.5 S20.866,331,46.607,331h668.787C741.133,331,762,307.942,762,279.5S741.133,228,715.394,228z"></path>
+                    </svg>
+
+                    <!-- Medium-sized cloud -->
+                    <svg class="cloud medium" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="762px" height="331px" viewBox="0 0 762 331" enable-background="new 0 0 762 331" xml:space="preserve">
+                        <path d="M715.394,228h-16.595c0.79-5.219,1.201-10.562,1.201-16c0-58.542-47.458-106-106-106 c-8.198,0-16.178,0.932-23.841,2.693C548.279,45.434,488.199,0,417.5,0c-84.827,0-154.374,65.401-160.98,148.529 C245.15,143.684,232.639,141,219.5,141c-49.667,0-90.381,38.315-94.204,87H46.607C20.866,228,0,251.058,0,279.5 S20.866,331,46.607,331h668.787C741.133,331,762,307.942,762,279.5S741.133,228,715.394,228z"></path>
+                    </svg>
+
+                    <!-- Smallest cloud -->
+                    <svg class="cloud smallest" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="762px" height="331px" viewBox="0 0 762 331" enable-background="new 0 0 762 331" xml:space="preserve">
+                        <path d="M715.394,228h-16.595c0.79-5.219,1.201-10.562,1.201-16c0-58.542-47.458-106-106-106 c-8.198,0-16.178,0.932-23.841,2.693C548.279,45.434,488.199,0,417.5,0c-84.827,0-154.374,65.401-160.98,148.529 C245.15,143.684,232.639,141,219.5,141c-49.667,0-90.381,38.315-94.204,87H46.607C20.866,228,0,251.058,0,279.5 S20.866,331,46.607,331h668.787C741.133,331,762,307.942,762,279.5S741.133,228,715.394,228z"></path>
+                    </svg>
+
+                    <!-- Mid-Smallest cloud -->
+                    <svg class="cloud midsmallest" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="762px" height="331px" viewBox="0 0 762 331" enable-background="new 0 0 762 331" xml:space="preserve">
+                        <path d="M715.394,228h-16.595c0.79-5.219,1.201-10.562,1.201-16c0-58.542-47.458-106-106-106 c-8.198,0-16.178,0.932-23.841,2.693C548.279,45.434,488.199,0,417.5,0c-84.827,0-154.374,65.401-160.98,148.529 C245.15,143.684,232.639,141,219.5,141c-49.667,0-90.381,38.315-94.204,87H46.607C20.866,228,0,251.058,0,279.5 S20.866,331,46.607,331h668.787C741.133,331,762,307.942,762,279.5S741.133,228,715.394,228z"></path>
+                    </svg>
+                </div>
+            </div>
+
+
+            <!-- Footer inside the barba container for transitions -->
+            <footer class="site-footer">
+                <a href="https://www.linkedin.com/company/vaiving" target="_blank" class="button-link">
+                    <img src="pics/linkedin.png" alt="Icon" style="width: 25px; height: 25px; vertical-align: middle">
+                </a> 
+                <a href="https://www.instagram.com/vaivingg" target="_blank" class="button-link2">
+                    <img src="pics/instagram.png" alt="Icon" style="width: 25px; height: 25px; vertical-align: middle">
+                </a>
+                <p style="color: white; font-size: 13px;">&copy; 2024 - Vaiving Ltd.</p>
+            </footer>
+        </div> <!-- End of barba container -->
+    </div> <!-- End of barba wrapper -->
+
+</body>
+
+    <!-- Dynamic GSAP Transition Handling for index -->
+    <script src="scripts.js"></script>
+    
+    <script>
+        function updateContent() {
+            const leftSection = document.querySelector('.section-left');
+            const rightSection = document.querySelector('.section-right');
+            const plane = document.querySelector('.button-container2'); // The button that triggers the animation
+        
+            // Create a GSAP timeline for coordinated animations
+            const tl = gsap.timeline();
+        
+            // Step 1: Animate the plane to "fly" up and down
+            tl.set(plane, { zIndex: 10 }) // Ensure it's on top during the animation
+              .to(plane, {
+                  scale: 1.5,        // Move the plane upwards
+                  opacity: 0.9,              
+                  ease: 'power1.inOut'
+
+              })
+        
+              // Step 6: Fade in the right section after plane animation finishes
+              .call(() => {
+                fetch('cities.html')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    rightSection.innerHTML = data; // Set the HTML content to the fetched data
+                });
+        
+                // Reset right section's position and opacity for the next animation
+                gsap.set(rightSection, { opacity: 0, display: 'block' }); // Set to block to make it visible
+              })
+              .to(rightSection, {
+                  opacity: 1, 
+                  duration: 0.7,
+                  ease: 'power2.inOut'
+              });
+        
+            applyResponsiveStyles(); // Apply any responsive styles you need
+        };
+        
+        function applyResponsiveStyles() {
+            const rightSection = document.querySelector('.section-right');
+            const plane = document.querySelector('.plane-img'); // Ensure the plane element is selected
+        
+            // Check for different screen sizes and apply styles
+            const mobileQuery = window.matchMedia('(max-width: 600px)');
+            const tabletQuery = window.matchMedia('(min-width: 601px) and (max-width: 900px)');
+        
+            if (mobileQuery.matches) {
+                // Mobile styles
+                gsap.to(plane, { scale: 0.7 }); // Resize plane for mobile (smaller)
+            } else if (tabletQuery.matches) {
+                // Tablet styles
+                gsap.to(plane, { scale: 0.8 }); // Resize plane for tablets (medium size)
+            } else {
+                // Desktop and larger screens
+                gsap.to(plane, { scale: 1 }); // Full size for larger screens
+            }
+        }
+        
+        // Call the function when the button is clicked
+        document.querySelector('.button-link3').addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent default link behavior
+            updateContent(); // Call the content update function
+        });
+
+        </script>        
+
+</body>
+</html>
