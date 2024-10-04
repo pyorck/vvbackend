@@ -52,23 +52,11 @@ function closeAllDropdowns() {
 
 // API TO GET AIRPORT
 
-const geonamesUsername = 'pyorck'; // Replace with your Geonames username
-
-// Listen for input changes in the city input field
-document.getElementById('city-input').addEventListener('input', function () {
-    const cityName = this.value.trim();
-
-    if (cityName.length > 2) {
-        console.log('Fetching coordinates for:', cityName);
-        fetchCityCoordinates(cityName);
-    } else {
-        document.getElementById('suggestions').style.display = 'none';
-    }
-});
+const geonamesUsername = 'YOUR_GEONAMES_USERNAME'; // Replace with your Geonames username
 
 // Fetch city coordinates from Geonames API
 function fetchCityCoordinates(cityName) {
-    const geonamesUrl = `https://secure.geonames.org/searchJSON?q=${cityName}&maxRows=1&username=${geonamesUsername}`;
+    const geonamesUrl = `http://api.geonames.org/searchJSON?q=${cityName}&maxRows=1&username=${geonamesUsername}`;
 
     fetch(geonamesUrl)
         .then(response => {
@@ -93,9 +81,9 @@ function fetchCityCoordinates(cityName) {
         });
 }
 
-// Fetch nearby airports using Geonames API
+// Fetch nearby airports using Open Aviation API
 function fetchNearbyAirports(lat, lon) {
-    const nearbyAirportsUrl = `https://secure.geonames.org/findNearbyAirportsJSON?lat=${lat}&lng=${lon}&username=${geonamesUsername}`;
+    const nearbyAirportsUrl = `https://api.openaviationdata.com/v1/airports/nearby?lat=${lat}&lng=${lon}`;
 
     fetch(nearbyAirportsUrl)
         .then(response => {
