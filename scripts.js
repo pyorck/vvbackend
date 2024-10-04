@@ -57,7 +57,7 @@ const geonamesUsername = 'pyorck'; // Replace with your Geonames username
 // Listen for input changes in the city input field
 document.getElementById('city-input').addEventListener('input', function () {
     const cityName = this.value.trim();
-    
+
     if (cityName.length > 2) {
         console.log('Fetching coordinates for:', cityName);
         fetchCityCoordinates(cityName);
@@ -93,9 +93,9 @@ function fetchCityCoordinates(cityName) {
         });
 }
 
-// Fetch nearby airports using Open Aviation API
+// Fetch nearby airports
 function fetchNearbyAirports(lat, lon) {
-    const nearbyAirportsUrl = `https://api.openaviationdata.com/v1/airports/nearby?lat=${lat}&lng=${lon}`;
+    const nearbyAirportsUrl = `https://opensky-network.org/api/airports?lat=${lat}&lon=${lon}`; // Modify with actual endpoint
 
     fetch(nearbyAirportsUrl)
         .then(response => {
@@ -105,19 +105,17 @@ function fetchNearbyAirports(lat, lon) {
             return response.json();
         })
         .then(data => {
-            console.log('Nearby airports response:', data); // Log the entire response
             const suggestionsContainer = document.getElementById('suggestions');
             suggestionsContainer.innerHTML = ''; // Clear previous suggestions
 
-            // Loop through airports and display suggestions
-            if (data.airports && data.airports.length > 0) {
-                data.airports.forEach(airport => {
+            // Display suggestions
+            if (data && data.length > 0) {
+                data.forEach(airport => {
                     const airportItem = document.createElement('div');
                     airportItem.classList.add('dropdown-item');
                     airportItem.innerHTML = `<strong>${airport.iata}</strong> ${airport.name}`;
                     suggestionsContainer.appendChild(airportItem);
                 });
-
                 suggestionsContainer.style.display = 'block';
             } else {
                 suggestionsContainer.style.display = 'none'; // Hide if no airports found
