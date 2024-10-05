@@ -50,7 +50,7 @@ function closeAllDropdowns() {
 
 
 
-// API TO GET AIRPORT
+// API TO GET AIRPORT - ON HOLD
 
 const geonamesUsername = 'pyorck'; // Replace with your Geonames username
 
@@ -95,37 +95,37 @@ function fetchCityCoordinates(cityName) {
 
 // Fetch nearby airports
 function fetchNearbyAirports(lat, lon) {
-    const nearbyAirportsUrl = `https://opensky-network.org/api/airports?lat=${lat}&lon=${lon}`; // Modify with actual endpoint
+    const nearbyAirportsUrl = `https://ourairports.com/airports.json?lat=${lat}&lon=${lon}&n=10`; // 'n' is the number of airports to return
 
     fetch(nearbyAirportsUrl)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Error fetching airports');
-            }
-            return response.json();
-        })
-        .then(data => {
-            const suggestionsContainer = document.getElementById('suggestions');
-            suggestionsContainer.innerHTML = ''; // Clear previous suggestions
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Error fetching airports');
+        }
+        return response.json();
+    })
+    .then(data => {
+        const suggestionsContainer = document.getElementById('suggestions');
+        suggestionsContainer.innerHTML = ''; // Clear previous suggestions
 
-            // Display suggestions
-            if (data && data.length > 0) {
-                data.forEach(airport => {
-                    const airportItem = document.createElement('div');
-                    airportItem.classList.add('dropdown-item');
-                    airportItem.innerHTML = `<strong>${airport.iata}</strong> ${airport.name}`;
-                    suggestionsContainer.appendChild(airportItem);
-                });
-                suggestionsContainer.style.display = 'block';
-            } else {
-                suggestionsContainer.style.display = 'none'; // Hide if no airports found
-                alert('No nearby airports found');
-            }
-        })
-        .catch(err => {
-            console.error('Error fetching nearby airports:', err);
-            alert('Error fetching airports or no nearby airports found');
-        });
+        // Display suggestions
+        if (data && data.length > 0) {
+            data.forEach(airport => {
+                const airportItem = document.createElement('div');
+                airportItem.classList.add('dropdown-item');
+                airportItem.innerHTML = `<strong>${airport.iata_code || 'N/A'}</strong> ${airport.name}`;
+                suggestionsContainer.appendChild(airportItem);
+            });
+            suggestionsContainer.style.display = 'block';
+        } else {
+            suggestionsContainer.style.display = 'none'; // Hide if no airports found
+            alert('No nearby airports found');
+        }
+    })
+    .catch(err => {
+        console.error('Error fetching nearby airports:', err);
+        alert('Error fetching airports or no nearby airports found');
+    });
 }
 
 // Handle clicking on a suggestion

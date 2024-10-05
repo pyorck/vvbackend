@@ -163,6 +163,20 @@ body {
             display: inline-block;
             width: 100%;
         }
+
+        .autocomplete-container {
+            position: relative;
+            width: 100%;
+        }
+        
+        .autocomplete-input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+        
         
         .dropdown {
             position: relative;

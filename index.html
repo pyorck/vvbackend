@@ -36,12 +36,11 @@
                     <div class="finder-box">
                         
 
-                        <!-- FROM -->
-                        <div class="custom-dropdown">
-                            <div class="dropdown-button">
-                                <input type="text" id="city-input" class="autocomplete-input" placeholder="Enter City or Town">
-                                <div id="suggestions" class="dropdown-options"></div>
-                            </div>
+                        <!-- FROM (Search Box for City to Fetch Airports) -->
+                        <div class="custom-dropdown autocomplete-container">
+                            <span class="dropdown-placeholder">From</span>
+                            <input type="text" id="city-input" class="autocomplete-input" placeholder="Where do you live?" oninput="fetchCityCoordinates(this.value)">
+                            <div id="suggestions" class="dropdown-options"></div> <!-- Suggestions will be inserted here -->
                         </div>
                   
                         <!-- BUDGET -->
@@ -80,7 +79,7 @@
                                         <strong>Next month</strong>&nbsp;Need some time
                                     </div>
                                     <div class="dropdown-item" data-value="bcn">
-                                        <strong>Next two months</strong>&nbsp;Hold your horses
+                                        <strong>Next two months</strong>&nbsp;Hold your horses!
                                     </div>
                                 </div>
                             </div>
@@ -177,7 +176,6 @@
 
     <!-- Dynamic GSAP Transition Handling for index -->
     <script src="scripts.js"></script>
-    
     <script>
         function updateContent() {
             const leftSection = document.querySelector('.section-left');
@@ -246,7 +244,6 @@
             event.preventDefault(); // Prevent default link behavior
             updateContent(); // Call the content update function
         });
-
         </script>        
 
 </body>
