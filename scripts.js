@@ -96,7 +96,7 @@ function fetchCityCoordinates(cityName) {
 
 // Fetch nearby airports
 function fetchNearbyAirports(lat, lon) {
-    const nearbyAirportsUrl = `https://api.aviowiki.com/airports/search?lat=${lat}&lon=${lon}&distance=50`; // 50 km radius
+    const nearbyAirportsUrl = `https://api.aviowiki.com/free/airports/search?lat=${lat}&lon=${lon}&distance=50`; // 50 km radius
 
     fetch(nearbyAirportsUrl, {
         method: 'GET',
