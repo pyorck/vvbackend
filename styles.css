@@ -163,18 +163,20 @@ body {
             display: inline-block;
             width: 100%;
         }
-
-        .autocomplete-container {
-            position: relative;
-            width: 100%;
-        }
         
         .autocomplete-input {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             width: 100%;
-            padding: 10px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
             font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: rgba(255, 255, 255, 0.9);
+            cursor: pointer;
+            transition: background-color 0.3s;
+            position: relative;
+            font-family: Oswald, sans-serif;
         }
         
         
@@ -207,6 +209,15 @@ body {
             font-size: 14px;
             color: #888; /* Lighter for placeholder */
             position: absolute;
+            top: 5px;
+            left: 12px;
+            pointer-events: none;
+        }
+
+        .input-placeholder {
+            font-size: 14px;
+            color: #888; /* Lighter for placeholder */
+            position: relative;
             top: 5px;
             left: 12px;
             pointer-events: none;

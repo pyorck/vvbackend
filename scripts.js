@@ -53,7 +53,6 @@ function closeAllDropdowns() {
 // API TO GET AIRPORT - ON HOLD
 
 const geonamesUsername = 'pyorck'; // Replace with your Geonames username
-const aviowikiApiToken = 'e01306ed-ec66-4a3e-afbd-775d3104c6df'; // Aviowiki API token
 
 // Listen for input changes in the city input field
 document.getElementById('city-input').addEventListener('input', function () {
@@ -94,47 +93,40 @@ function fetchCityCoordinates(cityName) {
         });
 }
 
-// Fetch nearby airports with Aviowiki API
+// Fetch nearby airports with Geonames API
 function fetchNearbyAirports(lat, lon) {
-    const nearbyAirportsUrl = `https://api.aviowiki.com/airports/search?latitude=${lat}&longitude=${lon}&distance=50`; // Production API
-    const apiToken = 'e01306ed-ec66-4a3e-afbd-775d3104c6df'; // Your API token
+    const nearbyAirportsUrl = `http://api.geonames.org/findNearbyJSON?lat=${lat}&lng=${lon}&radius=250&username=${geonamesUsername}&featureCode=AIRP`;
 
-    fetch(nearbyAirportsUrl, {
-        method: 'GET',
-        headers: {
-            'Authorization': `Bearer ${apiToken}`,
-        }
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Error fetching airports');
-        }
-        return response.json();
-    })
-    .then(data => {
-        console.log('Aviowiki response:', data); // Log the API response here
-    
-        const suggestionsContainer = document.getElementById('suggestions');
-        suggestionsContainer.innerHTML = ''; // Clear previous suggestions
-    
-        if (data && data.length > 0) {
-            data.forEach(airport => {
-                const airportItem = document.createElement('div');
-                airportItem.classList.add('dropdown-item');
-                airportItem.innerHTML = `<strong>${airport.iata_code || 'N/A'}</strong> ${airport.name}`;
-                suggestionsContainer.appendChild(airportItem);
-            });
-            suggestionsContainer.style.display = 'block'; // Show suggestions
-        } else {
-            suggestionsContainer.style.display = 'none'; // Hide if no airports found
-            alert('No nearby airports found');
-        }
-    })
-    .catch(err => {
-        console.error('Error fetching nearby airports:', err);
-        alert('Error fetching airports or no nearby airports found');
-    });
-}    
+    fetch(nearbyAirportsUrl)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error fetching airports');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Geonames response for airports:', data); // Log the API response here
+            
+            const suggestionsContainer = document.getElementById('suggestions');
+            suggestionsContainer.innerHTML = ''; // Clear previous suggestions
+            
+            if (data.geonames && data.geonames.length > 0) {
+                data.geonames.forEach(airport => {
+                    const airportItem = document.createElement('div');
+                    airportItem.classList.add('dropdown-item');
+                    airportItem.innerHTML = `<strong>${airport.iata || 'N/A'}</strong> ${airport.name}`;
+                    suggestionsContainer.appendChild(airportItem);
+                });
+                suggestionsContainer.style.display = 'block'; // Show suggestions
+            } else {
+                suggestionsContainer.style.display = 'none'; // Hide if no airports found
+                alert('No nearby airports found');
+            }
+        })
+        .catch(err => {
+            console.error('Error fetching nearby airports:', err);
+        });
+}
 
 // Handle clicking on a suggestion
 document.getElementById('suggestions').addEventListener('click', function (event) {
