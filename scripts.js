@@ -94,16 +94,16 @@ function fetchCityCoordinates(cityName) {
         });
 }
 
-// Fetch nearby airports
+// Fetch nearby airports with Aviowiki API
 function fetchNearbyAirports(lat, lon) {
-    const nearbyAirportsUrl = `https://api.aviowiki.com/free/airports/search?lat=${lat}&lon=${lon}&distance=50`; // 50 km radius
+    const nearbyAirportsUrl = `https://api.aviowiki.com/airports/search?lat=${lat}&lon=${lon}&distance=50`; // Production API
+    const apiToken = 'e01306ed-ec66-4a3e-afbd-775d3104c6df'; // Your API token
 
     fetch(nearbyAirportsUrl, {
         method: 'GET',
         headers: {
-            'Authorization': `Bearer ${aviowikiApiToken}`, // Use the API token here
-            'Content-Type': 'application/json',
-        },
+            'Authorization': `Bearer ${apiToken}`, // Add the API token to Authorization header
+        }
     })
     .then(response => {
         if (!response.ok) {
@@ -134,6 +134,7 @@ function fetchNearbyAirports(lat, lon) {
         alert('Error fetching airports or no nearby airports found');
     });
 }
+
 
 // Handle clicking on a suggestion
 document.getElementById('suggestions').addEventListener('click', function (event) {
