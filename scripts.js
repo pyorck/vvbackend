@@ -102,7 +102,7 @@ function fetchNearbyAirports(lat, lon) {
     fetch(nearbyAirportsUrl, {
         method: 'GET',
         headers: {
-            'Authorization': `Bearer ${apiToken}`, // Add the API token to Authorization header
+            'Authorization': `Bearer ${apiToken}`,
         }
     })
     .then(response => {
@@ -112,10 +112,11 @@ function fetchNearbyAirports(lat, lon) {
         return response.json();
     })
     .then(data => {
+        console.log('Aviowiki response:', data); // Log the API response here
+    
         const suggestionsContainer = document.getElementById('suggestions');
         suggestionsContainer.innerHTML = ''; // Clear previous suggestions
-
-        // Display suggestions
+    
         if (data && data.length > 0) {
             data.forEach(airport => {
                 const airportItem = document.createElement('div');
@@ -133,8 +134,7 @@ function fetchNearbyAirports(lat, lon) {
         console.error('Error fetching nearby airports:', err);
         alert('Error fetching airports or no nearby airports found');
     });
-}
-
+}    
 
 // Handle clicking on a suggestion
 document.getElementById('suggestions').addEventListener('click', function (event) {
