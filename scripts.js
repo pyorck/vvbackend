@@ -96,7 +96,7 @@ function fetchCityCoordinates(cityName) {
 
 // Fetch nearby airports with Aviowiki API
 function fetchNearbyAirports(lat, lon) {
-    const nearbyAirportsUrl = `https://api.aviowiki.com/free/airports/search?lat=${lat}&lon=${lon}&distance=50`; // Production API
+    const nearbyAirportsUrl = `https://api.aviowiki.com/airports/search?latitude=${lat}&longitude=${lon}&distance=50`; // Production API
     const apiToken = 'e01306ed-ec66-4a3e-afbd-775d3104c6df'; // Your API token
 
     fetch(nearbyAirportsUrl, {
