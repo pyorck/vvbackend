@@ -95,7 +95,7 @@ function fetchCityCoordinates(cityName) {
 
 // Fetch nearby airports with Geonames API
 function fetchNearbyAirports(lat, lon) {
-    const nearbyAirportsUrl = `http://api.geonames.org/findNearbyJSON?lat=${lat}&lng=${lon}&radius=250&username=${geonamesUsername}&featureCode=AIRP`;
+    const nearbyAirportsUrl = `https://secure.geonames.org/findNearbyJSON?lat=${lat}&lng=${lon}&radius=250&username=${geonamesUsername}&featureCode=AIRP`;
 
     fetch(nearbyAirportsUrl)
         .then(response => {
