@@ -186,3 +186,20 @@ document.getElementById('suggestions').addEventListener('click', function (event
     }
 });
 
+document.addEventListener("DOMContentLoaded", function() {
+    const prefDropdown = document.querySelector('.custom-dropdown:last-of-type .dropdown'); // The last dropdown (Preference)
+    const buttonContainer = document.querySelector('.button-container2'); // The button container with the plane
+
+    // Initially hide the button container
+    buttonContainer.style.display = 'none';
+
+    // Function to handle dropdown change and show the button container
+    prefDropdown.addEventListener('click', function() {
+        // When an option is selected, make the button container visible
+        buttonContainer.style.display = 'block';
+
+        // Optionally, show the plane animation/image (if needed)
+        const planeImage = buttonContainer.querySelector('.plane-img');
+        planeImage.style.display = 'inline-block';
+    });
+});
