@@ -6,7 +6,7 @@
     padding: 10px 20px 10px 40px; /* Padding with more on the left */
     position: absolute;
     z-index: 3;
-    top: 110px; /* Position below banner */
+    top: 120px; /* Position below banner */
     height: 400px; /* Fixed height for virtual cards */
     width: calc(100% - 40px); /* Adjust width based on left padding */
     max-width: 100%;
@@ -24,7 +24,7 @@
 .card-container {
     flex: 0 0 auto; /* Prevent shrinking */
     width: 200px; /* Fixed card width */
-    height: 220px; /* Fixed card height */
+    height: 200px; /* Fixed card height */
     margin-right: 15px; /* Space between cards */
     background-color: rgba(255, 255, 255, 0.7);  
     border-radius: 8px;

@@ -3,7 +3,6 @@ body {
     margin: 0;
     padding: 0;
     background-color: #000000;
-    overflow: hidden;
 }
 
 .container {
@@ -27,8 +26,9 @@ body {
     display: flex;               /* Use flexbox */
     justify-content: center;     /* Center horizontally */
     align-items: center;         /* Center vertically */
-    height: clamp(0.4rem, 3vw, 1.5rem);  /* Flexible height */
+    height: clamp(0.4rem, 2vw, 1.5rem);  /* Flexible height */
     z-index: 1;
+    font-family: Oswald, sans-serif;
 }
 
 .nav-links {
@@ -39,6 +39,7 @@ body {
 
 .nav-links a {
     text-decoration: none;
+    font-family: Oswald, sans-serif;
     color: #ffffff;
     font-size: clamp(0.9rem, 1vw, 1.2rem); /* Avoid too small/large sizes */
     font-weight: bold;
@@ -56,7 +57,7 @@ body {
 
 
 .section-left {
-    background-color: rgba(252, 250, 227, 0.1);  
+    background-color: rgba(252, 250, 227, 0);  
     color: rgb(0, 0, 0);       
     font-size: clamp(1rem, 1.5vw, 1.8rem); 
     display: flex;               /* Flexbox for centering content */
@@ -81,7 +82,7 @@ body {
     font-size: 2.0rem;
     font-family: "Just Another Hand", serif;
     font-weight: 400;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 .logo img {
@@ -121,7 +122,7 @@ body {
     background-color: rgba(255, 255, 255, 0); /* White background with opacity */
     margin: 0 auto; /* Center the box horizontally */
     position: absolute;
-    top: 48%;
+    top: 50%;
     left: 50%;
     transform: translateX(-50%);
     width: 100%; /* Make it fit smaller screens */
@@ -276,9 +277,9 @@ body {
     display: flex; /* Ensure the input has a flex display */
     align-items: center; /* Center align items vertically */
     border-radius: 8px; /* Match border radius */
-    border: 3px solid #000000; /* Same border style */
+    border: 1px solid #ccc;
     font-size: 16px; /* Consistent font size */
-    background-color: rgba(253, 255, 137, 0.9); /* Match background color */
+    background-color: rgba(255, 255, 255, 0.9); /* Match background color */
     height: 35px; /* Set a specific height to match dropdown button */
 }
 
@@ -303,7 +304,7 @@ body {
             z-index: 10;
             scale: 0.9;
             animation: flyAnimation 1.5s ease-in-out infinite alternate;
-            margin-top: 40rem;
+            margin-top: 42rem;
         }
 
         .button-container2 {
@@ -313,13 +314,13 @@ body {
 
         @keyframes flyAnimation {
             0% {
-                transform: translateY(10px) rotate(15deg); /* Starting position */
+                transform: translateY(5px) rotate(15deg); /* Starting position */
             }
             50% {
-                transform: translateY(-20px) rotate(15deg); /* Slightly upwards */
+                transform: translateY(-15px) rotate(15deg); /* Slightly upwards */
             }
             100% {
-                transform: translateY(10px) rotate(15deg); /* Back to starting position */
+                transform: translateY(5px) rotate(15deg); /* Back to starting position */
             }
         }
 
