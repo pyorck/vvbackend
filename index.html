@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vaiving</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="cards.css">
     <link rel="apple-touch-icon" sizes="180x180" href="pics/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="pics/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="pics/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@250&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Just+Another+Hand&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@barba/core"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
 </head>
@@ -28,18 +29,71 @@
 
             <div class="container">
                 <div class="section section-left">
-                <p>YOU VIBE, WE VIBE. TOGETHER, WE ARE</p>
+                <p>You vibe, we vibe. Together, we are</p>
                 <div class="logo"><img src="pics/logo-vv-v2.png"></div>
                 </div>
                 
                 <div class="section-right">
+
+                    <div class="virtualcards">
+
+                        <div class="card-container">
+                            <div class="card-container__header" style="background-image: url(pics/Paris.jpg); background-size: cover;"></div>
+                            <div class="card-container__content">
+                                <span class="title">VAIVING? What is it?</span>
+                                <span class="description">Flight + Hotel, Surprise Location, for yourself or to gift, in <span style="font-weight: bold;">3-simple clicks</span>.</span>
+                                <span class="button1">
+                                    <common-button>
+                                        <button mat-flat-button color="primary" class="common-button" type="button">
+                                            <span class="button-wrapper">
+                                                <div class="common-button__label">How does it work?</div>
+                                            </span>
+                                        </button>
+                                    </common-button>
+                                </span>
+                            </div>
+                        </div>
+                    
+                        <div class="card-container">
+                            <div class="card-container__header" style="background-image: url(pics/Rome.jpg);"></div>
+                            <div class="card-container__content">
+                                <span class="title">The ROADMAP</span>
+                                <span class="description">Next steps and how can you support. Growing from the MVP to Travel 2.0.</span>
+                                <span class="button1">
+                                    <common-button>
+                                        <button mat-flat-button color="primary" class="common-button" type="button">
+                                            <span class="button-wrapper">
+                                                <div class="common-button__label">Tell me more!</div>
+                                            </span>
+                                        </button>
+                                    </common-button>
+                                </span>
+                            </div>
+                        </div>
+                    
+                        <div class="card-container">
+                            <div class="card-container__header" style="background-image: url(pics/Barcelona.avif);"></div>
+                            <div class="card-container__content">
+                                <span class="title">From BCN w/ Love</span>
+                                <span class="description">Born in BCN, coded in LDN, based in IE. Hiring remote internationally. </span>
+                                <span class="button1">
+                                    <common-button>
+                                        <button mat-flat-button color="primary" class="common-button" type="button">
+                                            <span class="button-wrapper">
+                                                <div class="common-button__label">See open vacancies</div>
+                                            </span>
+                                        </button>
+                                    </common-button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="finder-box">
                         
-
-                        <!-- FROM (Search Box for City to Fetch Airports) -->
+                        <!-- FROM -->
                         <div class="custom-dropdown autocomplete-container">
-                            <span class="input-placeholder">From</span>
-                            <input type="text" id="city-input" class="autocomplete-input" placeholder="Where do you live?" oninput="fetchCityCoordinates(this.value)">
+                            <input type="text" id="city-input" class="autocomplete-input" placeholder="Where are you from? Find your Airport!">
                             <div id="suggestions" class="dropdown-options"></div> <!-- Suggestions will be inserted here -->
                         </div>
                   
@@ -48,7 +102,7 @@
                             <div class="dropdown">
                                 <button class="dropdown-button">
                                     <span class="dropdown-placeholder">Budget class</span>
-                                    <span class="selected-item">Which category?</span>
+                                    <span class="selected-item">How much do you want to spend?</span>
                                 </button>
                                 <div class="dropdown-options">
                                     <div class="dropdown-item" data-value="low">
@@ -69,7 +123,7 @@
                             <div class="dropdown">
                                 <button class="dropdown-button">
                                     <span class="dropdown-placeholder">Month</span>
-                                    <span class="selected-item">When?</span>
+                                    <span class="selected-item">When do you want to fly?</span>
                                 </button>
                                 <div class="dropdown-options">
                                     <div class="dropdown-item" data-value="bcn">

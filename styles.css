@@ -17,6 +17,8 @@ body {
 }
  
 /* TOP SECTION CSS TOP GAP KEKW */ /* TOP SECTION CSS TOP GAP KEKW */
+/* TOP SECTION CSS TOP GAP KEKW */ /* TOP SECTION CSS TOP GAP KEKW */
+/* TOP SECTION CSS TOP GAP KEKW */ /* TOP SECTION CSS TOP GAP KEKW */
 
 .top-section {
     background-color: #000000;   /* Background color */
@@ -31,7 +33,7 @@ body {
 
 .nav-links {
     display: flex;
-    gap: 35px;                   /* Space between links */
+    gap: 60px;                   /* Space between links */
     align-items: center;         /* Center vertically */
 }
 
@@ -49,9 +51,12 @@ body {
 }
 
 /* For the BANNER section */ /* so-called section-left */
+/* For the BANNER section */ /* so-called section-left */
+/* For the BANNER section */ /* so-called section-left */
+
 
 .section-left {
-    background-color: rgba(252, 250, 227, 0.4);  
+    background-color: rgba(252, 250, 227, 0.1);  
     color: rgb(0, 0, 0);       
     font-size: clamp(1rem, 1.5vw, 1.8rem); 
     display: flex;               /* Flexbox for centering content */
@@ -64,8 +69,8 @@ body {
     width: 100%;                
     z-index: 2;                 /* Ensure it's on top of section-right, which is section below D: */
     padding: 0.5rem 0;             /* Adjust padding to minimize space */
-    height: 12vh;                /* Banner height */
-    max-height: 12vh;
+    height: 8vh;                /* Banner height */
+    max-height: 8vh;
 }
 
 .section-left p {
@@ -73,16 +78,20 @@ body {
     display: inline-flex;
     align-items: center;
     text-align: center;
-    font-size: 1.2rem;
-    font-weight: bold;
+    font-size: 2.0rem;
+    font-family: "Just Another Hand", serif;
+    font-weight: 400;
+    margin-top: 10px;
 }
 
 .logo img {
-    margin-top: 1px;
-    height: 70px;
+    margin-top: -5px;
+    height: 60px;
 }
 
 
+/* For the MAIN section */ /* so-called section-right */
+/* For the MAIN section */ /* so-called section-right */
 /* For the MAIN section */ /* so-called section-right */
 
 .section-right {
@@ -101,229 +110,184 @@ body {
     flex-direction: column;
 }
 
-    /* SEARCHBOX CONTAINER */    /* SEARCHBOX CONTAINER */    /* SEARCHBOX CONTAINER */
-    /* SEARCHBOX CONTAINER */    /* SEARCHBOX CONTAINER */    /* SEARCHBOX CONTAINER */
-    /* SEARCHBOX CONTAINER */    /* SEARCHBOX CONTAINER */    /* SEARCHBOX CONTAINER */
-  
-    .finder-box {
-        display: flex;
-        flex-direction: column; /* Stack items vertically on smaller screens */
-        gap: 10px;
-        align-items: center;
-        justify-content: center;
-        padding: 15px;
-        background-color: rgba(255, 255, 255, 0); /* White background with opacity */
+/* SEARCHBOX CONTAINER */
+.finder-box {
+    display: flex;
+    flex-direction: column; /* Stack items vertically on smaller screens */
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0); /* White background with opacity */
+    margin: 0 auto; /* Center the box horizontally */
+    position: absolute;
+    top: 48%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%; /* Make it fit smaller screens */
+    max-width: 300px; /* Limit the width on larger screens */
+    z-index: 4;
+}
 
-        margin: 0 auto; /* Center the box horizontally */
-        position: absolute;
-        top: 18%;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 50%; /* Make it fit smaller screens */
-        max-width: 500px; /* Limit the width on larger screens */
-    }
-    
-    .finder-box select,
-    .finder-box input[type="number"],
-    .finder-box button {
-        padding: 10px;
-        font-size: 14px;
-        border-radius: 8px; /* Smaller rounded corners */
-        border: 1px solid #ddd;
-        background-color: rgba(255, 255, 255, 0.9); /* Subtle white for dropdowns */
-        width: 100%; /* Full width for better mobile layout */
-        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1); /* Lighter shadow */
-    }
-    
-    .finder-box select:focus,
-    .finder-box input[type="number"]:focus {
-        outline: none;
-        border-color: #000000; /* Green border on focus */
-    }
-    
-    .finder-box button {
-        color: rgb(0, 0, 0);
-        border: none;
-        cursor: pointer;
-        transition: background-color 0.3s ease, transform 0.2s ease;
-        width: 100%; /* Button takes full width */
-        background-color: rgba(255, 255, 255, 0.9);  
-    }
-    
-    .finder-box button:hover {
-        background-color: rgba(255, 247, 176, 0.9); 
-        transform: scale(1.02); /* Slight grow effect */
-    }
+.finder-box select,
+.finder-box button {
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 8px; /* Smaller rounded corners */
+    border: 1px solid #ddd;
+    background-color: rgba(255, 255, 255, 0.9); /* Subtle white for dropdowns */
+    width: 100%; /* Full width for better mobile layout */
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1); /* Lighter shadow */
+    z-index: 4;
+}
 
-        /* CUSTOM-DROPDOWN */ /* CUSTOM-DROPDOWN */ /* CUSTOM-DROPDOWN */
-        /* CUSTOM-DROPDOWN */ /* CUSTOM-DROPDOWN */ /* CUSTOM-DROPDOWN */
+.finder-box button {
+    color: rgb(0, 0, 0);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%; /* Button takes full width */
+    background-color: rgba(255, 255, 255, 0.9);  
+}
 
-        .custom-dropdown {
-            position: relative;
-            display: inline-block;
-            width: 100%;
-        }
-        
-        .autocomplete-input {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            background-color: rgba(255, 255, 255, 0.9);
-            cursor: pointer;
-            transition: background-color 0.3s;
-            position: relative;
-            font-family: Oswald, sans-serif;
-        }
-        
-        
-        .dropdown {
-            position: relative;
-            font-family: Oswald, sans-serif;
-        }
-        
-        .dropdown-button {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-            padding: 10px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            background-color: rgba(255, 255, 255, 0.9);
-            cursor: pointer;
-            transition: background-color 0.3s;
-            position: relative;
-            font-family: Oswald, sans-serif;
-        }
-        
-        .dropdown-button:hover {
-            background-color: rgba(240, 240, 240, 0.9);
-        }
-        
-        .dropdown-placeholder {
-            font-size: 14px;
-            color: #888; /* Lighter for placeholder */
-            position: absolute;
-            top: 5px;
-            left: 12px;
-            pointer-events: none;
-        }
+.finder-box button:hover {
+    background-color: rgba(255, 247, 176, 0.9); 
+    transform: scale(1.02); /* Slight grow effect */
+}
 
-        .input-placeholder {
-            font-size: 14px;
-            color: #888; /* Lighter for placeholder */
-            position: relative;
-            top: 5px;
-            left: 12px;
-            pointer-events: none;
-        }
-        
-        .selected-item {
-            margin-top: 15px;
-            margin-left: 1px;
-            font-size: 16px;
-            display: block; /* Always show the selected item */
-        }
-        
-        .dropdown-options {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 100%;
-            background-color: white;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            max-height: 200px;
-            overflow-y: auto;
-            z-index: 10;
-            display: none; /* Initially hidden */
-        }
-        
-        .dropdown-options .dropdown-item {
-            padding: 10px;
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-            transition: background-color 0.2s;
-        }
-        
-        .dropdown-options .dropdown-item:hover {
-            background-color: #f0f0f0;
-        }
-        
-        .dropdown-options .option-icon {
-            margin-right: 10px;
-            width: 20px;
-            height: 20px;
-        }
-        
-        .dropdown-options .dropdown-item.selected {
-            background-color: #e6f7ff; /* Highlight the selected item */
-        }
-        
-        .dropdown-button.open + .dropdown-options {
-            display: block; /* Show the dropdown options on click */
-        }    
+/* CUSTOM-DROPDOWNS */
+.custom-dropdown, 
+.autocomplete-container {
+    width: 100%;
+}
 
-        .dropdown-item {
-            display: flex;
-            align-items: center; /* Center align items vertically */
-            padding: 5px; /* Add some padding for better touch targets */
-        }
-        
-        .option-icon {
-            width: 20px; /* Set the width of the icon */
-            height: 20px; /* Set the height of the icon */
-            margin-right: 5px; /* Add space between icon and text */
-            margin-bottom: -3px;
-            position: inline-block;
-        }
+.autocomplete-input,     
+.dropdown-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 9px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.9);
+    cursor: pointer;
+    transition: background-color 0.3s;
+    position: relative;
+    font-family: Oswald, sans-serif;
+    color: black;
+    box-sizing: border-box; /* Ensures padding is included in width */
+}
 
-        .custom-dropdown {
-            position: relative;
-            display: inline-block;
-            width: 100%;
-        }
-        
-        .autocomplete-container {
-            position: relative;
-            width: 100%;
-        }
-        
-        .autocomplete-input {
-            width: 100%;
-            padding: 10px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            font-size: 16px;
-        }
-        
-        .dropdown-options {
-            position: absolute;
-            width: 100%;
-            border: 1px solid #ccc;
-            background-color: #fff;
-            max-height: 200px;
-            overflow-y: auto;
-            z-index: 9999;
-            display: none; /* Hidden initially */
-        }
-        
-        .dropdown-item {
-            padding: 10px;
-            cursor: pointer;
-        }
-        
-        .dropdown-item:hover {
-            background-color: #f1f1f1;
-        }
-    
+.autocomplete-input {
+    margin: 0; /* Reset any margins */
+}
+
+.dropdown-button:hover {
+    background-color: rgba(240, 240, 240, 0.9);
+}
+
+.dropdown-placeholder {
+    font-size: 14px;
+    color: #535353; /* Lighter for placeholder */
+    position: absolute;
+    top: 5.5px;
+    left: 11px;
+    pointer-events: none;
+    font-weight: bold;
+}
+
+.selected-item {
+    margin-top: 15px;
+    margin-left: 1px;
+    font-size: 16px;
+    display: block; /* Always show the selected item */
+}
+
+/* Suggestions Dropdown */
+.dropdown-options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 10;
+    display: none; /* Initially hidden */
+}
+
+.dropdown-options .dropdown-item {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.dropdown-options .dropdown-item:hover {
+    background-color: #f0f0f0; /* Hover effect */
+}
+
+.dropdown-options .option-icon {
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+}
+
+.dropdown-options .dropdown-item.selected {
+    background-color: #e6f7ff; /* Highlight the selected item */
+}
+
+.dropdown-button.open + .dropdown-options {
+    display: block; /* Show the dropdown options on click */
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center; /* Center align items vertically */
+    padding: 5px; /* Add some padding for better touch targets */
+}
+
+.option-icon {
+    width: 20px; /* Set the width of the icon */
+    height: 20px; /* Set the height of the icon */
+    margin-right: 5px; /* Add space between icon and text */
+    margin-bottom: -3px;
+    position: inline-block;
+}
+
+.custom-dropdown {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.autocomplete-container {
+    position: relative;
+    width: 100%;
+}
+
+.autocomplete-input {
+    display: flex; /* Ensure the input has a flex display */
+    align-items: center; /* Center align items vertically */
+    border-radius: 8px; /* Match border radius */
+    border: 3px solid #000000; /* Same border style */
+    font-size: 16px; /* Consistent font size */
+    background-color: rgba(253, 255, 137, 0.9); /* Match background color */
+    height: 35px; /* Set a specific height to match dropdown button */
+}
+
+/* Change placeholder text color and styling */
+.autocomplete-input::placeholder {
+    color: #000000; /* Placeholder text color */
+    font-size: 16px; /* Placeholder font size */
+    font-family: Oswald, sans-serif;
+}
 
     
     /* SEARCHBOX CONTAINER END */ /* SEARCHBOX CONTAINER END */ /* SEARCHBOX CONTAINER END */
@@ -337,9 +301,9 @@ body {
             display: inline-block;
             position: relative;
             z-index: 10;
-            scale: 1.2;
+            scale: 0.9;
             animation: flyAnimation 1.5s ease-in-out infinite alternate;
-            margin-top: 38rem;
+            margin-top: 40rem;
         }
 
         .button-container2 {
@@ -367,7 +331,7 @@ body {
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 5;
+            z-index: 1;
             pointer-events: none;
             overflow: hidden;
         }
