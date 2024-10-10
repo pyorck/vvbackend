@@ -3,68 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vaiving</title>
-    <link rel="stylesheet" href="cards.css">
-    <link rel="apple-touch-icon" sizes="180x180" href="pics/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="pics/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="pics/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <script src="https://unpkg.com/@barba/core"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <link rel="stylesheet" href="pop-ups.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
+    <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
+
+    <title>Dynamic Pop-up</title>
 </head>
+<body>
+    <!-- Button to trigger the pop-up -->
+    <span class="button1">
+        <common-button>
+            <button id="openPopup" mat-flat-button color="primary" class="common-button" type="button">
+                <span class="button-wrapper">
+                    <div class="common-button__label">How does it work?</div>
+                </span></button>
 
-<body> 
-    <div class="virtualcards">
-        <div class="card-container">
-            <div class="card-container__header" style="background-image: url(pics/VV-logo-web.png); background-size: 120px 120px; background-repeat: no-repeat; background-position: center;"></div>
-            <div class="card-container__content">
-                <span class="title">Vaiving, looks amazing. What is it?</span>
-                <span class="description">We offer full-package (flights and hotel) surprise trips throughout Europe in <span style="text-decoration: underline;">3-simple clicks</span>.</span>
-                <span class="button1">
-                    <common-button>
-                        <button mat-flat-button color="primary" class="common-button" type="button">
-                            <span class="button-wrapper">
-                                <div class="common-button__label">Learn More</div>
-                            </span>
-                        </button>
-                    </common-button>
-                </span>
-            </div>
-        </div>
-    
-        <div class="card-container">
-            <div class="card-container__header" style="background-image: url(pics/Paris.jpg);"></div>
-            <div class="card-container__content">
-                <span class="title">Take the wheel and explore</span>
-                <span class="description">Find the car you want at the price you like.</span>
-                <span class="button1">
-                    <common-button>
-                        <button mat-flat-button color="primary" class="common-button" type="button">
-                            <span class="button-wrapper">
-                                <div class="common-button__label">Choose your car</div>
-                            </span>
-                        </button>
-                    </common-button>
-                </span>
-            </div>
-        </div>
-    
-        <div class="card-container">
-            <div class="card-container__header" style="background-image: url(pics/Barcelona.avif);"></div>
-            <div class="card-container__content">
-                <span class="title">Park at the airport</span>
-                <span class="description">Travel with more peace of mind and save time and money.</span>
-                <span class="button1">
-                    <common-button>
-                        <button mat-flat-button color="primary" class="common-button" type="button">
-                            <span class="button-wrapper">
-                                <div class="common-button__label">Book your parking space</div>
-                            </span>
-                        </button>
-                    </common-button>
-                </span>
-            </div>
-        </div>
-    </div>    
+    <!-- Pop-up HTML -->
+    <div class="overlay" id="popupOverlay"></div>
+    <div class="popup" id="popupContainer">
+        <h2>How does the platform work?</h2>
+        <img src="pics/space.png" width="300px" height="600px">
+        <button class="close-btn" id="closePopup">Close</button>
+    </div>
 
+    <div>
+        <label for="departure">Departure Date:</label>
+        <input type="text" id="departure" placeholder="Select Departure Date">
+    </div>
+    <div>
+        <label for="return">Return Date:</label>
+        <input type="text" id="return" placeholder="Select Return Date">
+    </div>
+
+     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+    <script>
+        // Get elements by their IDs
+        const openPopup = document.getElementById('openPopup');
+        const closePopup = document.getElementById('closePopup');
+        const popupContainer = document.getElementById('popupContainer');
+        const popupOverlay = document.getElementById('popupOverlay');
+
+        // Function to show the pop-up
+        openPopup.onclick = function() {
+            popupContainer.style.display = 'block';
+            popupOverlay.style.display = 'block';
+        }
+
+        // Function to hide the pop-up
+        closePopup.onclick = function() {
+            popupContainer.style.display = 'none';
+            popupOverlay.style.display = 'none';
+        }
+
+        // Hide the pop-up if the overlay is clicked
+        popupOverlay.onclick = function() {
+            popupContainer.style.display = 'none';
+            popupOverlay.style.display = 'none';
+        }
+
+// Function to get tomorrow's date
+function getTomorrow() {
+    let today = new Date();
+    let tomorrow = new Date();
+    tomorrow.setDate(today.getDate() + 1); // Set tomorrow by adding 1 day
+    return tomorrow;
+}
+
+// Initialize Departure Date Picker
+var departurePicker = new Pikaday({
+    field: document.getElementById('departure'),
+    format: 'DD/MM/YYYY',        // Format for day/month/year
+    firstDay: 1,                 // Monday as the first day of the week
+    minDate: getTomorrow(),      // Minimum date is tomorrow
+    onSelect: function() {
+        var departureDate = departurePicker.getDate();
+        returnPicker.setMinDate(new Date(departureDate.getTime() + (24 * 60 * 60 * 1000)));  // Minimum return date is the day after the departure date
+    }
+});
+
+// Initialize Return Date Picker
+var returnPicker = new Pikaday({
+    field: document.getElementById('return'),
+    format: 'DD/MM/YYYY',        // Format for day/month/year
+    firstDay: 1,                 // Monday as the first day of the week
+    minDate: getTomorrow()       // Default minimum date is tomorrow
+});
+
+
+    </script>
 </body>
+</html>

@@ -6,6 +6,7 @@
     <title>Vaiving</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="cards.css">
+    <link rel="stylesheet" href="pop-ups.css">
     <link rel="apple-touch-icon" sizes="180x180" href="pics/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="pics/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="pics/favicon-16x16.png">
@@ -13,11 +14,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Just+Another+Hand&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@barba/core"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/airbnb.css">
 </head>
 <body>
     <div class="site-wrapper">
     <div data-barba="wrapper">
         <div data-barba="container">
+            <div class="overlay"></div>
             <div class="top-section">
                 <nav class="nav-links">
                     <a href="index.html">HOME</a>
@@ -55,10 +59,10 @@
                         </div>
                     
                         <div class="card-container">
-                            <div class="card-container__header" style="background-image: url(pics/Rome.jpg);"></div>
+                            <div class="card-container__header" style="background-image: url(pics/space.png);"></div>
                             <div class="card-container__content">
-                                <span class="title">The ROADMAP</span>
-                                <span class="description">Next steps and how can you support. Growing from the MVP to Travel 2.0.</span>
+                                <span class="title">Our MISSION</span>
+                                <span class="description">Next steps and how can you support. Growing from the 0 to Travel 2.0.</span>
                                 <span class="button1">
                                     <common-button>
                                         <button mat-flat-button color="primary" class="common-button" type="button">
@@ -118,54 +122,13 @@
                             </div>
                         </div>
 
-                         <!-- PREF -->
-                         <div class="custom-dropdown">
-                            <div class="dropdown">
-                                <button class="dropdown-button">
-                                    <span class="dropdown-placeholder">Month</span>
-                                    <span class="selected-item">When do you want to fly?</span>
-                                </button>
-                                <div class="dropdown-options">
-                                    <div class="dropdown-item" data-value="bcn">
-                                        <strong>This month</strong>&nbsp;Let's go now!
-                                    </div>
-                                    <div class="dropdown-item" data-value="bcn">
-                                        <strong>Next month</strong>&nbsp;Need some time
-                                    </div>
-                                    <div class="dropdown-item" data-value="bcn">
-                                        <strong>Next two months</strong>&nbsp;Hold your horses!
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                         <!-- CAL -->
+                         
+                         <div class="date-picker-container">
+                            <input type="text" id="departure" placeholder="Departure Date" />
+                            <input type="text" id="return" placeholder="Return Date" />
+                          </div>
 
-                         <!-- PREF -->
-                        <div class="custom-dropdown">
-                            <div class="dropdown">
-                                <button class="dropdown-button">
-                                    <span class="dropdown-placeholder">Preference</span>
-                                    <span class="selected-item">Any day or weekends only?</span>
-                                </button>
-                                <div class="dropdown-options">
-                                    <div class="dropdown-item" data-value="bcn">
-                                        <strong>All week</strong>&nbsp;Mon-Sun
-                                    </div>
-                                    <div class="dropdown-item" data-value="bcn">
-                                        <strong>Weekends only</strong>&nbsp;Fri-Sun
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-
-                    <div class="button-container2" style="display: none;">
-                        <a href="index.html" data-barba="link" class="button-link3">
-                            <img src="pics/plane.png" alt="Icon" style="position: relative; width: 100px; height: 100px; vertical-align: middle" class="plane-img">
-                        </a>
-                    </div>                    
-                  </div>
-                            </div>
                         </form>
                     </div>
                 </div>

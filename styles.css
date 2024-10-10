@@ -3,7 +3,12 @@ body {
     margin: 0;
     padding: 0;
     background-color: #000000;
+    transition: opacity 0.3s ease;
 }
+
+body.dimmed {
+    opacity: 0.5;  /* Dim the background */
+  }
 
 .container {
     display: flex;             
@@ -314,15 +319,16 @@ body {
 
         @keyframes flyAnimation {
             0% {
-                transform: translateY(5px) rotate(15deg); /* Starting position */
+                transform: translateY(4px) rotate(15deg); /* Starting position */
             }
             50% {
-                transform: translateY(-15px) rotate(15deg); /* Slightly upwards */
+                transform: translateY(-13px) rotate(15deg); /* Slightly upwards */
             }
             100% {
-                transform: translateY(5px) rotate(15deg); /* Back to starting position */
+                transform: translateY(4px) rotate(15deg); /* Back to starting position */
             }
         }
+
 
         /* Clouds effect */ /* Clouds effect */ /* Clouds effect */
 

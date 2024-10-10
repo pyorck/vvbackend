@@ -124,7 +124,7 @@ function loadIataCodes() {
 
 // Fetch nearby airports with Geonames API
 function fetchNearbyAirports(lat, lon) {
-    const nearbyAirportsUrl = `https://secure.geonames.org/findNearbyJSON?lat=${lat}&lng=${lon}&radius=100&username=${geonamesUsername}&featureCode=AIRP&style=FULL&maxRows=100`;
+    const nearbyAirportsUrl = `https://secure.geonames.org/findNearbyJSON?lat=${lat}&lng=${lon}&radius=200&username=${geonamesUsername}&featureCode=AIRP&style=FULL&maxRows=100`;
 
     fetch(nearbyAirportsUrl)
         .then(response => {
@@ -202,4 +202,57 @@ document.addEventListener("DOMContentLoaded", function() {
         const planeImage = buttonContainer.querySelector('.plane-img');
         planeImage.style.display = 'inline-block';
     });
+});
+
+// Initialize Departure Date Picker
+flatpickr("#departure", {
+    disableMobile: true,  // Disable mobile-friendly version of flatpickr
+    touch: true,          // Enable touch for mobile (though we are disabling the mobile version)
+    dateFormat: "d/m/Y",  // Use dd/mm/yyyy format
+    minDate: new Date().fp_incr(1),  // Minimum date is tomorrow, disallow today
+    maxDate: new Date().fp_incr(8 * 30),  // Limit to 6 months from today (approx. 180 days)
+    locale: {
+        firstDayOfWeek: 1,  // Set Monday as the first day of the week
+    },
+    onOpen: function() {
+        // Show the overlay when the calendar is opened
+        document.querySelector('.overlay').style.display = 'block';
+    },
+    onClose: function() {
+        // Hide the overlay when the calendar is closed
+        document.querySelector('.overlay').style.display = 'none';
+    },
+    onChange: function(selectedDates, dateStr) {
+
+        // Set the minimum date of the return picker to be the day after the departure date
+        returnPicker.set('minDate', dateStr);
+
+        // Automatically open the return picker when departure date is selected
+        returnPicker.open();
+
+    }
+});
+
+// Initialize Return Date Picker
+var returnPicker = flatpickr("#return", {
+    disableMobile: true,  // Disable mobile-friendly version of flatpickr
+    touch: true,          // Enable touch for mobile (though we are disabling the mobile version)
+    dateFormat: "d/m/Y",  // Use dd/mm/yyyy format
+    minDate: new Date().fp_incr(1),  // Minimum date is tomorrow
+    maxDate: new Date().fp_incr(8 * 30),  // Limit to 6 months from today (approx. 180 days)
+    locale: {
+        firstDayOfWeek: 1,  // Set Monday as the first day of the week
+    },
+    onOpen: function() {
+        // Show the overlay when the return calendar is opened
+        document.querySelector('.overlay').style.display = 'block';
+    },
+    onClose: function() {
+        // Hide the overlay when the return calendar is closed
+        document.querySelector('.overlay').style.display = 'none';
+    },
+    onChange: function(selectedDates, dateStr) {
+        // Optionally handle any behavior when the return date is chosen
+        // (e.g., show selected dates on the page or trigger another action)
+    }
 });
