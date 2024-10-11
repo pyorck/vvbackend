@@ -313,8 +313,9 @@ body.dimmed {
         }
 
         .button-container2 {
-            position: relative;
+            position: fixed;
             z-index: 10;
+            bottom: -18vh;
         }
 
         @keyframes flyAnimation {
@@ -326,6 +327,12 @@ body.dimmed {
             }
             100% {
                 transform: translateY(4px) rotate(15deg); /* Back to starting position */
+            }
+        }
+
+        @media (max-width: 667px) {
+            .button-container2 {
+                bottom: -13vh;
             }
         }
 
@@ -352,12 +359,12 @@ body.dimmed {
         }
         
         .cloud {
-            position: absolute;
-            bottom: 13vh;
+            position: fixed;
+            bottom: 15vh;
             z-index: 0;
             animation: moveCloud 5s linear infinite; /* Apply both movement and fade-out */
             opacity: 1;
-            scale: 0.3;
+            scale: 0.4;
         }
         
         /* Cloud sizes */

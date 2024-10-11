@@ -35,6 +35,8 @@
     flex-direction: column;
 }
 
+
+
 .card-container__header {
     height: 50vw;
     background-size: cover;
@@ -82,4 +84,23 @@
     cursor: pointer;
     font-family: Oswald, sans-serif;
     margin: 0; /* Remove auto margins to allow proper centering */
+}
+
+@media (max-height: 667px) {
+    .virtualcards {
+        scale: 0.9;
+        top: 80px;
+
+    }
+
+    .card-container {
+        height: 180px;
+    }
+
+    .title {
+        font-size: 1.3rem; /* Adjusted font size */
+        font-family: "Just Another Hand", cursive;
+        margin-left: 2px;
+    }
+
 }
