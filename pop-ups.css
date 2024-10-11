@@ -71,9 +71,10 @@
 
   .flatpickr-calendar {
     border-radius: 15px !important;
-    position: absolute !important;       /* Use absolute positioning for better control */
+    position: fixed !important;       /* Use absolute positioning for better control */
     left: 0 !important;                  /* Align with the left of the container */
     right: 0 !important;                 /* Stretch to the right of the container */
+    top: 35vh !important;
     margin: 0 auto !important;           /* Center it horizontally */
     z-index: 9999 !important;            /* Ensure it's on top of other elements */
     justify-content: center !important;  /* Horizontally center the content */
@@ -103,4 +104,30 @@
     color: #000000 !important; /* Text color */
     font-weight: bold;
     font-size: 1rem;
+  }
+
+  flatpickr-calendar animate arrowTop arrowLeft open {
+    border-radius: 15px !important;
+    position: fixed !important;       /* Use absolute positioning for better control */
+    left: 0 !important;                  /* Align with the left of the container */
+    right: 0 !important;                 /* Stretch to the right of the container */
+    top: 35vh !important;
+    margin: 0 auto !important;           /* Center it horizontally */
+    z-index: 9999 !important;            /* Ensure it's on top of other elements */
+    justify-content: center !important;  /* Horizontally center the content */
+    align-items: center !important;      /* Vertically center the content */
+    padding: 10px;                       /* Add some padding */
+  }
+
+  flatpickr-calendar animate arrowTop arrowLeft rightMost open {
+    border-radius: 15px !important;
+    position: fixed !important;       /* Use absolute positioning for better control */
+    left: 0 !important;                  /* Align with the left of the container */
+    right: 0 !important;                 /* Stretch to the right of the container */
+    top: 35vh !important;
+    margin: 0 auto !important;           /* Center it horizontally */
+    z-index: 9999 !important;            /* Ensure it's on top of other elements */
+    justify-content: center !important;  /* Horizontally center the content */
+    align-items: center !important;      /* Vertically center the content */
+    padding: 10px;                       /* Add some padding */
   }

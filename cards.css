@@ -104,3 +104,22 @@
     }
 
 }
+
+@media (max-height: 740px) {
+    .virtualcards {
+        scale: 0.9;
+        top: 80px;
+
+    }
+
+    .card-container {
+        height: 180px;
+    }
+
+    .title {
+        font-size: 1.3rem; /* Adjusted font size */
+        font-family: "Just Another Hand", cursive;
+        margin-left: 2px;
+    }
+
+}

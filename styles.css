@@ -46,14 +46,14 @@ body.dimmed {
     text-decoration: none;
     font-family: Oswald, sans-serif;
     color: #ffffff;
-    font-size: clamp(0.9rem, 1vw, 1.2rem); /* Avoid too small/large sizes */
+    font-size: 3.5vw;
     font-weight: bold;
     transition: color 0.1s ease, scale 0.5s ease;
 }
 
 .nav-links a:hover {
     color: #fff800;              /* Hover color */
-    scale: 1.2;
+    scale: 1.1;
 }
 
 /* For the BANNER section */ /* so-called section-left */
@@ -114,6 +114,8 @@ body.dimmed {
     flex-grow: 1;
     position: relative;
     flex-direction: column;
+    min-height: 80vh;
+    max-height: 80vh;
 }
 
 /* SEARCHBOX CONTAINER */
@@ -330,7 +332,13 @@ body.dimmed {
             }
         }
 
-        @media (max-width: 667px) {
+        @media (max-height: 667px) {
+            .button-container2 {
+                bottom: -13vh;
+            }
+        }
+
+        @media (max-height: 740px) {
             .button-container2 {
                 bottom: -13vh;
             }
@@ -348,6 +356,7 @@ body.dimmed {
             z-index: 1;
             pointer-events: none;
             overflow: hidden;
+            background-attachment: fixed;
         }
         
         .clouds {
@@ -364,7 +373,7 @@ body.dimmed {
             z-index: 0;
             animation: moveCloud 5s linear infinite; /* Apply both movement and fade-out */
             opacity: 1;
-            scale: 0.4;
+            scale: 0.5;
         }
         
         /* Cloud sizes */
