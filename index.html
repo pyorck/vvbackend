@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="cards.css">
     <link rel="stylesheet" href="pop-ups.css">
+    <link rel="stylesheet" href="calendar.css">
     <link rel="apple-touch-icon" sizes="180x180" href="pics/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="pics/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="pics/favicon-16x16.png">
@@ -14,8 +15,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Just+Another+Hand&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@barba/core"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/airbnb.css">
+    <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/litepicker/dist/css/litepicker.css"/>
 </head>
 <body>
     <div class="site-wrapper">
@@ -123,11 +124,9 @@
                         </div>
 
                          <!-- CAL -->
-                         
-                         <div class="date-picker-container">
-                            <input type="text" id="departure" placeholder="Departure Date" />
-                            <input type="text" id="return" placeholder="Return Date" />
-                          </div>
+                         <span class="dropdown-placeholder2">Departure - Return</span>
+                         <input type="text" id="litepicker" placeholder="Choose your dates" readonly/>
+
                           <div class="button-container2" style="display: none;">
                             <a href="index.html" data-barba="link" class="button-link3">
                                 <img src="pics/plane.png" alt="Icon" style="position: relative; width: 100px; height: 100px; vertical-align: middle" class="plane-img">
@@ -258,12 +257,6 @@
                 gsap.to(plane, { scale: 1 }); // Full size for larger screens
             }
         }
-        
-        // Call the function when the button is clicked
-        document.querySelector('.button-link3').addEventListener('click', function(event) {
-            event.preventDefault(); // Prevent default link behavior
-            updateContent(); // Call the content update function
-        });
         </script>        
 
 </body>

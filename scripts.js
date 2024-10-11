@@ -186,125 +186,106 @@ document.getElementById('suggestions').addEventListener('click', function (event
     }
 });
 
+// API TO GET AIRPORT INPUT BOX // // API TO GET AIRPORT INPUT BOX //
+// API TO GET AIRPORT INPUT BOX // // API TO GET AIRPORT INPUT BOX //
+// API TO GET AIRPORT INPUT BOX // // API TO GET AIRPORT INPUT BOX //
+
 document.addEventListener("DOMContentLoaded", function() {
-    const departureInput = document.querySelector('#departure'); // Departure date input
-    const returnInput = document.querySelector('#return'); // Return date input
     const cityInput = document.querySelector('#city-input'); // City input
-    const dropdownButton = document.querySelector('.dropdown-button'); // Budget dropdown button
-    const dropdownItems = document.querySelectorAll('.dropdown-item'); // Budget dropdown items
-    const buttonContainer = document.querySelector('.button-container2'); // The button container with the plane
+    const budgetButton = document.querySelector('.dropdown-button'); // Budget dropdown button
+    const budgetItems = document.querySelectorAll('.dropdown-item'); // Budget items
+    const dateInput = document.querySelector('#litepicker'); // Date input
+    const buttonContainer = document.querySelector('.button-container2'); // Button container with the plane
 
     let citySelected = false;
     let budgetSelected = false;
-    let departureSelected = false;
-    let returnSelected = false;
+    let dateSelected = false;
 
     // Initially hide the button container
     buttonContainer.style.display = 'none';
 
-    // Function to check if all required fields are selected
+    // Function to check if all selections are made
     const checkSelections = function() {
-        if (departureSelected && returnSelected && citySelected && budgetSelected) {
-            buttonContainer.style.display = 'block'; // Show the button container
-            const planeImage = buttonContainer.querySelector('.plane-img');
-            if (planeImage) {
-                planeImage.style.display = 'inline-block'; // Make the image visible
-            } else {
-                console.error("Dev: Plane image element not found.");
-            }
-        } else {
-            buttonContainer.style.display = 'none'; // Hide the button container if any field is missing
-        }
+        console.log(`City Selected: ${citySelected}, Budget Selected: ${budgetSelected}, Date Selected: ${dateSelected}`);
+        buttonContainer.style.display = (citySelected && budgetSelected && dateSelected) ? 'block' : 'none'; // Show or hide plane image
     };
 
-    // Handle departure date selection
-    departureInput.addEventListener('change', function() {
-        departureSelected = departureInput.value !== ""; // Check if departure date is selected
-        checkSelections();
-    });
-
-    // Handle return date selection
-    returnInput.addEventListener('change', function() {
-        returnSelected = returnInput.value !== ""; // Check if return date is selected
-        checkSelections();
-    });
-
-    // Handle city input (autocomplete) selection
-    cityInput.addEventListener("input", function () {
+    // City input handling
+    cityInput.addEventListener('input', function() {
         citySelected = cityInput.value.trim() !== ""; // Check if city input is not empty
         checkSelections();
     });
 
-    // Handle budget dropdown selection
-    dropdownItems.forEach(item => {
-        item.addEventListener("click", function () {
+    // Budget selection handling
+    budgetItems.forEach(item => {
+        item.addEventListener('click', function() {
             const selectedValue = this.textContent.trim();
-            dropdownButton.querySelector(".selected-item").textContent = selectedValue;
+            budgetButton.querySelector(".selected-item").textContent = selectedValue;
             budgetSelected = true; // Mark budget as selected
             checkSelections();
         });
     });
+
+    // Merged Litepicker initialization
+    const picker = new Litepicker({
+        element: dateInput,
+        singleMode: false,
+        numberOfMonths: 1,
+        minDate: new Date(),
+        format: 'DD/MM/YYYY',
+        autoApply: false,
+        buttonText: {
+            apply: 'Go',
+            cancel: 'Cancel'
+        },
+        setup: (picker) => {
+            picker.on('selected', (date1, date2) => {
+                dateSelected = true; // Set dateSelected to true when dates are picked
+                checkSelections(); // Check if all selections are made
+            });
+        }
+    });
+
+    // Overlay management and other functionalities remain the same
+
+let isCalendarOpened = false; 
+
+document.getElementById('litepicker').addEventListener('click', () => {
+    picker.show();
+    isCalendarOpened = true; 
+    showOverlay();  // Show overlay when calendar is opened
 });
 
-
-// API TO GET AIRPORT INPUT BOX // // API TO GET AIRPORT INPUT BOX //
-// API TO GET AIRPORT INPUT BOX // // API TO GET AIRPORT INPUT BOX //
-// API TO GET AIRPORT INPUT BOX // // API TO GET AIRPORT INPUT BOX //
-
-
-// Initialize Departure Date Picker
-flatpickr("#departure", {
-    disableMobile: true,  // Disable mobile-friendly version of flatpickr
-    touch: true,          // Enable touch for mobile (though we are disabling the mobile version)
-    dateFormat: "d/m/Y",  // Use dd/mm/yyyy format
-    minDate: new Date().fp_incr(1),  // Minimum date is tomorrow, disallow today
-    maxDate: new Date().fp_incr(12 * 30),  // Limit to 8 months from today (approx. 240 days)
-    locale: {
-        firstDayOfWeek: 1,  // Set Monday as the first day of the week
-    },
-    onOpen: function() {
-        // Show the overlay when the calendar is opened
-        document.querySelector('.overlay').style.display = 'block';
-    },
-    onClose: function() {
-        // Hide the overlay when the calendar is closed
-        document.querySelector('.overlay').style.display = 'none';
-    },
-    onChange: function(selectedDates, dateStr) {
-        // Set the minimum date of the return picker to be the day after the departure date
-        returnPicker.set('minDate', new Date(selectedDates[0]).fp_incr(1));
-
-        // Disable the departure date in the return picker
-        returnPicker.set('disable', [
-            function(date) {
-                return dateStr === flatpickr.formatDate(date, "d/m/Y");  // Disable the departure date
-            }
-        ]);
-
-        // Automatically open the return picker when departure date is selected
-        returnPicker.open();
+document.addEventListener('click', function(event) {
+    const pickerElement = document.querySelector('.litepicker');
+    if (isCalendarOpened && pickerElement && !pickerElement.contains(event.target)) {
+        picker.show();
     }
 });
 
-// Initialize Return Date Picker
-var returnPicker = flatpickr("#return", {
-    disableMobile: true,  // Disable mobile-friendly version of flatpickr
-    touch: true,          // Enable touch for mobile (though we are disabling the mobile version)
-    dateFormat: "d/m/Y",  // Use dd/mm/yyyy format
-    minDate: new Date().fp_incr(1),  // Minimum date is tomorrow
-    maxDate: new Date().fp_incr(8 * 30),  // Limit to 8 months from today (approx. 240 days)
-    locale: {
-        firstDayOfWeek: 1,  // Set Monday as the first day of the week
-    },
-    onOpen: function() {
-        // Show the overlay when the return calendar is opened
-        document.querySelector('.overlay').style.display = 'block';
-    },
-    onClose: function() {
-        // Hide the overlay when the return calendar is closed
-        document.querySelector('.overlay').style.display = 'none';
-    },
-    onChange: function(selectedDates, dateStr) {
-        // Optionally handle any behavior when the return date is chosen
-    }
+// Function to show overlay
+function showOverlay() {
+    document.querySelector('.overlay').style.display = 'block';
+}
+
+// Function to hide overlay
+function hideOverlay() {
+    document.querySelector('.overlay').style.display = 'none';
+}
+
+// Close when Go or Cancel buttons are clicked inside the picker
+picker.on('button:apply', () => {
+    picker.hide();
+    hideOverlay();  // Hide overlay when calendar closes
+    isCalendarOpened = false; 
 });
+picker.on('button:cancel', () => {
+    picker.hide();
+    hideOverlay();  // Hide overlay when calendar closes
+    isCalendarOpened = false; 
+});
+
+});
+
+
+

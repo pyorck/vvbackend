@@ -4,8 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="pop-ups.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
-    <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/daterangepicker/3.0.5/daterangepicker.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/daterangepicker/3.0.5/daterangepicker.min.js"></script>
+
+<style>
+
+/* Style for the daterangepicker (Calendar) */
+        /* Full-screen styling */
+        .daterangepicker {
+            width: 100vw;
+            height: 100vh;
+            z-index: 9999;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+
+        /* Styling the input fields */
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            margin: 20px auto;
+            display: block;
+        }
+
+</style>
 
     <title>Dynamic Pop-up</title>
 </head>
@@ -26,16 +53,9 @@
         <button class="close-btn" id="closePopup">Close</button>
     </div>
 
-    <div>
-        <label for="departure">Departure Date:</label>
-        <input type="text" id="departure" placeholder="Select Departure Date">
-    </div>
-    <div>
-        <label for="return">Return Date:</label>
-        <input type="text" id="return" placeholder="Select Return Date">
-    </div>
-
-     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <!-- Date Range Picker Inputs -->
+    <input type="text" id="departure" placeholder="Departure Date">
+    <input type="text" id="return" placeholder="Return Date">
 
     <script>
         // Get elements by their IDs
@@ -62,33 +82,38 @@
             popupOverlay.style.display = 'none';
         }
 
-// Function to get tomorrow's date
-function getTomorrow() {
-    let today = new Date();
-    let tomorrow = new Date();
-    tomorrow.setDate(today.getDate() + 1); // Set tomorrow by adding 1 day
-    return tomorrow;
-}
 
-// Initialize Departure Date Picker
-var departurePicker = new Pikaday({
-    field: document.getElementById('departure'),
-    format: 'DD/MM/YYYY',        // Format for day/month/year
-    firstDay: 1,                 // Monday as the first day of the week
-    minDate: getTomorrow(),      // Minimum date is tomorrow
-    onSelect: function() {
-        var departureDate = departurePicker.getDate();
-        returnPicker.setMinDate(new Date(departureDate.getTime() + (24 * 60 * 60 * 1000)));  // Minimum return date is the day after the departure date
-    }
-});
+        $(function() {
+            // Initialize the date range picker on departure input
+            $('#departure').daterangepicker({
+                opens: 'center',
+                minDate: moment(), // Set the minimum date to today
+                autoApply: true,
+                locale: {
+                    format: 'MM/DD/YYYY'
+                }
+            }, function(start, end, label) {
+                console.log("Departure date selected: " + start.format('MM/DD/YYYY'));
+            });
 
-// Initialize Return Date Picker
-var returnPicker = new Pikaday({
-    field: document.getElementById('return'),
-    format: 'DD/MM/YYYY',        // Format for day/month/year
-    firstDay: 1,                 // Monday as the first day of the week
-    minDate: getTomorrow()       // Default minimum date is tomorrow
-});
+            // Initialize the date range picker on return input
+            $('#return').daterangepicker({
+                opens: 'center',
+                minDate: moment(), // Set the minimum date to today
+                autoApply: true,
+                locale: {
+                    format: 'MM/DD/YYYY'
+                }
+            }, function(start, end, label) {
+                console.log("Return date selected: " + start.format('MM/DD/YYYY'));
+            });
+
+            // Ensure return date cannot be selected before departure date
+            $('#departure').on('apply.daterangepicker', function(ev, picker) {
+                $('#return').data('daterangepicker').setStartDate(picker.endDate);
+                $('#return').data('daterangepicker').setMinDate(picker.endDate);
+            });
+        });
 
 
     </script>

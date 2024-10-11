@@ -4,11 +4,13 @@ body {
     padding: 0;
     background-color: #000000;
     transition: opacity 0.3s ease;
+    z-index: 9999;
 }
 
 body.dimmed {
-    opacity: 0.5;  /* Dim the background */
-  }
+    opacity: 0.5; /* Dim all elements except the calendar */
+    z-index: 9999;
+}
 
 .container {
     display: flex;             
@@ -46,7 +48,7 @@ body.dimmed {
     text-decoration: none;
     font-family: Oswald, sans-serif;
     color: #ffffff;
-    font-size: 3.5vw;
+    font-size: clamp(0.9rem, 0.9vw, 1.0rem); /* Avoid too small/large sizes */
     font-weight: bold;
     transition: color 0.1s ease, scale 0.5s ease;
 }
@@ -181,7 +183,6 @@ body.dimmed {
     border-radius: 8px;
     background-color: rgba(255, 255, 255, 0.9);
     cursor: pointer;
-    transition: background-color 0.3s;
     position: relative;
     font-family: Oswald, sans-serif;
     color: black;
@@ -192,23 +193,19 @@ body.dimmed {
     margin: 0; /* Reset any margins */
 }
 
-.dropdown-button:hover {
-    background-color: rgba(255, 255, 255, 0.9);
-}
-
 .dropdown-placeholder {
     font-size: 14px;
     color: #535353; /* Lighter for placeholder */
     position: absolute;
     top: 5.5px;
-    left: 11px;
+    left: 12.5px;
     pointer-events: none;
     font-weight: bold;
 }
 
 .selected-item {
-    margin-top: 15px;
-    margin-left: 1px;
+    margin-top: 20px;
+    margin-left: 2px;
     font-size: 16px;
     display: block; /* Always show the selected item */
 }
