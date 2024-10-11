@@ -71,13 +71,14 @@
 
   .flatpickr-calendar {
     border-radius: 15px !important;
-    position: fixed !important;          /* Fix the calendar to a specific position on the screen */
-    left: 50% !important;                /* Center horizontally */
-    top: 50% !important;                 /* Center vertically */
-    transform: translate(-50%, -50%) !important; /* Adjust the exact position to fully center */
-    z-index: 9999 !important;            /* Ensure the calendar is on top of other elements */
-    justify-content: center !important;  /* Horizontally center */
-    align-items: center !important;      /* Vertically center */
+    position: absolute !important;       /* Use absolute positioning for better control */
+    left: 0 !important;                  /* Align with the left of the container */
+    right: 0 !important;                 /* Stretch to the right of the container */
+    margin: 0 auto !important;           /* Center it horizontally */
+    z-index: 9999 !important;            /* Ensure it's on top of other elements */
+    justify-content: center !important;  /* Horizontally center the content */
+    align-items: center !important;      /* Vertically center the content */
+    padding: 10px;                       /* Add some padding */
 }
 
 .flatpickr-calendar:before,
@@ -100,4 +101,6 @@
     background-color: #ffe800 !important; /* Color for the background */
     border: 2px solid #000000 !important; /* Border color */
     color: #000000 !important; /* Text color */
+    font-weight: bold;
+    font-size: 1rem;
   }

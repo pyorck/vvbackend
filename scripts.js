@@ -187,22 +187,72 @@ document.getElementById('suggestions').addEventListener('click', function (event
 });
 
 document.addEventListener("DOMContentLoaded", function() {
-    const prefDropdown = document.querySelector('.custom-dropdown:last-of-type .dropdown'); // The last dropdown (Preference)
+    const departureInput = document.querySelector('#departure'); // Departure date input
+    const returnInput = document.querySelector('#return'); // Return date input
+    const cityInput = document.querySelector('#city-input'); // City input
+    const dropdownButton = document.querySelector('.dropdown-button'); // Budget dropdown button
+    const dropdownItems = document.querySelectorAll('.dropdown-item'); // Budget dropdown items
     const buttonContainer = document.querySelector('.button-container2'); // The button container with the plane
+
+    let citySelected = false;
+    let budgetSelected = false;
+    let departureSelected = false;
+    let returnSelected = false;
 
     // Initially hide the button container
     buttonContainer.style.display = 'none';
 
-    // Function to handle dropdown change and show the button container
-    prefDropdown.addEventListener('click', function() {
-        // When an option is selected, make the button container visible
-        buttonContainer.style.display = 'block';
+    // Function to check if all required fields are selected
+    const checkSelections = function() {
+        if (departureSelected && returnSelected && citySelected && budgetSelected) {
+            buttonContainer.style.display = 'block'; // Show the button container
+            const planeImage = buttonContainer.querySelector('.plane-img');
+            if (planeImage) {
+                planeImage.style.display = 'inline-block'; // Make the image visible
+            } else {
+                console.error("Dev: Plane image element not found.");
+            }
+        } else {
+            buttonContainer.style.display = 'none'; // Hide the button container if any field is missing
+        }
+    };
 
-        // Optionally, show the plane animation/image (if needed)
-        const planeImage = buttonContainer.querySelector('.plane-img');
-        planeImage.style.display = 'inline-block';
+    // Handle departure date selection
+    departureInput.addEventListener('change', function() {
+        departureSelected = departureInput.value !== ""; // Check if departure date is selected
+        checkSelections();
+    });
+
+    // Handle return date selection
+    returnInput.addEventListener('change', function() {
+        returnSelected = returnInput.value !== ""; // Check if return date is selected
+        checkSelections();
+    });
+
+    // Handle city input (autocomplete) selection
+    cityInput.addEventListener("input", function () {
+        citySelected = cityInput.value.trim() !== ""; // Check if city input is not empty
+        checkSelections();
+    });
+
+    // Handle budget dropdown selection
+    dropdownItems.forEach(item => {
+        item.addEventListener("click", function () {
+            const selectedValue = this.textContent.trim();
+            dropdownButton.querySelector(".selected-item").textContent = selectedValue;
+            budgetSelected = true; // Mark budget as selected
+            checkSelections();
+        });
     });
 });
+
+
+
+
+// API TO GET AIRPORT INPUT BOX // // API TO GET AIRPORT INPUT BOX //
+// API TO GET AIRPORT INPUT BOX // // API TO GET AIRPORT INPUT BOX //
+// API TO GET AIRPORT INPUT BOX // // API TO GET AIRPORT INPUT BOX //
+
 
 // Initialize Departure Date Picker
 flatpickr("#departure", {
@@ -210,7 +260,7 @@ flatpickr("#departure", {
     touch: true,          // Enable touch for mobile (though we are disabling the mobile version)
     dateFormat: "d/m/Y",  // Use dd/mm/yyyy format
     minDate: new Date().fp_incr(1),  // Minimum date is tomorrow, disallow today
-    maxDate: new Date().fp_incr(8 * 30),  // Limit to 6 months from today (approx. 180 days)
+    maxDate: new Date().fp_incr(12 * 30),  // Limit to 8 months from today (approx. 240 days)
     locale: {
         firstDayOfWeek: 1,  // Set Monday as the first day of the week
     },
@@ -223,13 +273,18 @@ flatpickr("#departure", {
         document.querySelector('.overlay').style.display = 'none';
     },
     onChange: function(selectedDates, dateStr) {
-
         // Set the minimum date of the return picker to be the day after the departure date
-        returnPicker.set('minDate', dateStr);
+        returnPicker.set('minDate', new Date(selectedDates[0]).fp_incr(1));
+
+        // Disable the departure date in the return picker
+        returnPicker.set('disable', [
+            function(date) {
+                return dateStr === flatpickr.formatDate(date, "d/m/Y");  // Disable the departure date
+            }
+        ]);
 
         // Automatically open the return picker when departure date is selected
         returnPicker.open();
-
     }
 });
 
@@ -239,7 +294,7 @@ var returnPicker = flatpickr("#return", {
     touch: true,          // Enable touch for mobile (though we are disabling the mobile version)
     dateFormat: "d/m/Y",  // Use dd/mm/yyyy format
     minDate: new Date().fp_incr(1),  // Minimum date is tomorrow
-    maxDate: new Date().fp_incr(8 * 30),  // Limit to 6 months from today (approx. 180 days)
+    maxDate: new Date().fp_incr(8 * 30),  // Limit to 8 months from today (approx. 240 days)
     locale: {
         firstDayOfWeek: 1,  // Set Monday as the first day of the week
     },
@@ -253,6 +308,5 @@ var returnPicker = flatpickr("#return", {
     },
     onChange: function(selectedDates, dateStr) {
         // Optionally handle any behavior when the return date is chosen
-        // (e.g., show selected dates on the page or trigger another action)
     }
 });
