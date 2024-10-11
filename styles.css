@@ -191,7 +191,7 @@ body.dimmed {
 }
 
 .dropdown-button:hover {
-    background-color: rgba(240, 240, 240, 0.9);
+    background-color: rgba(255, 255, 255, 0.9);
 }
 
 .dropdown-placeholder {
@@ -236,7 +236,7 @@ body.dimmed {
 }
 
 .dropdown-options .dropdown-item:hover {
-    background-color: #f0f0f0; /* Hover effect */
+    background-color: #ffffff; /* Hover effect */
 }
 
 .dropdown-options .option-icon {
@@ -309,7 +309,7 @@ body.dimmed {
             z-index: 10;
             scale: 0.9;
             animation: flyAnimation 1.5s ease-in-out infinite alternate;
-            margin-top: 42rem;
+            margin-top: 3.5rem;
         }
 
         .button-container2 {
