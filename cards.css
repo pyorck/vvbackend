@@ -14,7 +14,7 @@
     /* Hide scrollbar */
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* Internet Explorer 10+ */
-
+    scale: 0.95;
 }
 
 .virtualcards::-webkit-scrollbar {
@@ -108,12 +108,12 @@
 @media (max-height: 740px) {
     .virtualcards {
         scale: 0.9;
-        top: 80px;
+        top: 90px;
 
     }
 
     .card-container {
-        height: 180px;
+        height: 170px;
     }
 
     .title {
@@ -121,5 +121,9 @@
         font-family: "Just Another Hand", cursive;
         margin-left: 2px;
     }
+
+    .finder-box {
+        bottom: 10vh;
+}
 
 }
