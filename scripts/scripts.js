@@ -99,11 +99,11 @@ document.addEventListener("DOMContentLoaded", function() {
       overlay.style.display = 'none'; // Hide the overlay
     });
   
-    // Prevent closing the calendar when clicking outside calendar and overlay
-    document.addEventListener('click', function(event) {
-        const pickerElement = document.querySelector('.litepicker');
-        if (isCalendarOpened && pickerElement && !pickerElement.contains(event.target)) {
-            picker.show();
-        }
-    });
+        // Prevent closing the calendar when clicking outside calendar and overlay
+        document.addEventListener('click', function(event) {
+            const pickerElement = document.querySelector('.litepicker');
+            if (isCalendarOpened && pickerElement && !pickerElement.contains(event.target)) {
+                picker.show();
+            }
+        });
 });

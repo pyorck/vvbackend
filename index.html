@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vaiving</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="css/cards.css">
@@ -20,6 +20,7 @@
     <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/litepicker/dist/css/litepicker.css"/>
 </head>
+
 <body>
     <div class="site-wrapper">
         <div data-barba="wrapper">
@@ -40,63 +41,6 @@
                 </div>
                 
                 <div class="section-right">
-                    <div class="virtualcards-wrapper">
-                    <div class="virtualcards">
-                        <!-- First Card -->
-                        <div class="card-container">
-                            <div class="card-container__header" style="background-image: url(pics/Paris.jpg); background-size: cover;"></div>
-                            <div class="card-container__content">
-                                <span class="title">VAIVING? What is it?</span>
-                                <span class="description">Flight + Hotel, Surprise Location, for yourself or to gift, in <span style="font-weight: bold;">3-simple clicks</span>.</span>
-                                <span class="button1">
-                                    <common-button>
-                                        <button mat-flat-button color="primary" class="common-button" type="button">
-                                            <span class="button-wrapper">
-                                                <div class="common-button__label">How does it work?</div>
-                                            </span>
-                                        </button>
-                                    </common-button>
-                                </span>
-                            </div>
-                        </div>
-                        
-                        <!-- Second Card -->
-                        <div class="card-container">
-                            <div class="card-container__header" style="background-image: url(pics/space.png);"></div>
-                            <div class="card-container__content">
-                                <span class="title">Our MISSION</span>
-                                <span class="description">Next steps and how can you support. Growing from the 0 to Travel 2.0.</span>
-                                <span class="button1">
-                                    <common-button>
-                                        <button mat-flat-button color="primary" class="common-button" type="button">
-                                            <span class="button-wrapper">
-                                                <div class="common-button__label">Tell me more!</div>
-                                            </span>
-                                        </button>
-                                    </common-button>
-                                </span>
-                            </div>
-                        </div>
-                        
-                        <!-- Third Card -->
-                        <div class="card-container">
-                            <div class="card-container__header" style="background-image: url(pics/Barcelona.avif);"></div>
-                            <div class="card-container__content">
-                                <span class="title">From BCN w/ Love</span>
-                                <span class="description">Born in BCN, coded in LDN, based in IE. Hiring remote internationally. </span>
-                                <span class="button1">
-                                    <common-button>
-                                        <button mat-flat-button color="primary" class="common-button" type="button">
-                                            <span class="button-wrapper">
-                                                <div class="common-button__label">See open vacancies</div>
-                                            </span>
-                                        </button>
-                                    </common-button>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
                     <!-- Finder Box -->
                     <div class="finder-box">
@@ -183,6 +127,61 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="virtualcards-wrapper">
+                        <div class="virtualcards-header">
+                            <p>How does Vaiving work?</p>
+                        </div>
+                        <div class="virtualcards">
+                            <!-- First Card -->
+                            <div class="card-container">
+                                <div class="card-container__header" style="background-image: url(pics/Paris.jpg); background-size: cover;"></div>
+                                <div class="card-container__content">
+                                    <span class="title">VAIVING? What is it?</span>
+                                        <common-button>
+                                            <button mat-flat-button color="primary" class="common-button" type="button">
+                                                <span class="button-wrapper">
+                                                    <div class="common-button__label">How does it work?</div>
+                                                </span>
+                                            </button>
+                                        </common-button>
+                                    </span>
+                                </div>
+                            </div>
+                            
+                            <!-- Second Card -->
+                            <div class="card-container">
+                                <div class="card-container__header" style="background-image: url(pics/space.png);"></div>
+                                <div class="card-container__content">
+                                    <span class="title">Our MISSION</span>
+                                        <common-button>
+                                            <button mat-flat-button color="primary" class="common-button" type="button">
+                                                <span class="button-wrapper">
+                                                    <div class="common-button__label">Tell me more!</div>
+                                                </span>
+                                            </button>
+                                        </common-button>
+                                    </span>
+                                </div>
+                            </div>
+                            
+                            <!-- Third Card -->
+                            <div class="card-container">
+                                <div class="card-container__header" style="background-image: url(pics/Barcelona.avif);"></div>
+                                <div class="card-container__content">
+                                    <span class="title">From BCN w/ Love</span>
+                                        <common-button>
+                                            <button mat-flat-button color="primary" class="common-button" type="button">
+                                                <span class="button-wrapper">
+                                                    <div class="common-button__label">See open vacancies</div>
+                                                </span>
+                                            </button>
+                                        </common-button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div> <!-- End section-right -->
             </div> <!-- End of data-barba container -->
         </div> <!-- End of data-barba wrapper -->
@@ -206,6 +205,7 @@
     <script src="scripts/scripts.js"></script>
     <script src="scripts/airpapi.js"></script>
     <script>
+
         function updateContent() {
             const leftSection = document.querySelector('.section-left');
             const rightSection = document.querySelector('.section-right');
@@ -244,30 +244,7 @@
                   duration: 0.7,
                   ease: 'power2.inOut'
               });
-        
-            applyResponsiveStyles(); // Apply any responsive styles you need
         };
-        
-        function applyResponsiveStyles() {
-            const rightSection = document.querySelector('.section-right');
-            const plane = document.querySelector('.plane-img'); // Ensure the plane element is selected
-        
-            // Check for different screen sizes and apply styles
-            const mobileQuery = window.matchMedia('(max-width: 600px)');
-            const tabletQuery = window.matchMedia('(min-width: 601px) and (max-width: 900px)');
-        
-            if (mobileQuery.matches) {
-                // Mobile styles
-                gsap.to(plane, { scale: 0.7 }); // Resize plane for mobile (smaller)
-            } else if (tabletQuery.matches) {
-                // Tablet styles    
-                gsap.to(plane, { scale: 0.8 }); // Resize plane for tablets (medium size)
-            } else {
-                // Desktop and larger screens
-                gsap.to(plane, { scale: 1 }); // Full size for larger screens
-            }
-        }
-        </script>        
+        </script>
 
-</body>
 </html>

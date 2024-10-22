@@ -1,27 +1,45 @@
 .virtualcards-wrapper {
-    display: flex; /* Enable flexbox for the wrapper */
-    justify-content: center; /* Center the wrapper horizontally */
+    display: flex;
+    flex-direction: column; /* Stack items vertically (header on top of cards) */
+    align-items: center; /* Center items horizontally */
     width: 100%; /* Full width of parent */
-    overflow: hidden; /* Hide overflow to avoid horizontal scrollbar on the wrapper */
+    background-color: rgba(255, 255, 255, 0.4);
+    margin-top: calc(10px + 2.5vh); /* Adjust as needed for spacing */
+}
+
+.virtualcards-header {
+    margin-bottom: 1.3rem; /* Spacing between the header and cards */
+    width: 100%; /* Ensure header takes up full width */
+    text-align: center; /* Center the text horizontally */
+}
+
+.virtualcards-header p {
+    margin: 0;
+    font-size: clamp(2.5rem, 4vw, 1.5rem); /* Responsive font size */
+    font-family: "Just Another Hand", serif;
+    font-weight: 400;
+    color: white; /* Adjust to match your theme */
+    -webkit-text-stroke: 1px black; /* Width and color of the stroke */
+    text-shadow: 3px 2px 2px rgba(0, 0, 0, 1);
 }
 
 .virtualcards {
-    display: flex; /* Flexbox to arrange cards in a row */
-    overflow-x: auto; /* Enable horizontal scrolling */
-    scroll-snap-type: x mandatory; /* Enable snap scrolling */
+    display: flex;
+    overflow-x: auto; /* Horizontal scrolling */
+    scroll-snap-type: x mandatory; /* Snap scrolling */
     -webkit-overflow-scrolling: touch; /* Smooth scrolling for iOS */
-    padding: 10px;
     z-index: 3;
-    margin-top: calc(110px + 5vh); /* Position below banner, adjust for scaling */
+    margin-top: calc(-1.4vh + 0.1vh); /* Adjust as needed for spacing */
     height: auto;
     max-width: calc(100% - 40px); /* Adjust width based on left padding */
     box-sizing: border-box;
     justify-content: flex-start; /* Align cards to the left */
-    align-items: center; /* Center cards vertically within the wrapper */
-
+    align-items: center; /* Center cards vertically */
+    padding-bottom: 2vh;
+    
     /* Hide scrollbar */
     scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* Internet Explorer 10+ */
+    -ms-overflow-style: none; /* IE 10+ */
 }
 
 .virtualcards::-webkit-scrollbar {
@@ -30,20 +48,17 @@
 
 .card-container {
     flex: 0 0 auto; /* Prevent shrinking */
-    width: 200px; /* Fixed card width */
-    aspect-ratio: 1; /* Set the height to be the same as width */
+    width: 170px; /* Fixed card width */
+    aspect-ratio: 1.1; /* Set the height to be the same as width */
     margin-right: 15px; /* Space between cards */
     background-color: rgba(255, 255, 255, 0.7);  
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    overflow: hidden;
     scroll-snap-align: start;
     display: flex;
     flex-direction: column;
     max-height: 100%; /* Ensure the card doesn't exceed its parent */
 }
-
-
 
 .card-container__header {
     height: 70px; /* Fixed height for the header to display the image */
@@ -65,14 +80,9 @@
 .title {
     font-size: clamp(1.6rem, 2vw, 1.6rem); /* Responsive font size */
     font-family: "Just Another Hand", cursive;
+    align-items: center;
+    text-align: center;
     margin-left: 2px;
-}
-
-.description {
-    font-size: clamp(0.9rem, 1.5vw, 0.9rem); /* Responsive font size */
-    color: #000000;
-    font-family: Oswald, sans-serif;
-    margin-left: 3px;
 }
 
 .button1 {

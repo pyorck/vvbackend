@@ -5,10 +5,9 @@ body {
     margin: 0;
     padding: 0;
     background-color: #000000;
-    transition: opacity 0.3s ease;
-    max-height: 100vh; /* Ensure full use of available screen height */
-    overflow-x: hidden; /* Prevent horizontal scrolling */
+    max-height: none;
 }
+
 
 /* TOP SECTION */
 
@@ -66,7 +65,6 @@ body {
     width: 100%;                
     z-index: 2;                 
     height: clamp(5rem, 8vh, 7rem); /* Use clamp for more flexibility */
-    max-height: 10rem; /* Max height for larger screens */
 }
 
 
@@ -98,19 +96,13 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     width: 100%;
-    /* Remove the excessive height */
-    min-height: 85vh;              /* Maintain minimum height */
-    /* Consider adding a max-height if needed */
-    max-height: 85vh;             /* Ensure it doesn't exceed viewport height */
+    min-height: 200vh;
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    flex-grow: 1;
     flex-direction: column;
-    position: relative;            /* Keep for positioning children */
+    flex-grow: 1;
 }
-
-
 
 /* FOOTER LINKS + VAIVING LTD. */
 
@@ -119,6 +111,9 @@ body {
     color: white;
     text-align: center;
     z-index: 10;
+    position: relative;
+    height: 12vh;
+    margin-top: 1vh;
     }
 
 /* Button styles (center aligned) */
@@ -157,57 +152,3 @@ body {
     background-color: #ffd0a3;      /* Hover color */
     transform: scale(1.05);         /* Slight scaling on hover */
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -48,7 +48,6 @@
     height: auto; /* No need for 100% height here */
     z-index: 1;
     pointer-events: none;
-    overflow: hidden;
     background-attachment: fixed;
 }
 
