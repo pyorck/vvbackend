@@ -12,7 +12,7 @@
     -webkit-overflow-scrolling: touch; /* Smooth scrolling for iOS */
     padding: 10px;
     z-index: 3;
-    margin-top: calc(80px + 5vh); /* Position below banner, adjust for scaling */
+    margin-top: calc(110px + 5vh); /* Position below banner, adjust for scaling */
     height: auto;
     max-width: calc(100% - 40px); /* Adjust width based on left padding */
     box-sizing: border-box;
