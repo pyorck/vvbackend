@@ -21,8 +21,10 @@ body {
     height: clamp(2rem, 5vw, 2.5rem); /* Updated for larger flexibility */
     z-index: 10; /* Higher priority than most content */
     font-family: Oswald, sans-serif;
-    position: sticky; /* Keeps the header fixed at the top */
+    position: fixed; /* Keeps the header fixed at the top */
     top: 0; /* Positions it at the very top */
+    left: 0;
+    right: 0;
     width: 100%; /* Ensures full width */
 }
 
@@ -59,7 +61,7 @@ body {
     justify-content: center;    
     align-items: center;        
     position: absolute;         
-    top: clamp(2.5rem, 5vh, 3Rem); /* More responsive top positioning */
+    top: clamp(2.8rem, 5vh, 3Rem); /* More responsive top positioning */
     left: 0;                    
     width: 100%;                
     z-index: 2;                 
