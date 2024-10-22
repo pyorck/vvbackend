@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>Vaiving</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="cards.css">
-    <link rel="stylesheet" href="pop-ups.css">
-    <link rel="stylesheet" href="calendar.css">
+    <link rel="stylesheet" href="css/cards.css">
+    <link rel="stylesheet" href="css/searcher.css">
+    <link rel="stylesheet" href="css/calendar.css">
+    <link rel="stylesheet" href="css/planecloud.css">
+    <!--<link rel="stylesheet" href="css/pop-ups.css"> To be implemented later-->
     <link rel="apple-touch-icon" sizes="180x180" href="pics/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="pics/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="pics/favicon-16x16.png">
@@ -20,27 +22,27 @@
 </head>
 <body>
     <div class="site-wrapper">
-    <div data-barba="wrapper">
-        <div data-barba="container">
-            <div class="overlay"></div>
-            <div class="top-section">
-                <nav class="nav-links">
-                    <a href="index.html">HOME</a>
-                    <a href="#home">LOG IN</a>
-                    <a href="#about">REGISTER</a>
-                    <a href="#contact">CONTACT</a>
-                </nav>
-            </div>
+        <div data-barba="wrapper">
+            <div data-barba="container">
+                <div class="overlay"></div>
+                <div class="top-section">
+                    <nav class="nav-links">
+                        <a href="index.html">HOME</a>
+                        <a href="#home">LOG IN</a>
+                        <a href="#about">REGISTER</a>
+                        <a href="#contact">CONTACT</a>
+                    </nav>
+                </div>
 
                 <div class="section section-left">
-                <p>You vibe, we vibe. Together, we are</p>
-                <div class="logo"><img src="pics/logo-vv-v2.png"></div>
+                    <p>You vibe, we vibe. Together, we are</p>
+                    <div class="logo"><img src="pics/logo-vv-v2.png" alt="Vaiving Logo"></div>
                 </div>
                 
                 <div class="section-right">
-
+                    <div class="virtualcards-wrapper">
                     <div class="virtualcards">
-
+                        <!-- First Card -->
                         <div class="card-container">
                             <div class="card-container__header" style="background-image: url(pics/Paris.jpg); background-size: cover;"></div>
                             <div class="card-container__content">
@@ -57,7 +59,8 @@
                                 </span>
                             </div>
                         </div>
-                    
+                        
+                        <!-- Second Card -->
                         <div class="card-container">
                             <div class="card-container__header" style="background-image: url(pics/space.png);"></div>
                             <div class="card-container__content">
@@ -74,7 +77,8 @@
                                 </span>
                             </div>
                         </div>
-                    
+                        
+                        <!-- Third Card -->
                         <div class="card-container">
                             <div class="card-container__header" style="background-image: url(pics/Barcelona.avif);"></div>
                             <div class="card-container__content">
@@ -92,15 +96,16 @@
                             </div>
                         </div>
                     </div>
+                </div>
 
+                    <!-- Finder Box -->
                     <div class="finder-box">
-                        
                         <!-- FROM -->
                         <div class="custom-dropdown autocomplete-container">
                             <input type="text" id="city-input" class="autocomplete-input" placeholder="Where are you from? Find your Airport!">
                             <div id="suggestions" class="dropdown-options"></div> <!-- Suggestions will be inserted here -->
                         </div>
-                  
+
                         <!-- BUDGET -->
                         <div class="custom-dropdown">
                             <div class="dropdown">
@@ -110,92 +115,96 @@
                                 </button>
                                 <div class="dropdown-options">
                                     <div class="dropdown-item" data-value="low">
-                                        <img src="pics/low.svg" alt="Icon" class="option-icon">Low-cost
+                                        <img src="pics/low.svg" alt="Low-cost Icon" class="option-icon">Low-cost
                                     </div>
                                     <div class="dropdown-item" data-value="mid">
-                                        <img src="pics/mid.svg" alt="Icon" class="option-icon">Mid-cost
+                                        <img src="pics/mid.svg" alt="Mid-cost Icon" class="option-icon">Mid-cost
                                     </div>
                                     <div class="dropdown-item" data-value="high">
-                                        <img src="pics/diamond.svg" alt="Icon" class="option-icon">Luxury
+                                        <img src="pics/diamond.svg" alt="Luxury Icon" class="option-icon">Luxury
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                         <!-- CAL -->
-                         <div class="custom-dropdown">
-                         <input type="text" id="litepicker" readonly/>
-                         <span class="dropdown-placeholder">Departure - Return</span>
+                        <!-- Calendar -->
+                        <div id="overlay" class="overlay" style="display: none;"></div>
+                        <div class="custom-dropdown">
+                            <button class="dropdown-button" id="litepicker">
+                                <span class="dropdown-placeholder">Departure - Return</span>
+                                <span class="selected-dates" style="display: none"></span>
+                            </button>
                         </div>
 
-                          <div class="button-container2" style="display: none;">
+                        <!-- GO Button (hidden until criteria is met) -->
+                        <div class="button-container2" style="display: none;">
                             <a href="index.html" data-barba="link" class="button-link3">
-                                <img src="pics/plane.png" alt="Icon" style="position: relative; width: 100px; height: 100px; vertical-align: middle" class="plane-img">
+                                <img src="pics/plane.png" alt="Plane Icon" style="position: relative; width: 100px; height: 100px; vertical-align: middle" class="plane-img">
                             </a>
                         </div>
+
+                        <!-- Clouds -->
+                        <div class="clouds-wrapper">
+                            <div class="clouds">
+                                <!-- Front slowest cloud -->
+                                <svg class="cloud big" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="762px" height="331px" viewBox="0 0 762 331" enable-background="new 0 0 762 331" xml:space="preserve">
+                                    <path d="M715.394,228h-16.595c0.79-5.219,1.201-10.562,1.201-16c0-58.542-47.458-106-106-106 c-8.198,0-16.178,0.932-23.841,2.693C548.279,45.434,488.199,0,417.5,0c-84.827,0-154.374,65.401-160.98,148.529 C245.15,143.684,232.639,141,219.5,141c-49.667,0-90.381,38.315-94.204,87H46.607C20.866,228,0,251.058,0,279.5 S20.866,331,46.607,331h668.787C741.133,331,762,307.942,762,279.5S741.133,228,715.394,228z"></path>
+                                </svg>
+            
+                                <!-- Distant smaller cloud -->
+                                <svg class="cloud distant" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="762px" height="331px" viewBox="0 0 762 331" enable-background="new 0 0 762 331" xml:space="preserve">
+                                    <path d="M715.394,228h-16.595c0.79-5.219,1.201-10.562,1.201-16c0-58.542-47.458-106-106-106 c-8.198,0-16.178,0.932-23.841,2.693C548.279,45.434,488.199,0,417.5,0c-84.827,0-154.374,65.401-160.98,148.529 C245.15,143.684,232.639,141,219.5,141c-49.667,0-90.381,38.315-94.204,87H46.607C20.866,228,0,251.058,0,279.5 S20.866,331,46.607,331h668.787C741.133,331,762,307.942,762,279.5S741.133,228,715.394,228z"></path>
+                                </svg>
+            
+                                <!-- Small slow cloud -->
+                                <svg class="cloud small" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="762px" height="331px" viewBox="0 0 762 331" enable-background="new 0 0 762 331" xml:space="preserve">
+                                    <path d="M715.394,228h-16.595c0.79-5.219,1.201-10.562,1.201-16c0-58.542-47.458-106-106-106 c-8.198,0-16.178,0.932-23.841,2.693C548.279,45.434,488.199,0,417.5,0c-84.827,0-154.374,65.401-160.98,148.529 C245.15,143.684,232.639,141,219.5,141c-49.667,0-90.381,38.315-94.204,87H46.607C20.866,228,0,251.058,0,279.5 S20.866,331,46.607,331h668.787C741.133,331,762,307.942,762,279.5S741.133,228,715.394,228z"></path>
+                                </svg>
+            
+                                <!-- Super-slow massive cloud -->
+                                <svg class="cloud massive" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="762px" height="331px" viewBox="0 0 762 331" enable-background="new 0 0 762 331" xml:space="preserve">
+                                    <path d="M715.394,228h-16.595c0.79-5.219,1.201-10.562,1.201-16c0-58.542-47.458-106-106-106 c-8.198,0-16.178,0.932-23.841,2.693C548.279,45.434,488.199,0,417.5,0c-84.827,0-154.374,65.401-160.98,148.529 C245.15,143.684,232.639,141,219.5,141c-49.667,0-90.381,38.315-94.204,87H46.607C20.866,228,0,251.058,0,279.5 S20.866,331,46.607,331h668.787C741.133,331,762,307.942,762,279.5S741.133,228,715.394,228z"></path>
+                                </svg>
+            
+                                <!-- Medium-sized cloud -->
+                                <svg class="cloud medium" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="762px" height="331px" viewBox="0 0 762 331" enable-background="new 0 0 762 331" xml:space="preserve">
+                                    <path d="M715.394,228h-16.595c0.79-5.219,1.201-10.562,1.201-16c0-58.542-47.458-106-106-106 c-8.198,0-16.178,0.932-23.841,2.693C548.279,45.434,488.199,0,417.5,0c-84.827,0-154.374,65.401-160.98,148.529 C245.15,143.684,232.639,141,219.5,141c-49.667,0-90.381,38.315-94.204,87H46.607C20.866,228,0,251.058,0,279.5 S20.866,331,46.607,331h668.787C741.133,331,762,307.942,762,279.5S741.133,228,715.394,228z"></path>
+                                </svg>
+            
+                                <!-- Smallest cloud -->
+                                <svg class="cloud smallest" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="762px" height="331px" viewBox="0 0 762 331" enable-background="new 0 0 762 331" xml:space="preserve">
+                                    <path d="M715.394,228h-16.595c0.79-5.219,1.201-10.562,1.201-16c0-58.542-47.458-106-106-106 c-8.198,0-16.178,0.932-23.841,2.693C548.279,45.434,488.199,0,417.5,0c-84.827,0-154.374,65.401-160.98,148.529 C245.15,143.684,232.639,141,219.5,141c-49.667,0-90.381,38.315-94.204,87H46.607C20.866,228,0,251.058,0,279.5 S20.866,331,46.607,331h668.787C741.133,331,762,307.942,762,279.5S741.133,228,715.394,228z"></path>
+                                </svg>
+            
+                                <!-- Mid-Smallest cloud -->
+                                <svg class="cloud midsmallest" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="762px" height="331px" viewBox="0 0 762 331" enable-background="new 0 0 762 331" xml:space="preserve">
+                                    <path d="M715.394,228h-16.595c0.79-5.219,1.201-10.562,1.201-16c0-58.542-47.458-106-106-106 c-8.198,0-16.178,0.932-23.841,2.693C548.279,45.434,488.199,0,417.5,0c-84.827,0-154.374,65.401-160.98,148.529 C245.15,143.684,232.639,141,219.5,141c-49.667,0-90.381,38.315-94.204,87H46.607C20.866,228,0,251.058,0,279.5 S20.866,331,46.607,331h668.787C741.133,331,762,307.942,762,279.5S741.133,228,715.394,228z"></path>
+                                </svg>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
+                </div> <!-- End section-right -->
+            </div> <!-- End of data-barba container -->
+        </div> <!-- End of data-barba wrapper -->
+
+        <!-- Footer -->
+        <footer class="site-footer">
+            <a href="https://www.linkedin.com/company/vaiving" target="_blank" class="button-link">
+                <img src="pics/linkedin.png" alt="LinkedIn Icon" style="width: 25px; height: 25px; vertical-align: middle">
+            </a> 
+            <a href="https://www.instagram.com/vaivingg" target="_blank" class="button-link2">
+                <img src="pics/instagram.png" alt="Instagram Icon" style="width: 25px; height: 25px; vertical-align: middle">
+            </a>
+            <p style="color: white; font-size: 12px; margin-top: -2px;">&copy; 2024 - Vaiving Ltd.</p>
+        </footer>
     </div>
-</div>
-            <div class="clouds-wrapper">
-                <div class="clouds">
-                    <!-- Front slowest cloud -->
-                    <svg class="cloud big" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="762px" height="331px" viewBox="0 0 762 331" enable-background="new 0 0 762 331" xml:space="preserve">
-                        <path d="M715.394,228h-16.595c0.79-5.219,1.201-10.562,1.201-16c0-58.542-47.458-106-106-106 c-8.198,0-16.178,0.932-23.841,2.693C548.279,45.434,488.199,0,417.5,0c-84.827,0-154.374,65.401-160.98,148.529 C245.15,143.684,232.639,141,219.5,141c-49.667,0-90.381,38.315-94.204,87H46.607C20.866,228,0,251.058,0,279.5 S20.866,331,46.607,331h668.787C741.133,331,762,307.942,762,279.5S741.133,228,715.394,228z"></path>
-                    </svg>
-
-                    <!-- Distant smaller cloud -->
-                    <svg class="cloud distant" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="762px" height="331px" viewBox="0 0 762 331" enable-background="new 0 0 762 331" xml:space="preserve">
-                        <path d="M715.394,228h-16.595c0.79-5.219,1.201-10.562,1.201-16c0-58.542-47.458-106-106-106 c-8.198,0-16.178,0.932-23.841,2.693C548.279,45.434,488.199,0,417.5,0c-84.827,0-154.374,65.401-160.98,148.529 C245.15,143.684,232.639,141,219.5,141c-49.667,0-90.381,38.315-94.204,87H46.607C20.866,228,0,251.058,0,279.5 S20.866,331,46.607,331h668.787C741.133,331,762,307.942,762,279.5S741.133,228,715.394,228z"></path>
-                    </svg>
-
-                    <!-- Small slow cloud -->
-                    <svg class="cloud small" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="762px" height="331px" viewBox="0 0 762 331" enable-background="new 0 0 762 331" xml:space="preserve">
-                        <path d="M715.394,228h-16.595c0.79-5.219,1.201-10.562,1.201-16c0-58.542-47.458-106-106-106 c-8.198,0-16.178,0.932-23.841,2.693C548.279,45.434,488.199,0,417.5,0c-84.827,0-154.374,65.401-160.98,148.529 C245.15,143.684,232.639,141,219.5,141c-49.667,0-90.381,38.315-94.204,87H46.607C20.866,228,0,251.058,0,279.5 S20.866,331,46.607,331h668.787C741.133,331,762,307.942,762,279.5S741.133,228,715.394,228z"></path>
-                    </svg>
-
-                    <!-- Super-slow massive cloud -->
-                    <svg class="cloud massive" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="762px" height="331px" viewBox="0 0 762 331" enable-background="new 0 0 762 331" xml:space="preserve">
-                        <path d="M715.394,228h-16.595c0.79-5.219,1.201-10.562,1.201-16c0-58.542-47.458-106-106-106 c-8.198,0-16.178,0.932-23.841,2.693C548.279,45.434,488.199,0,417.5,0c-84.827,0-154.374,65.401-160.98,148.529 C245.15,143.684,232.639,141,219.5,141c-49.667,0-90.381,38.315-94.204,87H46.607C20.866,228,0,251.058,0,279.5 S20.866,331,46.607,331h668.787C741.133,331,762,307.942,762,279.5S741.133,228,715.394,228z"></path>
-                    </svg>
-
-                    <!-- Medium-sized cloud -->
-                    <svg class="cloud medium" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="762px" height="331px" viewBox="0 0 762 331" enable-background="new 0 0 762 331" xml:space="preserve">
-                        <path d="M715.394,228h-16.595c0.79-5.219,1.201-10.562,1.201-16c0-58.542-47.458-106-106-106 c-8.198,0-16.178,0.932-23.841,2.693C548.279,45.434,488.199,0,417.5,0c-84.827,0-154.374,65.401-160.98,148.529 C245.15,143.684,232.639,141,219.5,141c-49.667,0-90.381,38.315-94.204,87H46.607C20.866,228,0,251.058,0,279.5 S20.866,331,46.607,331h668.787C741.133,331,762,307.942,762,279.5S741.133,228,715.394,228z"></path>
-                    </svg>
-
-                    <!-- Smallest cloud -->
-                    <svg class="cloud smallest" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="762px" height="331px" viewBox="0 0 762 331" enable-background="new 0 0 762 331" xml:space="preserve">
-                        <path d="M715.394,228h-16.595c0.79-5.219,1.201-10.562,1.201-16c0-58.542-47.458-106-106-106 c-8.198,0-16.178,0.932-23.841,2.693C548.279,45.434,488.199,0,417.5,0c-84.827,0-154.374,65.401-160.98,148.529 C245.15,143.684,232.639,141,219.5,141c-49.667,0-90.381,38.315-94.204,87H46.607C20.866,228,0,251.058,0,279.5 S20.866,331,46.607,331h668.787C741.133,331,762,307.942,762,279.5S741.133,228,715.394,228z"></path>
-                    </svg>
-
-                    <!-- Mid-Smallest cloud -->
-                    <svg class="cloud midsmallest" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="762px" height="331px" viewBox="0 0 762 331" enable-background="new 0 0 762 331" xml:space="preserve">
-                        <path d="M715.394,228h-16.595c0.79-5.219,1.201-10.562,1.201-16c0-58.542-47.458-106-106-106 c-8.198,0-16.178,0.932-23.841,2.693C548.279,45.434,488.199,0,417.5,0c-84.827,0-154.374,65.401-160.98,148.529 C245.15,143.684,232.639,141,219.5,141c-49.667,0-90.381,38.315-94.204,87H46.607C20.866,228,0,251.058,0,279.5 S20.866,331,46.607,331h668.787C741.133,331,762,307.942,762,279.5S741.133,228,715.394,228z"></path>
-                    </svg>
-                </div>
-            </div>
-
-
-            <!-- Footer inside the barba container for transitions -->
-            <footer class="site-footer">
-                <a href="https://www.linkedin.com/company/vaiving" target="_blank" class="button-link">
-                    <img src="pics/linkedin.png" alt="Icon" style="width: 25px; height: 25px; vertical-align: middle">
-                </a> 
-                <a href="https://www.instagram.com/vaivingg" target="_blank" class="button-link2">
-                    <img src="pics/instagram.png" alt="Icon" style="width: 25px; height: 25px; vertical-align: middle">
-                </a>
-                <p style="color: white; font-size: 12px;margin-top: -2px;">&copy; 2024 - Vaiving Ltd.</p>
-            </footer>
-        </div> <!-- End of barba container -->
-    </div> <!-- End of barba wrapper -->
 
 </body>
 
     <!-- Dynamic GSAP Transition Handling for index -->
-    <script src="scripts.js"></script>
+    
+    <script src="scripts/scripts.js"></script>
+    <script src="scripts/airpapi.js"></script>
     <script>
         function updateContent() {
             const leftSection = document.querySelector('.section-left');
@@ -251,7 +260,7 @@
                 // Mobile styles
                 gsap.to(plane, { scale: 0.7 }); // Resize plane for mobile (smaller)
             } else if (tabletQuery.matches) {
-                // Tablet styles
+                // Tablet styles    
                 gsap.to(plane, { scale: 0.8 }); // Resize plane for tablets (medium size)
             } else {
                 // Desktop and larger screens

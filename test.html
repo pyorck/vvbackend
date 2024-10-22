@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="pop-ups.css">
+    <link rel="stylesheet" href="css/pop-ups.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
     <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
 
@@ -25,17 +25,6 @@
         <img src="pics/space.png" width="300px" height="600px">
         <button class="close-btn" id="closePopup">Close</button>
     </div>
-
-    <div>
-        <label for="departure">Departure Date:</label>
-        <input type="text" id="departure" placeholder="Select Departure Date">
-    </div>
-    <div>
-        <label for="return">Return Date:</label>
-        <input type="text" id="return" placeholder="Select Return Date">
-    </div>
-
-     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
     <script>
         // Get elements by their IDs
@@ -61,36 +50,6 @@
             popupContainer.style.display = 'none';
             popupOverlay.style.display = 'none';
         }
-
-// Function to get tomorrow's date
-function getTomorrow() {
-    let today = new Date();
-    let tomorrow = new Date();
-    tomorrow.setDate(today.getDate() + 1); // Set tomorrow by adding 1 day
-    return tomorrow;
-}
-
-// Initialize Departure Date Picker
-var departurePicker = new Pikaday({
-    field: document.getElementById('departure'),
-    format: 'DD/MM/YYYY',        // Format for day/month/year
-    firstDay: 1,                 // Monday as the first day of the week
-    minDate: getTomorrow(),      // Minimum date is tomorrow
-    onSelect: function() {
-        var departureDate = departurePicker.getDate();
-        returnPicker.setMinDate(new Date(departureDate.getTime() + (24 * 60 * 60 * 1000)));  // Minimum return date is the day after the departure date
-    }
-});
-
-// Initialize Return Date Picker
-var returnPicker = new Pikaday({
-    field: document.getElementById('return'),
-    format: 'DD/MM/YYYY',        // Format for day/month/year
-    firstDay: 1,                 // Monday as the first day of the week
-    minDate: getTomorrow()       // Default minimum date is tomorrow
-});
-
-
     </script>
 </body>
 </html>

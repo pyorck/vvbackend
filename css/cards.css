@@ -1,0 +1,96 @@
+.virtualcards-wrapper {
+    display: flex; /* Enable flexbox for the wrapper */
+    justify-content: center; /* Center the wrapper horizontally */
+    width: 100%; /* Full width of parent */
+    overflow: hidden; /* Hide overflow to avoid horizontal scrollbar on the wrapper */
+}
+
+.virtualcards {
+    display: flex; /* Flexbox to arrange cards in a row */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    scroll-snap-type: x mandatory; /* Enable snap scrolling */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling for iOS */
+    padding: 10px;
+    z-index: 3;
+    margin-top: calc(80px + 5vh); /* Position below banner, adjust for scaling */
+    height: auto;
+    max-width: calc(100% - 40px); /* Adjust width based on left padding */
+    box-sizing: border-box;
+    justify-content: flex-start; /* Align cards to the left */
+    align-items: center; /* Center cards vertically within the wrapper */
+
+    /* Hide scrollbar */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+.virtualcards::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, and Opera */
+}
+
+.card-container {
+    flex: 0 0 auto; /* Prevent shrinking */
+    width: 200px; /* Fixed card width */
+    aspect-ratio: 1; /* Set the height to be the same as width */
+    margin-right: 15px; /* Space between cards */
+    background-color: rgba(255, 255, 255, 0.7);  
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    max-height: 100%; /* Ensure the card doesn't exceed its parent */
+}
+
+
+
+.card-container__header {
+    height: 70px; /* Fixed height for the header to display the image */
+    background-size: cover; /* Ensure the image covers the header area */
+    background-position: center; /* Center the background image */
+    flex-shrink: 0; /* Prevent shrinking */
+    font-family: Oswald, sans-serif;
+}
+
+.card-container__content {
+    padding: 8px; /* Reduced padding for compact content */
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ensure space between elements */
+    font-family: Oswald, sans-serif;
+}
+
+.title {
+    font-size: clamp(1.6rem, 2vw, 1.6rem); /* Responsive font size */
+    font-family: "Just Another Hand", cursive;
+    margin-left: 2px;
+}
+
+.description {
+    font-size: clamp(0.9rem, 1.5vw, 0.9rem); /* Responsive font size */
+    color: #000000;
+    font-family: Oswald, sans-serif;
+    margin-left: 3px;
+}
+
+.button1 {
+    display: flex; /* Flexbox to align content */
+    justify-content: center; /* Center the button horizontally */
+    margin-top: 10px; /* Reduced space above button */
+    font-family: Oswald, sans-serif;
+}
+
+.common-button {
+    width: 100%; /* Width of the button */
+    background-color: rgba(255, 217, 0, 0.6);  
+    color: rgb(0, 0, 0);
+    border-radius: 4px;
+    font-weight: bold;
+    text-align: center;
+    padding: 4px; /* Adjusted padding */
+    cursor: pointer;
+    font-family: Oswald, sans-serif;
+    margin: 0; /* Remove auto margins to allow proper centering */
+}

@@ -1,0 +1,186 @@
+/* SEARCHBOX CONTAINER */
+
+.finder-box {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0); 
+    margin: 0 auto;
+    width: 100%;
+    max-width: clamp(250px, 30%, 600px); /* Dynamically resize based on screen width */
+    z-index: 4;
+    margin-top: 3vh;
+}
+
+/* Inputs and Buttons within Finder Box */
+.finder-box select,
+.finder-box button {
+    padding: 10px;
+    font-size: clamp(12px, 2vw, 16px); /* Dynamically adjust font size */
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.9);
+    width: 100%;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* CUSTOM-DROPDOWNS */
+/* FROM Autocomplete Input */
+.autocomplete-container {
+    position: relative;
+    width: 100%;
+}
+
+.autocomplete-input {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.9);
+    cursor: pointer;
+    position: relative;
+    font-family: Oswald, sans-serif;
+    color: black;
+    box-sizing: border-box; /* Ensures padding is included in width */
+    height: 40px; /* Match height with other buttons */
+}
+
+.autocomplete-input::placeholder {
+    color: #535353; /* Placeholder text color */
+    font-size: 14px; /* Placeholder font size */
+    font-family: Oswald, sans-serif;
+    font-weight: bold;
+    position: absolute;
+    top: 8px;
+    left: 12.5px;
+    pointer-events: none;
+}
+
+/* Autocomplete suggestions */
+.dropdown-options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 10;
+    display: none; /* Initially hidden */
+}
+
+.dropdown-options .dropdown-item {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.dropdown-options .dropdown-item:hover {
+    background-color: #ffffff; /* Hover effect */
+}
+
+.option-icon {
+    width: 20px; /* Set the width of the icon */
+    height: 20px; /* Set the height of the icon */
+    margin-right: 10px; /* Add space between icon and text */
+}
+
+.dropdown-options .dropdown-item.selected {
+    background-color: #e6f7ff; /* Highlight the selected item */
+}
+
+/* BUDGET Dropdown */
+.custom-dropdown {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.dropdown-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 9px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.9);
+    cursor: pointer;
+    position: relative;
+    font-family: Oswald, sans-serif;
+    color: black;
+    box-sizing: border-box; /* Ensures padding is included in width */
+    height: 60px; /* Match height with FROM input */
+}
+
+/* Placeholder text */
+.dropdown-placeholder {
+    font-size: 14px;
+    color: #535353; /* Lighter for placeholder */
+    position: absolute;
+    top: 10px;
+    left: 12.5px;
+    pointer-events: none;
+    font-weight: bold;
+}
+
+/* Selected item styling */
+.selected-item {
+    margin-top: 25px;
+    margin-left: 2px;
+    font-size: 16px;
+    display: block; /* Always show the selected item */
+}
+
+/* Dropdown options styling */
+.dropdown-options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 10;
+    display: none; /* Initially hidden */
+}
+
+.dropdown-options .dropdown-item {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.dropdown-options .dropdown-item:hover {
+    background-color: #ffffff; /* Hover effect */
+}
+
+.option-icon {
+    width: 20px; /* Set the width of the icon */
+    height: 20px; /* Set the height of the icon */
+    margin-right: 5px; /* Add space between icon and text */
+}
+
+.dropdown-options .dropdown-item.selected {
+    background-color: #e6f7ff; /* Highlight the selected item */
+}
+
+.dropdown-button.open + .dropdown-options {
+    display: block; /* Show the dropdown options on click */
+}

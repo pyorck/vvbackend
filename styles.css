@@ -1,38 +1,34 @@
+/* BODY */
+
 body {
     font-family: Oswald, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #000000;
     transition: opacity 0.3s ease;
-    z-index: 9999;
-    max-height: 87vh;
-
+    max-height: 100vh; /* Ensure full use of available screen height */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
-body.dimmed {
-    opacity: 0.5; /* Dim all elements except the calendar */
-    z-index: 9999;
-}
- 
-/* TOP SECTION CSS TOP GAP KEKW */ /* TOP SECTION CSS TOP GAP KEKW */
-/* TOP SECTION CSS TOP GAP KEKW */ /* TOP SECTION CSS TOP GAP KEKW */
-/* TOP SECTION CSS TOP GAP KEKW */ /* TOP SECTION CSS TOP GAP KEKW */
+/* TOP SECTION */
 
 .top-section {
-    background-color: #000000;   /* Background color */
-    color: white;                /* Text color */
-    min-height: 3.5vh;
-    display: flex;               /* Use flexbox */
-    justify-content: center;     /* Center horizontally */
-    align-items: center;         /* Center vertically */
-    height: clamp(0.4rem, 2vw, 1.5rem);  /* Flexible height */
-    z-index: 1;
+    background-color: #000000;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: clamp(2rem, 5vw, 2.5rem); /* Updated for larger flexibility */
+    z-index: 10; /* Higher priority than most content */
     font-family: Oswald, sans-serif;
+    position: sticky; /* Keeps the header fixed at the top */
+    top: 0; /* Positions it at the very top */
+    width: 100%; /* Ensures full width */
 }
 
 .nav-links {
     display: flex;
-    gap: 60px;                   /* Space between links */
+    gap: clamp(2rem, 4vw, 3rem); /* Make the gap responsive */
     align-items: center;         /* Center vertically */
 }
 
@@ -40,58 +36,58 @@ body.dimmed {
     text-decoration: none;
     font-family: Oswald, sans-serif;
     color: #ffffff;
-    font-size: clamp(0.9rem, 0.9vw, 1.0rem); /* Avoid too small/large sizes */
+    font-size: clamp(1rem, 3vw, 1.2rem); /* Adjust for better scaling */
     font-weight: bold;
-    transition: color 0.1s ease, scale 0.5s ease;
+    transition: color 0.1s ease, transform 0.3s ease; /* Use transform for scale */
 }
 
 .nav-links a:hover {
-    color: #fff800;              /* Hover color */
-    scale: 1.1;
+    color: #fff800;
+    transform: scale(1.1); /* Changed from 'scale' to 'transform' */
 }
 
-/* For the BANNER section */ /* so-called section-left */
-/* For the BANNER section */ /* so-called section-left */
-/* For the BANNER section */ /* so-called section-left */
 
+
+/* VAIVING TITLE + LOGO */
 
 .section-left {
     background-color: rgba(252, 250, 227, 0);  
     color: rgb(0, 0, 0);       
     font-size: clamp(1rem, 1.5vw, 1.8rem); 
-    display: flex;               /* Flexbox for centering content */
-    flex-direction: column;      /* Stack content vertically */
-    justify-content: center;     /* Center horizontally */
-    align-items: center;         /* Center vertically */
-    position: absolute;          /* Position it below the top section */
-    top: 3.5rem;                  /* Adjust to be below the top section */
-    left: 0;                     /* Align it to the left */
+    display: flex;              
+    flex-direction: column;     
+    justify-content: center;    
+    align-items: center;        
+    position: absolute;         
+    top: clamp(2.5rem, 5vh, 3Rem); /* More responsive top positioning */
+    left: 0;                    
     width: 100%;                
-    z-index: 2;                 /* Ensure it's on top of section-right, which is section below D: */
-    height: 6vh;                /* Banner height */
-    max-height: 6vh;
+    z-index: 2;                 
+    height: clamp(5rem, 8vh, 7rem); /* Use clamp for more flexibility */
+    max-height: 10rem; /* Max height for larger screens */
 }
 
+
 .section-left p {
-    margin: 0;                   /* Remove margin to avoid space */
+    margin: 0;
     display: inline-flex;
     align-items: center;
     text-align: center;
-    font-size: 2.0rem;
+    font-size: clamp(2.2rem, 4vw, 1.5rem); /* Make font size responsive */
     font-family: "Just Another Hand", serif;
     font-weight: 400;
     margin-top: 20px;
 }
 
+
 .logo img {
-    margin-top: -5px;
-    height: 60px;
+    margin-top: -5px; /* Adjust if needed */
+    height: clamp(55px, 5vh, 65px); /* Responsive logo height */
 }
 
 
-/* For the MAIN section */ /* so-called section-right */
-/* For the MAIN section */ /* so-called section-right */
-/* For the MAIN section */ /* so-called section-right */
+
+/* For the MAIN section */
 
 .section-right {
     background-color: #000000;
@@ -100,332 +96,27 @@ body.dimmed {
     background-repeat: no-repeat;
     background-position: center;
     width: 100%;
-    height: 900%;               
+    /* Remove the excessive height */
+    min-height: 85vh;              /* Maintain minimum height */
+    /* Consider adding a max-height if needed */
+    max-height: 85vh;             /* Ensure it doesn't exceed viewport height */
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     flex-grow: 1;
-    position: relative;
     flex-direction: column;
-    min-height: 87vh;
-    max-height: 87vh;
+    position: relative;            /* Keep for positioning children */
 }
 
-/* SEARCHBOX CONTAINER */
-.finder-box {
-    display: flex;
-    flex-direction: column; /* Stack items vertically on smaller screens */
-    gap: 10px;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(255, 255, 255, 0); /* White background with opacity */
-    margin: 0 auto; /* Center the box horizontally */
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%; /* Make it fit smaller screens */
-    max-width: 300px; /* Limit the width on larger screens */
-    z-index: 4;
-    margin-top: -4.5vh;
-}
-
-.finder-box select,
-.finder-box button {
-    padding: 10px;
-    font-size: 14px;
-    border-radius: 8px; /* Smaller rounded corners */
-    border: 1px solid #ddd;
-    background-color: rgba(255, 255, 255, 0.9); /* Subtle white for dropdowns */
-    width: 100%; /* Full width for better mobile layout */
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1); /* Lighter shadow */
-    z-index: 4;
-}
-
-.finder-box button {
-    color: rgb(0, 0, 0);
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    width: 100%; /* Button takes full width */
-    background-color: rgba(255, 255, 255, 0.9);  
-}
-
-/* CUSTOM-DROPDOWNS */
-.custom-dropdown, 
-.autocomplete-container {
-    width: 100%;
-}
-
-.autocomplete-input,     
-.dropdown-button {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 9px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: rgba(255, 255, 255, 0.9);
-    cursor: pointer;
-    position: relative;
-    font-family: Oswald, sans-serif;
-    color: black;
-    box-sizing: border-box; /* Ensures padding is included in width */
-}
-
-.autocomplete-input {
-    margin: 0; /* Reset any margins */
-}
-
-.dropdown-placeholder {
-    font-size: 14px;
-    color: #535353; /* Lighter for placeholder */
-    position: absolute;
-    top: 8px;
-    left: 12.5px;
-    pointer-events: none;
-    font-weight: bold;
-}
-
-.selected-item {
-    margin-top: 20px;
-    margin-left: 2px;
-    font-size: 16px;
-    display: block; /* Always show the selected item */
-}
-
-/* Suggestions Dropdown */
-.dropdown-options {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background-color: white;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    max-height: 200px;
-    overflow-y: auto;
-    z-index: 10;
-    display: none; /* Initially hidden */
-}
-
-.dropdown-options .dropdown-item {
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-.dropdown-options .dropdown-item:hover {
-    background-color: #ffffff; /* Hover effect */
-}
-
-.dropdown-options .option-icon {
-    margin-right: 10px;
-    width: 20px;
-    height: 20px;
-}
-
-.dropdown-options .dropdown-item.selected {
-    background-color: #e6f7ff; /* Highlight the selected item */
-}
-
-.dropdown-button.open + .dropdown-options {
-    display: block; /* Show the dropdown options on click */
-}
-
-.dropdown-item {
-    display: flex;
-    align-items: center; /* Center align items vertically */
-    padding: 5px; /* Add some padding for better touch targets */
-}
-
-.option-icon {
-    width: 20px; /* Set the width of the icon */
-    height: 20px; /* Set the height of the icon */
-    margin-right: 5px; /* Add space between icon and text */
-    margin-bottom: -3px;
-    position: inline-block;
-}
-
-.custom-dropdown {
-    position: relative;
-    display: inline-block;
-    width: 100%;
-}
-
-.autocomplete-container {
-    position: relative;
-    width: 100%;
-}
-
-.autocomplete-input {
-    display: flex; /* Ensure the input has a flex display */
-    align-items: center; /* Center align items vertically */
-    border-radius: 8px; /* Match border radius */
-    border: 1px solid #ccc;
-    font-size: 16px; /* Consistent font size */
-    background-color: rgba(255, 255, 255, 0.9); /* Match background color */
-    height: 35px; /* Set a specific height to match dropdown button */
-}
-
-/* Change placeholder text color and styling */
-.autocomplete-input::placeholder {
-    color: #000000; /* Placeholder text color */
-    font-size: 16px; /* Placeholder font size */
-    font-family: Oswald, sans-serif;
-}
-
-    
-    /* SEARCHBOX CONTAINER END */ /* SEARCHBOX CONTAINER END */ /* SEARCHBOX CONTAINER END */
-    /* SEARCHBOX CONTAINER END */ /* SEARCHBOX CONTAINER END */ /* SEARCHBOX CONTAINER END */
-    /* SEARCHBOX CONTAINER END */ /* SEARCHBOX CONTAINER END */ /* SEARCHBOX CONTAINER END */
 
 
-        /* Plane - button */  /* Plane - button */  /* Plane - button */
-
-        .button-link3 {
-            display: inline-block;
-            position: relative;
-            z-index: 10;
-            scale: 0.9;
-            animation: flyAnimation 1.5s ease-in-out infinite alternate;
-            margin-top: 3.5rem;
-        }
-
-        .button-container2 {
-            position: fixed;
-            z-index: 10;
-            bottom: -18vh;
-        }
-
-        @keyframes flyAnimation {
-            0% {
-                transform: translateY(4px) rotate(15deg); /* Starting position */
-            }
-            50% {
-                transform: translateY(-13px) rotate(15deg); /* Slightly upwards */
-            }
-            100% {
-                transform: translateY(4px) rotate(15deg); /* Back to starting position */
-            }
-        }
-
-        @media (max-height: 667px) {
-            .button-container2 {
-                bottom: -13vh;
-            }
-        }
-
-        @media (max-height: 740px) {
-            .button-container2 {
-                bottom: -13vh;
-            }
-        }
-
-
-        /* Clouds effect */ /* Clouds effect */ /* Clouds effect */
-
-        .clouds-wrapper {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            pointer-events: none;
-            overflow: hidden;
-            background-attachment: fixed;
-        }
-        
-        .clouds {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-        
-        .cloud {
-            position: fixed;
-            bottom: 10vh;
-            z-index: 0;
-            animation: moveCloud 5s linear infinite; /* Apply both movement and fade-out */
-            opacity: 1;
-            scale: 0.5;
-        }
-        
-        /* Cloud sizes */
-        .big {
-            width: 800px;
-            height: 300px;
-            animation-duration: 8s;
-            fill: #d8d8d8;
-        }
-        
-        .distant {
-            width: 350px;
-            height: 200px;
-            animation-duration: 7.5s;
-            fill: #d8d8d8;
-        }
-        
-        .small {
-            width: 200px;
-            height: 100px;
-            animation-duration: 7s;
-            fill: #d8d8d8;
-        }
-        
-        .massive {
-            width: 500px;
-            height: 350px;
-            animation-duration: 6.5s;
-            fill: #aaaaaa;
-        }
-        
-        .medium {
-            width: 250px;
-            height: 250px;
-            animation-duration: 6s;
-            fill: #d8d8d8;
-        }
-        
-        .smallest {
-            width: 150px;
-            height: 75px;
-            animation-duration: 5.5s;
-            fill: #aaaaaa;
-        }
-        
-        .midsmallest {
-            width: 100px;
-            height: 75px;
-            animation-duration: 5s;
-            fill: #aaaaaa;
-        }
-        
-        /* Keyframes for movement and opacity */
-        @keyframes moveCloud {
-            0% {
-                transform: translateX(250vw); /* Start off-screen on the right */
-                opacity: 1; /* Fully visible */
-            }
-            100% {
-                transform: translateX(-100vw); /* End off-screen on the left */
-                opacity: 0.4; /* Fully faded out */
-            }
-        }
-
-
-/* FOOTER LINKS + VAIVING LTD. */ /* FOOTER LINKS + VAIVING LTD. */ /* FOOTER LINKS + VAIVING LTD. */
+/* FOOTER LINKS + VAIVING LTD. */
 
 .site-footer {
     background-color: #000000;
     color: white;
     text-align: center;
+    z-index: 10;
     }
 
 /* Button styles (center aligned) */
