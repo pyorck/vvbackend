@@ -61,8 +61,8 @@ body {
     justify-content: center;    
     align-items: center;        
     position: absolute;         
-    top: clamp(2.8rem, 5vh, 3Rem); /* More responsive top positioning */
-    left: 0;                    
+    top: clamp(3.0rem, 5vh, 3.5rem); /* More responsive top positioning */
+    bottom: clamp(3.0rem, 5vh, 3.5rem); /* More responsive top positioning */                
     width: 100%;                
     z-index: 2;                 
     height: clamp(5rem, 8vh, 7rem); /* Use clamp for more flexibility */
