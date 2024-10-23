@@ -4,85 +4,54 @@ body {
     font-family: Oswald, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #000000;
+    background-color: #ffffff;
     max-height: none;
+    overflow-x: hidden;
 }
 
-
-/* TOP SECTION */
-
-.top-section {
-    background-color: #000000;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: clamp(2rem, 5vw, 2.5rem); /* Updated for larger flexibility */
-    z-index: 10; /* Higher priority than most content */
-    font-family: Oswald, sans-serif;
-    position: fixed; /* Keeps the header fixed at the top */
-    top: 0; /* Positions it at the very top */
-    left: 0;
-    right: 0;
-    width: 100%; /* Ensures full width */
+html {
+    overflow-x: hidden;
 }
-
-.nav-links {
-    display: flex;
-    gap: clamp(2rem, 4vw, 3rem); /* Make the gap responsive */
-    align-items: center;         /* Center vertically */
-}
-
-.nav-links a {
-    text-decoration: none;
-    font-family: Oswald, sans-serif;
-    color: #ffffff;
-    font-size: clamp(1rem, 3vw, 1.2rem); /* Adjust for better scaling */
-    font-weight: bold;
-    transition: color 0.1s ease, transform 0.3s ease; /* Use transform for scale */
-}
-
-.nav-links a:hover {
-    color: #fff800;
-    transform: scale(1.1); /* Changed from 'scale' to 'transform' */
-}
-
-
 
 /* VAIVING TITLE + LOGO */
 
 .section-left {
-    background-color: rgba(252, 250, 227, 0);  
+    background-color: rgb(255, 255, 255);  
     color: rgb(0, 0, 0);       
-    font-size: clamp(1rem, 1.5vw, 1.8rem); 
     display: flex;              
-    flex-direction: column;     
-    justify-content: center;    
-    align-items: center;        
-    position: absolute;         
-    top: clamp(3.0rem, 5vh, 3.5rem); /* More responsive top positioning */
-    bottom: clamp(3.0rem, 5vh, 3.5rem); /* More responsive top positioning */                
-    width: 100%;                
-    z-index: 2;                 
-    height: clamp(5rem, 8vh, 7rem); /* Use clamp for more flexibility */
+    flex-direction: row;     
+    justify-content: center;      /* Center the content horizontally */
+    align-items: center;          /* Center the items vertically */
+    position: fixed;             
+    top: 0;                      /* Stick to the top of the page */
+    width: 100%;                 
+    z-index: 1000;               /* Higher z-index to keep it on top */
+    height: clamp(3rem, 8vh, 6rem); /* Adjust height responsively */
+    white-space: nowrap;          /* Prevent wrapping */
+    box-sizing: border-box;       /* Include padding in width calculation */
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2); /* Subtle bottom shadow */
 }
-
 
 .section-left p {
     margin: 0;
     display: inline-flex;
-    align-items: center;
-    text-align: center;
-    font-size: clamp(2.2rem, 4vw, 1.5rem); /* Make font size responsive */
+    font-size: clamp(1.9rem, 5vw, 3rem); /* Smaller font size for mobile, larger for desktop */
     font-family: "Just Another Hand", serif;
     font-weight: 400;
-    margin-top: 20px;
+    line-height: 1;              /* Ensure consistent vertical alignment */
+    vertical-align: middle;      /* Align text in the middle with logo */
+    margin-left: 1rem;
+    margin-right: -0.5rem;
 }
 
+.logo {
+    display: inline-flex;        /* Keep the logo inline with the text */
+    align-items: center;         /* Center the logo vertically */
+}
 
 .logo img {
-    margin-top: -5px; /* Adjust if needed */
-    height: clamp(55px, 5vh, 65px); /* Responsive logo height */
+    height: clamp(30px, 5vh, 80px); /* Smaller logo size for mobile, larger for desktop */
+    vertical-align: middle;      /* Align logo vertically with text */
 }
 
 
@@ -104,16 +73,33 @@ body {
     flex-grow: 1;
 }
 
+.marketinghead {
+    margin-top: 11vh;
+    position: relative;
+    margin-bottom: -23vh;
+}
+
+.marketinghead p {
+    margin: 0;
+    width: clamp(20rem, 30vw, 40rem);
+    font-size: clamp(1.7rem, 4vw, 3rem); /* Smaller font size for mobile, larger for desktop */
+    line-height: 1.2;               /* Adjust vertical spacing for readability */
+    vertical-align: middle;         /* Aligns text with other elements (if needed) */
+    max-width: 45rem;                 /* Ensures text wraps within a specific width */
+    text-align: center;
+    font-weight: 500;
+    text-shadow: 3px 3px 5px rgba(255, 255, 255, 0.9); /* Subtle shadow effect */
+}
+
 /* FOOTER LINKS + VAIVING LTD. */
 
 .site-footer {
-    background-color: #000000;
+    background-color: #ffffff;
     color: white;
     text-align: center;
     z-index: 10;
     position: relative;
     height: 12vh;
-    margin-top: 1vh;
     }
 
 /* Button styles (center aligned) */
@@ -121,13 +107,14 @@ body {
     display: inline-block;
     width: 3rem;                   /* Set fixed width to make it square */
     height: 3rem;                  /* Set fixed height to match width */
-    background-color: #000000;
+    background-color: #ffffff;
     color: white;
     border-radius: 0.75rem;         /* Slightly rounded corners */
     text-align: center;             /* Center the content */
     line-height: 3rem;              /* Vertically center text/icon inside */
     font-size: 1.2rem;              /* Adjust font size to fit */
     transition: transform 0.2s ease, background-color 0.2s ease;
+    margin-top: 0.5rem;
 }
 
 .button-link:hover {
@@ -139,13 +126,14 @@ body {
     display: inline-block;
     width: 3rem;                   /* Ensure it remains square */
     height: 3rem;                  /* Ensure it remains square */
-    background-color: #000000;
+    background-color: #ffffff;
     color: white;
     border-radius: 0.75rem;         /* Rounded corners */
     text-align: center;
     line-height: 3rem;              /* Vertically center content */
     font-size: 1.2rem;              /* Ensure proper font sizing */
     transition: transform 0.2s ease, background-color 0.2s ease;
+    margin-top: 0.5rem;
 }
 
 .button-link2:hover {

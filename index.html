@@ -13,7 +13,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="pics/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="pics/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="pics/favicon-16x16.png">
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@250&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Just+Another+Hand&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@barba/core"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
@@ -22,63 +22,111 @@
 </head>
 
 <body>
+    <div id="overlay" class="overlay" style="display: none;"></div>
     <div class="site-wrapper">
         <div data-barba="wrapper">
             <div data-barba="container">
-                <div class="overlay"></div>
-                <div class="top-section">
-                    <nav class="nav-links">
-                        <a href="index.html">HOME</a>
-                        <a href="#home">LOG IN</a>
-                        <a href="#about">REGISTER</a>
-                        <a href="#contact">CONTACT</a>
-                    </nav>
                 </div>
 
-                <div class="section section-left">
-                    <p>You vibe, we vibe. Together, we are</p>
-                    <div class="logo"><img src="pics/logo-vv-v2.png" alt="Vaiving Logo"></div>
+                <div class="section-left">
+                    <p>You vibe, we vibe. Together, we are</p><div class="logo"><img src="pics/logo-vv-v2.png" alt="Vaiving Logo"></div>
                 </div>
                 
                 <div class="section-right">
+                <!-- Marketing head -->
+                <div class="marketinghead">
+                    <p>Get your <span style=font-weight:bold;>Flights+Hotel</span> for your <span style=font-weight:bold;>Low-cost</span> or <span style=font-weight:bold;>Luxury</span> surprise trip <span style=font-weight:bold;>within seconds</span> into your inbox.</p>
+                </div>
 
-                    <!-- Finder Box -->
+                    <!-- Finder Box with Buttons -->
                     <div class="finder-box">
-                        <!-- FROM -->
-                        <div class="custom-dropdown autocomplete-container">
-                            <input type="text" id="city-input" class="autocomplete-input" placeholder="Where are you from? Find your Airport!">
-                            <div id="suggestions" class="dropdown-options"></div> <!-- Suggestions will be inserted here -->
+                        <!-- Buttons to toggle between "For me" and "To Gift" -->
+                        <div class="button-container">
+                            <button class="toggle-button" id="for-me-button"><span style='font-weight:bold;font-size:20px;'>BOOK</span></button>
+                            <button class="toggle-button" id="to-gift-button"><span style='font-weight:bold;font-size:20px;'>GIFT &#127873;</span></button>
                         </div>
 
-                        <!-- BUDGET -->
-                        <div class="custom-dropdown">
-                            <div class="dropdown">
-                                <button class="dropdown-button">
-                                    <span class="dropdown-placeholder">Budget class</span>
-                                    <span class="selected-item">How much do you want to spend?</span>
-                                </button>
-                                <div class="dropdown-options">
-                                    <div class="dropdown-item" data-value="low">
-                                        <img src="pics/low.svg" alt="Low-cost Icon" class="option-icon">Low-cost
-                                    </div>
-                                    <div class="dropdown-item" data-value="mid">
-                                        <img src="pics/mid.svg" alt="Mid-cost Icon" class="option-icon">Mid-cost
-                                    </div>
-                                    <div class="dropdown-item" data-value="high">
-                                        <img src="pics/diamond.svg" alt="Luxury Icon" class="option-icon">Luxury
+                        <!-- Form for "For Me" -->
+                        <div class="form-section" id="for-me-form" style="display: block;">
+                            <!-- FROM -->
+                            <div class="custom-dropdown autocomplete-container">
+                                <input type="text" id="city-input" class="autocomplete-input" placeholder="Where are you from? Find your Airport!">
+                                <div id="suggestions" class="dropdown-options"></div> <!-- Suggestions will be inserted here -->
+                            </div>
+
+                            <!-- BUDGET -->
+                            <div class="custom-dropdown">
+                                <div class="dropdown">
+                                    <button class="dropdown-button">
+                                        <span class="dropdown-placeholder">Budget class</span>
+                                        <span class="selected-item">How much do you want to spend?&#128184;</span>
+                                    </button>
+                                    <div class="dropdown-options">
+                                        <div class="dropdown-item" data-value="low">
+                                            <img src="pics/low.svg" alt="Low-cost Icon" class="option-icon">Low-cost
+                                        </div>
+                                        <div class="dropdown-item" data-value="mid">
+                                            <img src="pics/mid.svg" alt="Mid-cost Icon" class="option-icon">Mid-cost
+                                        </div>
+                                        <div class="dropdown-item" data-value="high">
+                                            <img src="pics/diamond.svg" alt="Luxury Icon" class="option-icon">Luxury
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+
+                            <!-- Calendar -->
+                            <div class="custom-dropdown">
+                                <button class="dropdown-button" id="litepicker">
+                                    <span class="dropdown-placeholder">Departure - Return</span>
+                                    <span class="selected-dates" style="display: none"></span>
+                                </button>
+                            </div>
+
+                            <!-- Submit Button for "For Me" -->
+                            <button id="submit-for-me" data-endpoint="for-me-endpoint">GO!</button>
                         </div>
 
-                        <!-- Calendar -->
-                        <div class="custom-dropdown">
-                            <button class="dropdown-button" id="litepicker">
-                                <span class="dropdown-placeholder">Departure - Return</span>
-                                <span class="selected-dates" style="display: none"></span>
-                            </button>
+                        <!-- Form for "To Gift" (initially hidden) -->
+                        <div class="form-section" id="to-gift-form" style="display: none;">
+                            <!-- FROM -->
+                            <div class="custom-dropdown autocomplete-container">
+                                <input type="text" id="city-input" class="autocomplete-input" placeholder="Where are they from? Find an Airport!">
+                                <div id="suggestions" class="dropdown-options"></div> <!-- Suggestions will be inserted here -->
+                            </div>
+
+                            <!-- BUDGET -->
+                            <div class="custom-dropdown">
+                                <div class="dropdown">
+                                    <button class="dropdown-button">
+                                        <span class="dropdown-placeholder">Budget class</span>
+                                        <span class="selected-item">How much do you love the person?&#128157;</span>
+                                    </button>
+                                    <div class="dropdown-options">
+                                        <div class="dropdown-item" data-value="low">
+                                            <img src="pics/low.svg" alt="Low-cost Icon" class="option-icon">Low-cost
+                                        </div>
+                                        <div class="dropdown-item" data-value="mid">
+                                            <img src="pics/mid.svg" alt="Mid-cost Icon" class="option-icon">Mid-cost
+                                        </div>
+                                        <div class="dropdown-item" data-value="high">
+                                            <img src="pics/diamond.svg" alt="Luxury Icon" class="option-icon">Luxury
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Calendar -->
+                            <div class="custom-dropdown">
+                                <button class="dropdown-button" id="litepicker">
+                                    <span class="dropdown-placeholder">Departure - Return</span>
+                                    <span class="selected-dates" style="display: none"></span>
+                                </button>
+                            </div>
+
+                            <!-- Submit Button for "To Gift" -->
+                            <button id="submit-to-gift" data-endpoint="to-gift-endpoint">GO!</button>
                         </div>
-                        <div id="overlay" class="overlay" style="display: none;"></div>
 
                         <!-- GO Button (hidden until criteria is met) -->
                         <div class="button-container2" style="display: none;">
@@ -130,9 +178,59 @@
 
                     <div class="virtualcards-wrapper">
                         <div class="virtualcards-header">
-                            <p>How does Vaiving work?</p>
+                            <p>How does it work?</p>
                         </div>
                         <div class="virtualcards">
+                            
+                            <!-- First Card -->
+                            <div class="card-container">
+                                <div class="card-container__header" style="background-image: url(pics/Paris.jpg); background-size: cover;"></div>
+                                <div class="card-container__content">
+                                    <span class="title"><span style=text-decoration:underline;>Design your trip</span>: From where, budget, number of days.</span>
+                                    </span>
+                                </div>
+                            </div>
+                            
+                            <!-- Second Card -->
+                            <div class="card-container">
+                                <div class="card-container__header" style="background-image: url(pics/space.png);"></div>
+                                <div class="card-container__content">
+                                    <span class="title">Our MISSION</span>
+                                        <common-button>
+                                            <button mat-flat-button color="primary" class="common-button" type="button">
+                                                <span class="button-wrapper">
+                                                    <div class="common-button__label">Tell me more!</div>
+                                                </span>
+                                            </button>
+                                        </common-button>
+                                    </span>
+                                </div>
+                            </div>
+                            
+                            <!-- Third Card -->
+                            <div class="card-container">
+                                <div class="card-container__header" style="background-image: url(pics/Barcelona.avif);"></div>
+                                <div class="card-container__content">
+                                    <span class="title">From BCN w/ Love</span>
+                                        <common-button>
+                                            <button mat-flat-button color="primary" class="common-button" type="button">
+                                                <span class="button-wrapper">
+                                                    <div class="common-button__label">See open vacancies</div>
+                                                </span>
+                                            </button>
+                                        </common-button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="virtualcards-wrapper">
+                        <div class="virtualcards-header">
+                            <p>About Vaiving</p>
+                        </div>
+                        <div class="virtualcards">
+                            
                             <!-- First Card -->
                             <div class="card-container">
                                 <div class="card-container__header" style="background-image: url(pics/Paris.jpg); background-size: cover;"></div>
@@ -180,8 +278,6 @@
                                     </span>
                                 </div>
                             </div>
-                        </div>
-                    </div>
                 </div> <!-- End section-right -->
             </div> <!-- End of data-barba container -->
         </div> <!-- End of data-barba wrapper -->
@@ -194,7 +290,7 @@
             <a href="https://www.instagram.com/vaivingg" target="_blank" class="button-link2">
                 <img src="pics/instagram.png" alt="Instagram Icon" style="width: 25px; height: 25px; vertical-align: middle">
             </a>
-            <p style="color: white; font-size: 12px; margin-top: -2px;">&copy; 2024 - Vaiving Ltd.</p>
+            <p style="color: rgb(0, 0, 0); font-size: 14px; margin-top: 1px; font-weight: bold;">&copy; 2024 - Vaiving Ltd.</p>
         </footer>
     </div>
 

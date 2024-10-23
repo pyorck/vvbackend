@@ -107,3 +107,43 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
 });
+
+
+//GIFT OR FOR ME
+
+document.addEventListener("DOMContentLoaded", function () {
+    const forMeButton = document.getElementById("for-me-button");
+    const toGiftButton = document.getElementById("to-gift-button");
+    const forMeForm = document.getElementById("for-me-form");
+    const toGiftForm = document.getElementById("to-gift-form");
+
+    // Event listener for "For Me" button
+    forMeButton.addEventListener("click", function () {
+        forMeForm.style.display = "block";  // Show "For Me" form
+        toGiftForm.style.display = "none";  // Hide "To Gift" form
+        forMeButton.classList.add("active");  // Highlight active button
+        toGiftButton.classList.remove("active");
+    });
+
+    // Event listener for "To Gift" button
+    toGiftButton.addEventListener("click", function () {
+        toGiftForm.style.display = "block";  // Show "To Gift" form
+        forMeForm.style.display = "none";    // Hide "For Me" form
+        toGiftButton.classList.add("active");  // Highlight active button
+        forMeButton.classList.remove("active");
+    });
+
+    // Handle form submission (with different endpoints)
+    document.getElementById("submit-for-me").addEventListener("click", function () {
+        const endpoint = this.dataset.endpoint;
+        // Submit "For Me" form data to the respective endpoint
+        console.log(`For Me form submitted to: ${endpoint}`);
+    });
+
+    document.getElementById("submit-to-gift").addEventListener("click", function () {
+        const endpoint = this.dataset.endpoint;
+        // Submit "To Gift" form data to the respective endpoint
+        console.log(`To Gift form submitted to: ${endpoint}`);
+    });
+});
+
