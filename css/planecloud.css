@@ -15,17 +15,45 @@
     bottom: -18vh;
 }
 
-@keyframes flyAnimation {
+.plane-img {
+    width: 50px;
+    height: 50px;
+    vertical-align: middle;
+    position: relative;
+    rotate: 15deg;
+    top: -0.7rem;
+    animation: breatheAnimation 1s ease-in-out infinite; /* Adjust duration as needed */
+}
+
+.plane-img {
+    width: 50px;
+    height: 50px;
+    vertical-align: top;
+    position: relative;
+    animation: breatheAnimation 3s ease-in-out infinite; /* Adjust the duration as needed */
+}
+
+@keyframes breatheAnimation {
     0% {
-        transform: translateY(4px) rotate(15deg); /* Starting position */
+        transform: scale(1) translateY(0); /* Original size */
     }
-    50% {
-        transform: translateY(-13px) rotate(15deg); /* Slightly upwards */
+    85% {
+        transform: scale(1) translateY(0); /* First large expansion */
+    }
+    90% {
+        transform: scale(1.2) translateY(0); /* First quick shrink */
+    }
+    94% {
+        transform: scale(1) translateY(0); /* Second quick expansion */
+    }
+    98% {
+        transform: scale(1.2) translateY(0); /* Second quick expansion */
     }
     100% {
-        transform: translateY(4px) rotate(15deg); /* Back to starting position */
+        transform: scale(1) translateY(0); /* Back to original size */
     }
 }
+
 
 @media (max-height: 667px) {
     .button-container2 {
@@ -43,12 +71,13 @@
 /* Clouds effect */ /* Clouds effect */ /* Clouds effect */
 
 .clouds-wrapper {
-    position: absolute; /* Now absolute within right-section */
+    position: fixed; /* Now absolute within right-section */
     width: 100%;
     height: auto; /* No need for 100% height here */
     z-index: 1;
     pointer-events: none;
     background-attachment: fixed;
+    opacity: 0.7;
 }
 
 .clouds {
@@ -60,22 +89,22 @@
 }
 
 .cloud {
-    position: absolute; /* Absolute within clouds-wrapper */
-    bottom: -30vh; /* Adjust if needed */
+    position: fixed; /* Absolute within clouds-wrapper */
     left: 0;
+    bottom: -3vh;
     width: 100%;
     z-index: 0;
     animation: moveCloud 5s linear infinite;
-    opacity: 1;
-    scale: 0.5; /* Use transform instead of scale property */
+    scale: 0.8; /* Use transform instead of scale property */
 }
 
 /* Cloud sizes */
+
 .big {
     width: 800px;
     height: 300px;
     animation-duration: 8s;
-    fill: #d8d8d8;
+    fill: #cecece;
 }
 
 .distant {
@@ -96,7 +125,7 @@
     width: 500px;
     height: 350px;
     animation-duration: 6.5s;
-    fill: #aaaaaa;
+    fill: #ffffff;
 }
 
 .medium {
@@ -110,7 +139,7 @@
     width: 150px;
     height: 75px;
     animation-duration: 5.5s;
-    fill: #aaaaaa;
+    fill: #ffffff;
 }
 
 .midsmallest {
@@ -123,11 +152,22 @@
 /* Keyframes for movement and opacity */
 @keyframes moveCloud {
     0% {
-        transform: translateX(250vw); /* Start off-screen on the right */
-        opacity: 1; /* Fully visible */
+        opacity: 1;
+        -webkit-transform: translateX(1000px);
+        -moz-transform: translateX(1000px);
+        transform: translateX(1000px);
+      }
+      10% {
+    
+        opacity: 0.7;
+      }
+      90% {
+        opacity: 0.1;
+      }
+      100% {
+        opacity: 0;
+        -webkit-transform: translateX(-1000px);
+        -moz-transform: translateX(-1000px);
+        transform: translateX(-1000px);
+      }
     }
-    100% {
-        transform: translateX(-100vw); /* End off-screen on the left */
-        opacity: 0.4; /* Fully faded out */
-    }
-}

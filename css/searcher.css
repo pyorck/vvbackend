@@ -10,7 +10,7 @@
     margin: 0 auto;
     width: 100%;
     max-width: clamp(250px, 30%, 600px); /* Dynamically resize based on screen width */
-    z-index: 4;
+    z-index: 50;
     margin-top: clamp(30vh, -5vh, -20vh); /* Min: 30px, Grow with 10vh, Max: 120px */
     background-color: rgba(255, 255, 255, 0.4);
     padding: 0.5rem;
@@ -20,41 +20,39 @@
 
 /* TO BOOK - TO GIFT AND GO buttons */
 
-/* Button container to align buttons horizontally */
-.button-container {
-    display: flex;
-    justify-content: center;
-    width: 15.5rem;
-    gap: 0.5rem;
-}
+    /* Button container to align buttons horizontally */
+    .button-container {
+        display: flex;
+        justify-content: center;
+        width: 15.5rem;
+        gap: 0.5rem;
+    }
 
-.toggle-button {
-    background-color: #fffdda; /* Light grey background */
-    color: #333; /* Dark grey text */
-    border: none;
-    border-radius: 1rem; /* Rounded corners */
-    cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
-    margin-bottom: 0.5rem;
-}
+    .toggle-button {
+        background-color: #fffdda; /* Light grey background */
+        color: #333; /* Dark grey text */
+        border: none;
+        border-radius: 1rem; /* Rounded corners */
+        cursor: pointer;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+        margin-bottom: 0.5rem;
+    }
 
-/* Active state for the selected button */
-.toggle-button.active {
-    background-color: #f3ffc0; /* Highlight color */
-    color: rgb(0, 0, 0);
-}
+    /* Active state for the selected button */
+    .toggle-button.active {
+        background-color: #f3ffc0; /* Highlight color */
+        color: rgb(0, 0, 0);
+    }
 
-/* Submit (GO!) button styling */
-#submit-for-me, #submit-to-gift {
-    background-color: #f0f0f0; /* Light grey background */
-    color: #333; /* Dark grey text */
-    border: none;
-    border-radius: 8px; /* Rounded corners */
-    font-size: 0.8rem; /* Slightly larger text */
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
-}
+    /* Submit (GO!) button styling */
+    #submit-for-me, #submit-to-gift {
+        background-color: rgba(0, 0, 0, 0.0);
+        vertical-align: top;
+        height: 2.5rem;
+        border: none;
+        }
+
+
 
 /* Inputs and Buttons within Finder Box */
 .finder-box select,
@@ -71,6 +69,7 @@
 
 /* CUSTOM-DROPDOWNS */
 /* FROM Autocomplete Input */
+
 .autocomplete-container {
     position: relative;
     width: 100%;

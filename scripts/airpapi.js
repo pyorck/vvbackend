@@ -1,47 +1,7 @@
-// API TO GET AIRPORT INPUT BOX //
+// API TO GET AIRPORT INPUT BOX - TO BOOK AND TO GIFT //
 
 const geonamesUsername = 'pyorck'; // Replace with your Geonames username
 let typingTimer; // Timer identifier
-
-// Listen for input changes in the city input field
-document.getElementById('city-input').addEventListener('input', function () {
-    const cityName = this.value.trim();
-
-    // Clear the previous timer
-    clearTimeout(typingTimer);
-
-    // Set a new timer
-    typingTimer = setTimeout(() => {
-        if (cityName.length > 1) {
-            console.log('Fetching coordinates for:', cityName);
-            fetchCityCoordinates(cityName);
-        } else {
-            document.getElementById('suggestions').style.display = 'none';
-        }
-    }, 350); // Wait for 0.5 seconds after user stops typing
-});
-
-// Fetch city coordinates from Geonames API
-function fetchCityCoordinates(cityName) {
-    const geonamesUrl = `https://secure.geonames.org/searchJSON?q=${cityName}&maxRows=1&username=${geonamesUsername}`;
-
-    fetch(geonamesUrl)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('City not found');
-            }
-            return response.json();
-        })
-        .then(data => {
-            console.log('Geonames response:', data);
-            if (data.geonames && data.geonames.length > 0) {
-                const { lat, lng } = data.geonames[0];
-                console.log(`Coordinates for ${cityName}:`, lat, lng);
-                fetchNearbyAirports(lat, lng);
-            } else {
-            }
-        });
-}
 
 // Call this function at the start of your script to load the IATA codes before making any API calls
 loadIataCodes();
@@ -49,7 +9,7 @@ loadIataCodes();
 // Global variable to store the IATA code list
 let iataList = [];
 
-// Function to load the IATA codes from a JSON file (replace 'path/to/your/iataList.json' with the actual file path)
+// Function to load the IATA codes from a CSV file
 function loadIataCodes() {
     fetch('backend/european_iatas_df.csv') // Replace with the actual path to your CSV file
         .then(response => response.text()) // Get the response as text
@@ -68,8 +28,58 @@ function loadIataCodes() {
         .catch(error => console.error('Error loading IATA list:', error));
 }
 
+// General function to handle input for both "TO BOOK" and "TO GIFT"
+function handleCityInput(inputId, suggestionsId) {
+    const inputElement = document.getElementById(inputId);
+    const suggestionsContainer = document.getElementById(suggestionsId);
+    
+    inputElement.addEventListener('input', function () {
+        const cityName = this.value.trim();
+    
+        // Clear the previous timer
+        clearTimeout(typingTimer);
+    
+        // Set a new timer
+        typingTimer = setTimeout(() => {
+            if (cityName.length > 1) {
+                console.log('Fetching coordinates for:', cityName);
+                fetchCityCoordinates(cityName, suggestionsContainer);
+            } else {
+                suggestionsContainer.style.display = 'none';
+            }
+        }, 350); // Wait for 0.35 seconds after user stops typing
+    });
+}
+
+// Initialize listeners for both forms
+handleCityInput('city-input', 'suggestions'); // For "TO BOOK"
+handleCityInput('city-input1', 'suggestions1'); // For "TO GIFT"
+
+// Fetch city coordinates from Geonames API
+function fetchCityCoordinates(cityName, suggestionsContainer) {
+    const geonamesUrl = `https://secure.geonames.org/searchJSON?q=${cityName}&maxRows=1&username=${geonamesUsername}`;
+
+    fetch(geonamesUrl)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('City not found');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Geonames response:', data);
+            if (data.geonames && data.geonames.length > 0) {
+                const { lat, lng } = data.geonames[0];
+                console.log(`Coordinates for ${cityName}:`, lat, lng);
+                fetchNearbyAirports(lat, lng, suggestionsContainer);
+            } else {
+                suggestionsContainer.style.display = 'none'; // Hide suggestions if no city found
+            }
+        });
+}
+
 // Fetch nearby airports with Geonames API
-function fetchNearbyAirports(lat, lon) {
+function fetchNearbyAirports(lat, lon, suggestionsContainer) {
     const nearbyAirportsUrl = `https://secure.geonames.org/findNearbyJSON?lat=${lat}&lng=${lon}&radius=200&username=${geonamesUsername}&featureCode=AIRP&style=FULL&maxRows=100`;
 
     fetch(nearbyAirportsUrl)
@@ -82,7 +92,6 @@ function fetchNearbyAirports(lat, lon) {
         .then(data => {
             console.log('Geonames response for airports:', data);
 
-            const suggestionsContainer = document.getElementById('suggestions');
             suggestionsContainer.innerHTML = ''; // Clear previous suggestions
 
             if (data.geonames && data.geonames.length > 0) {
@@ -116,18 +125,25 @@ function fetchNearbyAirports(lat, lon) {
         });
 }
 
-document.getElementById('suggestions').addEventListener('click', function (event) {
-    if (event.target.classList.contains('dropdown-item')) {
-        const selectedAirport = event.target.textContent.trim();
-        document.getElementById('city-input').value = selectedAirport; // Update input with selected airport
-        
-        // Clear selected class from all items
-        const allItems = document.querySelectorAll('.dropdown-item');
-        allItems.forEach(item => item.classList.remove('selected'));
+// Event listener for selecting airport suggestions
+function handleSuggestionsClick(suggestionsId, inputId) {
+    document.getElementById(suggestionsId).addEventListener('click', function (event) {
+        if (event.target.classList.contains('dropdown-item')) {
+            const selectedAirport = event.target.textContent.trim();
+            document.getElementById(inputId).value = selectedAirport; // Update input with selected airport
+            
+            // Clear selected class from all items
+            const allItems = document.querySelectorAll(`#${suggestionsId} .dropdown-item`);
+            allItems.forEach(item => item.classList.remove('selected'));
 
-        // Add selected class to the clicked item
-        event.target.classList.add('selected');
+            // Add selected class to the clicked item
+            event.target.classList.add('selected');
 
-        document.getElementById('suggestions').style.display = 'none'; // Hide suggestions
-    }
-});
+            document.getElementById(suggestionsId).style.display = 'none'; // Hide suggestions
+        }
+    });
+}
+
+// Attach listeners for "TO BOOK" and "TO GIFT"
+handleSuggestionsClick('suggestions', 'city-input'); // For "TO BOOK"
+handleSuggestionsClick('suggestions1', 'city-input1'); // For "TO GIFT"

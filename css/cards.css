@@ -77,8 +77,8 @@
 }
 
 .title {
-    font-size: clamp(1.4rem, 1.5vw, 1.6rem); /* Responsive font size */
-    font-family: "Just Another Hand", cursive;
+    font-size: clamp(1.0rem, 1.5vw, 1.6rem); /* Responsive font size */
+    font-family: Oswald, sans-serif;
     align-items: center;
     text-align: center;
 }

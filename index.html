@@ -33,6 +33,7 @@
                 </div>
                 
                 <div class="section-right">
+                    
                 <!-- Marketing head -->
                 <div class="marketinghead">
                     <p>Get your <span style=font-weight:bold;>Flights+Hotel</span> for your <span style=font-weight:bold;>Low-cost</span> or <span style=font-weight:bold;>Luxury</span> surprise trip <span style=font-weight:bold;>within seconds</span> into your inbox.</p>
@@ -46,8 +47,9 @@
                             <button class="toggle-button" id="to-gift-button"><span style='font-weight:bold;font-size:20px;'>GIFT &#127873;</span></button>
                         </div>
 
-                        <!-- Form for "For Me" -->
+                        <!-- Form for "FOR ME" -->
                         <div class="form-section" id="for-me-form" style="display: block;">
+
                             <!-- FROM -->
                             <div class="custom-dropdown autocomplete-container">
                                 <input type="text" id="city-input" class="autocomplete-input" placeholder="Where are you from? Find your Airport!">
@@ -59,17 +61,17 @@
                                 <div class="dropdown">
                                     <button class="dropdown-button">
                                         <span class="dropdown-placeholder">Budget class</span>
-                                        <span class="selected-item">How much do you want to spend?&#128184;</span>
+                                        <span class="selected-item">How much do you want to spend?<span style='font-weight:bold;font-size:18px;'>&#128184;</span>
                                     </button>
                                     <div class="dropdown-options">
                                         <div class="dropdown-item" data-value="low">
-                                            <img src="pics/low.svg" alt="Low-cost Icon" class="option-icon">Low-cost
+                                            Low-cost &#128176
                                         </div>
                                         <div class="dropdown-item" data-value="mid">
-                                            <img src="pics/mid.svg" alt="Mid-cost Icon" class="option-icon">Mid-cost
+                                            Mid-cost &#128181
                                         </div>
                                         <div class="dropdown-item" data-value="high">
-                                            <img src="pics/diamond.svg" alt="Luxury Icon" class="option-icon">Luxury
+                                            Luxury &#128142
                                         </div>
                                     </div>
                                 </div>
@@ -84,15 +86,17 @@
                             </div>
 
                             <!-- Submit Button for "For Me" -->
-                            <button id="submit-for-me" data-endpoint="for-me-endpoint">GO!</button>
+                            <button id="submit-for-me" data-endpoint="for-me-endpoint"><img src="pics/plane.png" alt="Plane Icon" class="plane-img"></button>
                         </div>
 
-                        <!-- Form for "To Gift" (initially hidden) -->
+
+                        <!-- Form for "TO GIFT" -->
                         <div class="form-section" id="to-gift-form" style="display: none;">
+
                             <!-- FROM -->
                             <div class="custom-dropdown autocomplete-container">
-                                <input type="text" id="city-input" class="autocomplete-input" placeholder="Where are they from? Find an Airport!">
-                                <div id="suggestions" class="dropdown-options"></div> <!-- Suggestions will be inserted here -->
+                                <input type="text" id="city-input1" class="autocomplete-input" placeholder="Where are they from? Find an Airport!">
+                                <div id="suggestions1" class="dropdown-options"></div> <!-- Suggestions will be inserted here -->
                             </div>
 
                             <!-- BUDGET -->
@@ -100,17 +104,17 @@
                                 <div class="dropdown">
                                     <button class="dropdown-button">
                                         <span class="dropdown-placeholder">Budget class</span>
-                                        <span class="selected-item">How much do you love the person?&#128157;</span>
+                                        <span class="selected-item">How much do you love the person?<span style='font-weight:bold;font-size:18px;'>&#128157;</span>
                                     </button>
                                     <div class="dropdown-options">
                                         <div class="dropdown-item" data-value="low">
-                                            <img src="pics/low.svg" alt="Low-cost Icon" class="option-icon">Low-cost
+                                            Low-cost &#128176
                                         </div>
                                         <div class="dropdown-item" data-value="mid">
-                                            <img src="pics/mid.svg" alt="Mid-cost Icon" class="option-icon">Mid-cost
+                                            Mid-cost &#128181
                                         </div>
                                         <div class="dropdown-item" data-value="high">
-                                            <img src="pics/diamond.svg" alt="Luxury Icon" class="option-icon">Luxury
+                                            Luxury &#128142
                                         </div>
                                     </div>
                                 </div>
@@ -118,14 +122,14 @@
 
                             <!-- Calendar -->
                             <div class="custom-dropdown">
-                                <button class="dropdown-button" id="litepicker">
+                                <button class="dropdown-button" id="litepicker1">
                                     <span class="dropdown-placeholder">Departure - Return</span>
-                                    <span class="selected-dates" style="display: none"></span>
+                                    <span class="selected-dates1" style="display: none"></span>
                                 </button>
                             </div>
 
                             <!-- Submit Button for "To Gift" -->
-                            <button id="submit-to-gift" data-endpoint="to-gift-endpoint">GO!</button>
+                            <button id="submit-to-gift" data-endpoint="to-gift-endpoint"><img src="pics/plane.png" alt="Plane Icon" class="plane-img"></button>
                         </div>
 
                         <!-- GO Button (hidden until criteria is met) -->
@@ -184,41 +188,27 @@
                             
                             <!-- First Card -->
                             <div class="card-container">
-                                <div class="card-container__header" style="background-image: url(pics/Paris.jpg); background-size: cover;"></div>
+                                <div class="card-container__header" style="background-image: url(pics/Rome.jpg); background-size: cover;"></div>
                                 <div class="card-container__content">
-                                    <span class="title"><span style=text-decoration:underline;>Design your trip</span>: From where, budget, number of days.</span>
+                                    <span class="title">Design the trip:<br>From, Budget, Dates.</span>
                                     </span>
                                 </div>
                             </div>
                             
                             <!-- Second Card -->
                             <div class="card-container">
-                                <div class="card-container__header" style="background-image: url(pics/space.png);"></div>
+                                <div class="card-container__header" style="background-image: url(pics/London.jpg);"></div>
                                 <div class="card-container__content">
-                                    <span class="title">Our MISSION</span>
-                                        <common-button>
-                                            <button mat-flat-button color="primary" class="common-button" type="button">
-                                                <span class="button-wrapper">
-                                                    <div class="common-button__label">Tell me more!</div>
-                                                </span>
-                                            </button>
-                                        </common-button>
+                                    <span class="title">Final preferences:<br>Departure time, etc.</span>
                                     </span>
                                 </div>
                             </div>
                             
                             <!-- Third Card -->
                             <div class="card-container">
-                                <div class="card-container__header" style="background-image: url(pics/Barcelona.avif);"></div>
+                                <div class="card-container__header" style="background-image: url(pics/Berlin.jpg);"></div>
                                 <div class="card-container__content">
-                                    <span class="title">From BCN w/ Love</span>
-                                        <common-button>
-                                            <button mat-flat-button color="primary" class="common-button" type="button">
-                                                <span class="button-wrapper">
-                                                    <div class="common-button__label">See open vacancies</div>
-                                                </span>
-                                            </button>
-                                        </common-button>
+                                    <span class="title">Pay and Vibe<br>Trip info 72h before!</span>
                                     </span>
                                 </div>
                             </div>
@@ -235,7 +225,7 @@
                             <div class="card-container">
                                 <div class="card-container__header" style="background-image: url(pics/Paris.jpg); background-size: cover;"></div>
                                 <div class="card-container__content">
-                                    <span class="title">VAIVING? What is it?</span>
+                                    <span class="title">VAIVING?</span>
                                         <common-button>
                                             <button mat-flat-button color="primary" class="common-button" type="button">
                                                 <span class="button-wrapper">

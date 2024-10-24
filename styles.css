@@ -88,7 +88,7 @@ html {
     max-width: 45rem;                 /* Ensures text wraps within a specific width */
     text-align: center;
     font-weight: 500;
-    text-shadow: 3px 3px 5px rgba(255, 255, 255, 0.9); /* Subtle shadow effect */
+    text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.5); /* Subtle shadow effect */
 }
 
 /* FOOTER LINKS + VAIVING LTD. */
