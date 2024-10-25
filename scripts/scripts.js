@@ -218,3 +218,22 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
+
+    // BLOCK VIRTUAL CARDS
+
+    const virtualCards = document.querySelector('.virtualcards1');
+
+    virtualCards.addEventListener('touchstart', function(e) {
+        // Prevent vertical scrolling
+        e.stopPropagation();
+    });
+
+    virtualCards.addEventListener('touchmove', function(e) {
+        const touch = e.touches[0];
+        // Prevent vertical scrolling when moving horizontally
+        if (Math.abs(touch.clientX - touch.pageX) > Math.abs(touch.clientY - touch.pageY)) {
+            e.preventDefault(); // Allow horizontal scrolling
+        } else {
+            e.stopPropagation(); // Prevent vertical scrolling
+        }
+    });
