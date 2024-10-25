@@ -17,8 +17,8 @@
     font-size: clamp(2.2rem, 2vw, 4.5rem); /* Responsive font size */
     font-family: "Inter Tight", serif;
     font-weight: 500;
-    color: black;
-    text-shadow: 2px 2px 4px rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 2px 4px rgb(0, 0, 0);
     margin: 1rem 0 2vh 0; /* Add vertical margin between header and cards */
 }
 
@@ -33,7 +33,7 @@
     max-width: calc(100% - 40px); /* Adjust width based on left padding */
     box-sizing: border-box;
     justify-content: flex-start; /* Align cards to the left */
-    align-items: center; /* Center cards vertically */
+    align-items: center; /* Center cards ve4rtically */
     padding-bottom: 2vh;
     overflow-y: hidden; /* Disable vertical scrolling */
 }
