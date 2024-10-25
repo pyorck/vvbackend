@@ -6,6 +6,7 @@
     <title>Vaiving</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="css/cards.css">
+    <link rel="stylesheet" href="css/cards1.css">
     <link rel="stylesheet" href="css/searcher.css">
     <link rel="stylesheet" href="css/calendar.css">
     <link rel="stylesheet" href="css/planecloud.css">
@@ -15,6 +16,9 @@
     <link rel="icon" type="image/png" sizes="16x16" href="pics/favicon-16x16.png">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Just+Another+Hand&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@barba/core"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>
@@ -52,7 +56,7 @@
 
                             <!-- FROM -->
                             <div class="custom-dropdown autocomplete-container">
-                                <input type="text" id="city-input" class="autocomplete-input" placeholder="Where are you from? Find your Airport!">
+                                <input type="text" id="city-input" class="autocomplete-input" placeholder="Where do you fly from?">
                                 <div id="suggestions" class="dropdown-options"></div> <!-- Suggestions will be inserted here -->
                             </div>
 
@@ -61,7 +65,7 @@
                                 <div class="dropdown">
                                     <button class="dropdown-button">
                                         <span class="dropdown-placeholder">Budget class</span>
-                                        <span class="selected-item">How much do you want to spend?<span style='font-weight:bold;font-size:18px;'>&#128184;</span>
+                                        <span class="selected-item">How much do you want to spend? <span style='font-weight:bold;font-size:14px;'>&#128184;</span>
                                     </button>
                                     <div class="dropdown-options">
                                         <div class="dropdown-item" data-value="low">
@@ -95,7 +99,7 @@
 
                             <!-- FROM -->
                             <div class="custom-dropdown autocomplete-container">
-                                <input type="text" id="city-input1" class="autocomplete-input" placeholder="Where are they from? Find an Airport!">
+                                <input type="text" id="city-input1" class="autocomplete-input" placeholder="Where do they fly from?">
                                 <div id="suggestions1" class="dropdown-options"></div> <!-- Suggestions will be inserted here -->
                             </div>
 
@@ -104,7 +108,7 @@
                                 <div class="dropdown">
                                     <button class="dropdown-button">
                                         <span class="dropdown-placeholder">Budget class</span>
-                                        <span class="selected-item">How much do you love the person?<span style='font-weight:bold;font-size:18px;'>&#128157;</span>
+                                        <span class="selected-item">How much do you love the person? <span style='font-weight:bold;font-size:14px;'>&#128157;</span>
                                     </button>
                                     <div class="dropdown-options">
                                         <div class="dropdown-item" data-value="low">
@@ -123,7 +127,7 @@
                             <!-- Calendar -->
                             <div class="custom-dropdown">
                                 <button class="dropdown-button" id="litepicker1">
-                                    <span class="dropdown-placeholder">Departure - Return</span>
+                                    <span class="dropdown-placeholder1">Departure - Return</span>
                                     <span class="selected-dates1" style="display: none"></span>
                                 </button>
                             </div>
@@ -188,86 +192,104 @@
                             
                             <!-- First Card -->
                             <div class="card-container">
-                                <div class="card-container__header" style="background-image: url(pics/Rome.jpg); background-size: cover;"></div>
+                                <div class="card-container__header" 
+                                    style="background-image: url(pics/1howto.png); 
+                                            background-size: contain; 
+                                            background-position: center; 
+                                            background-repeat: no-repeat;
+                                            scale: 1.2;">
+                                </div>
                                 <div class="card-container__content">
-                                    <span class="title">Design the trip:<br>From, Budget, Dates.</span>
+                                    <span class="title"><span style=font-weight:bold;>Design the trip</span><br>From, Budget & Dates</span>
                                     </span>
                                 </div>
                             </div>
                             
                             <!-- Second Card -->
                             <div class="card-container">
-                                <div class="card-container__header" style="background-image: url(pics/London.jpg);"></div>
+                                <div class="card-container__header" 
+                                    style="background-image: url(pics/2howto.png); 
+                                            background-size: contain; 
+                                            background-position: center; 
+                                            background-repeat: no-repeat;
+                                            scale: 1.2;">
+                                </div>
                                 <div class="card-container__content">
-                                    <span class="title">Final preferences:<br>Departure time, etc.</span>
+                                    <span class="title"><span style=font-weight:bold;>Provide your details</span><br>We'll book it for you!</span>
                                     </span>
                                 </div>
                             </div>
                             
                             <!-- Third Card -->
                             <div class="card-container">
-                                <div class="card-container__header" style="background-image: url(pics/Berlin.jpg);"></div>
+                                <div class="card-container__header" 
+                                    style="background-image: url(pics/3howto.png); 
+                                            background-size: contain; 
+                                            background-position: center; 
+                                            background-repeat: no-repeat;
+                                            scale: 1.2;">
+                                </div>
                                 <div class="card-container__content">
-                                    <span class="title">Pay and Vibe<br>Trip info 72h before!</span>
+                                    <span class="title"><span style=font-weight:bold;>Pay and Vibe</span><br>Surprise 72h before</span>
                                     </span>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="virtualcards-wrapper">
-                        <div class="virtualcards-header">
-                            <p>About Vaiving</p>
+                    <div class="virtualcards-wrapper1">
+                        <div class="virtualcards-header1">
+                            <p><span style="font-style: italic;">The fine print</span></p>
                         </div>
-                        <div class="virtualcards">
-                            
+                        <div class="virtualcards1">
                             <!-- First Card -->
-                            <div class="card-container">
-                                <div class="card-container__header" style="background-image: url(pics/Paris.jpg); background-size: cover;"></div>
-                                <div class="card-container__content">
-                                    <span class="title">VAIVING?</span>
-                                        <common-button>
-                                            <button mat-flat-button color="primary" class="common-button" type="button">
-                                                <span class="button-wrapper">
-                                                    <div class="common-button__label">How does it work?</div>
-                                                </span>
-                                            </button>
-                                        </common-button>
-                                    </span>
+                            <div class="card-container1">
+                                <div class="card-container__header1" style="background-image: url(pics/airplanecard.jpg); background-size: cover;"></div>
+                                <div class="card-container__content1">
+                                    <span class="title1">FAQs</span>
+                                    <div class="line"></div>
+                                    <span class="description">Can I fly from all over the world or just Europe? Are all the airports shown available to fly from? What does luxury budget mean?</span>
+                                    <common-button>
+                                        <button mat-flat-button color="primary" class="common-button1" type="button">
+                                            <span class="button-wrapper1">
+                                                <div class="common-button__label1">Learn More</div>
+                                            </span>
+                                        </button>
+                                    </common-button>
                                 </div>
                             </div>
-                            
                             <!-- Second Card -->
-                            <div class="card-container">
-                                <div class="card-container__header" style="background-image: url(pics/space.png);"></div>
-                                <div class="card-container__content">
-                                    <span class="title">Our MISSION</span>
-                                        <common-button>
-                                            <button mat-flat-button color="primary" class="common-button" type="button">
-                                                <span class="button-wrapper">
-                                                    <div class="common-button__label">Tell me more!</div>
-                                                </span>
-                                            </button>
-                                        </common-button>
-                                    </span>
+                            <div class="card-container1">
+                                <div class="card-container__header1" style="background-image: url(pics/hotelex.jpg);"></div>
+                                <div class="card-container__content1">
+                                    <span class="title1">OUR PARTNERS</span>
+                                    <div class="line"></div>
+                                    <span class="description">How does Vaiving choose the Hotels/Airlines offered in the platform? How can I join Vaiving as an Hotel/Airline?</span>
+                                    <common-button>
+                                        <button mat-flat-button color="primary" class="common-button1" type="button">
+                                            <span class="button-wrapper1">
+                                                <div class="common-button__label1">Partners? Tell me more!</div>
+                                            </span>
+                                        </button>
+                                    </common-button>
                                 </div>
                             </div>
-                            
                             <!-- Third Card -->
-                            <div class="card-container">
-                                <div class="card-container__header" style="background-image: url(pics/Barcelona.avif);"></div>
-                                <div class="card-container__content">
-                                    <span class="title">From BCN w/ Love</span>
-                                        <common-button>
-                                            <button mat-flat-button color="primary" class="common-button" type="button">
-                                                <span class="button-wrapper">
-                                                    <div class="common-button__label">See open vacancies</div>
-                                                </span>
-                                            </button>
-                                        </common-button>
-                                    </span>
+                            <div class="card-container1">
+                                <div class="card-container__header1" style="background-image: url(pics/space.png);"></div>
+                                <div class="card-container__content1">
+                                    <span class="title1">THE MISSION</span>
+                                    <div class="line"></div>
+                                    <span class="description">From MvP to the Largest Social Media Platform for Travel. Combining Community Collaboration, AI and Blockchain.</span>
+                                    <common-button>
+                                        <button mat-flat-button color="primary" class="common-button1" type="button">
+                                            <span class="button-wrapper1">
+                                                <div class="common-button__label1">Join our mission!</div>
+                                            </span>
+                                        </button>
+                                    </common-button>
                                 </div>
-                            </div>
+                            </div>                  
                 </div> <!-- End section-right -->
             </div> <!-- End of data-barba container -->
         </div> <!-- End of data-barba wrapper -->
@@ -280,7 +302,7 @@
             <a href="https://www.instagram.com/vaivingg" target="_blank" class="button-link2">
                 <img src="pics/instagram.png" alt="Instagram Icon" style="width: 25px; height: 25px; vertical-align: middle">
             </a>
-            <p style="color: rgb(0, 0, 0); font-size: 14px; margin-top: 1px; font-weight: bold;">&copy; 2024 - Vaiving Ltd.</p>
+            <p style="color: rgb(0, 0, 0); font-size: 12px; margin-top: 1px; font-weight: bold;">&copy; 2024 - Vaiving Ltd.</p>
         </footer>
     </div>
 

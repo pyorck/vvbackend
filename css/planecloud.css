@@ -21,16 +21,9 @@
     vertical-align: middle;
     position: relative;
     rotate: 15deg;
-    top: -0.7rem;
-    animation: breatheAnimation 1s ease-in-out infinite; /* Adjust duration as needed */
-}
-
-.plane-img {
-    width: 50px;
-    height: 50px;
-    vertical-align: top;
-    position: relative;
-    animation: breatheAnimation 3s ease-in-out infinite; /* Adjust the duration as needed */
+    top: -0.8rem;
+    animation: breatheAnimation 2s ease-in-out infinite; /* Adjust duration as needed */
+    scale: 1.4;
 }
 
 @keyframes breatheAnimation {

@@ -1,7 +1,7 @@
 /* BODY */
 
 body {
-    font-family: Oswald, sans-serif;
+    font-family: "Inter Tight", serif;
     margin: 0;
     padding: 0;
     background-color: #ffffff;
@@ -75,21 +75,22 @@ html {
 
 .marketinghead {
     margin-top: 11vh;
-    position: relative;
+    position: inline-block;
     margin-bottom: -23vh;
 }
 
 .marketinghead p {
-    margin: 0;
-    width: clamp(20rem, 30vw, 40rem);
-    font-size: clamp(1.7rem, 4vw, 3rem); /* Smaller font size for mobile, larger for desktop */
-    line-height: 1.2;               /* Adjust vertical spacing for readability */
-    vertical-align: middle;         /* Aligns text with other elements (if needed) */
-    max-width: 45rem;                 /* Ensures text wraps within a specific width */
+    margin: 0 auto;
+    width: min(90vw, 55rem); /* Responsive width up to a max */
+    font-size: calc(1.2rem + 1.3vw); /* Dynamically adjust font size */
+    line-height: 1.1; /* Adjust vertical spacing for readability */
+    max-width: 80rem; /* Ensures text wraps within a specific width */
     text-align: center;
-    font-weight: 500;
+    font-weight: 400;
     text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.5); /* Subtle shadow effect */
+    font-family: "Inter Tight", serif;
 }
+
 
 /* FOOTER LINKS + VAIVING LTD. */
 
@@ -99,7 +100,8 @@ html {
     text-align: center;
     z-index: 10;
     position: relative;
-    height: 12vh;
+    height: 10vh;
+    font-family: "Inter Tight", serif;
     }
 
 /* Button styles (center aligned) */

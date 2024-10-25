@@ -10,7 +10,7 @@
     background-color: rgba(255, 255, 255, 0.9);
     cursor: pointer;
     position: relative;
-    font-family: Oswald, sans-serif;
+    font-family: "Inter Tight", serif;
     color: black;
     box-sizing: border-box;
     height: 60px; /* Match height with FROM and BUDGET */
@@ -19,7 +19,7 @@
 }
 
 #litepicker::placeholder {
-    color: #535353;
+    color: #000000;
     font-size: 14px;
     font-family: Oswald, sans-serif;
     font-weight: bold;
@@ -30,7 +30,7 @@
 
 .dropdown-placeholder {
     font-size: 14px;
-    color: #535353;
+    color: #000000;
     position: absolute;
     top: 8px;
     left: 12.5px;
@@ -41,14 +41,14 @@
 .selected-dates {
     margin-top: 4px;
     margin-left: 1px;
-    font-size: 16px;
+    font-size: 14px;
     display: block; /* Always show the selected item */
 }
 
 .selected-dates1 {
-    margin-top: 1.45rem;
-    margin-left: 0.2rem;
-    font-size: 16px;
+    margin-top: 1.5rem;
+    margin-left: 0.18rem;
+    font-size: 14px;
     display: block; /* Always show the selected item */
 }
 
