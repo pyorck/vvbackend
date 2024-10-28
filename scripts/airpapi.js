@@ -80,7 +80,7 @@ function fetchCityCoordinates(cityName, suggestionsContainer) {
 
 // Fetch nearby airports with Geonames API
 function fetchNearbyAirports(lat, lon, suggestionsContainer) {
-    const nearbyAirportsUrl = `https://secure.geonames.org/findNearbyJSON?lat=${lat}&lng=${lon}&radius=200&username=${geonamesUsername}&featureCode=AIRP&style=FULL&maxRows=100`;
+    const nearbyAirportsUrl = `https://secure.geonames.org/findNearbyJSON?lat=${lat}&lng=${lon}&radius=150&username=${geonamesUsername}&featureCode=AIRP&style=FULL&maxRows=100`;
 
     fetch(nearbyAirportsUrl)
         .then(response => {
@@ -125,13 +125,28 @@ function fetchNearbyAirports(lat, lon, suggestionsContainer) {
         });
 }
 
+// Attach listeners for "TO BOOK" and "TO GIFT"
+handleSuggestionsClick('suggestions', 'city-input'); // For "TO BOOK"
+handleSuggestionsClick('suggestions1', 'city-input1'); // For "TO GIFT"
+
+
+// Declare the array to store selected airports globally
+let selectedAirports = [];
+
 // Event listener for selecting airport suggestions
 function handleSuggestionsClick(suggestionsId, inputId) {
     document.getElementById(suggestionsId).addEventListener('click', function (event) {
         if (event.target.classList.contains('dropdown-item')) {
             const selectedAirport = event.target.textContent.trim();
             document.getElementById(inputId).value = selectedAirport; // Update input with selected airport
-            
+
+            // Log the selected airport suggestion to the console
+            console.log('Selected Airport:', selectedAirport);
+                        
+            // Store only the most recent selected airport in the array
+            selectedAirports = [selectedAirport]; // Replace previous selection
+            console.log('Airports Stored:', selectedAirports); // Log the stored airports
+
             // Clear selected class from all items
             const allItems = document.querySelectorAll(`#${suggestionsId} .dropdown-item`);
             allItems.forEach(item => item.classList.remove('selected'));
@@ -144,6 +159,16 @@ function handleSuggestionsClick(suggestionsId, inputId) {
     });
 }
 
-// Attach listeners for "TO BOOK" and "TO GIFT"
-handleSuggestionsClick('suggestions', 'city-input'); // For "TO BOOK"
-handleSuggestionsClick('suggestions1', 'city-input1'); // For "TO GIFT"
+// Function to display selected airports in HTML
+function displaySelectedAirports() {
+    const displayContainer = document.getElementById('selected-airports-display');
+    displayContainer.innerHTML = ''; // Clear existing content
+
+// Append each airport in the array as a paragraph
+selectedAirports.forEach(airport => {
+    const paragraph = document.createElement('p'); // Create a <p> element
+    paragraph.textContent = airport; // Set the text to the airport name
+    displayContainer.appendChild(paragraph); // Add to the display
+});
+
+}

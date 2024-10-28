@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/searcher.css">
     <link rel="stylesheet" href="css/calendar.css">
     <link rel="stylesheet" href="css/planecloud.css">
+    <link rel="stylesheet" href="css/formsubmitted.css">
     <!--<link rel="stylesheet" href="css/pop-ups.css"> To be implemented later-->
     <link rel="apple-touch-icon" sizes="180x180" href="pics/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="pics/favicon-32x32.png">
@@ -40,7 +41,7 @@
                     
                 <!-- Marketing head -->
                 <div class="marketinghead">
-                    <p>Get your <span style=font-weight:bold;>Flights+Hotel</span> for your <span style=font-weight:bold;>Low-cost</span> or <span style=font-weight:bold;>Luxury</span> surprise trip <span style=font-weight:bold;>within seconds</span> into your inbox.</p>
+                    <p>Get your <span style=font-weight:bold;>Flights+Hotel</span> for your <span style=font-weight:bold;>Low-cost</span> or <span style=font-weight:bold;>Luxury</span> surprise trip following <span style=font-weight:bold;>3 simple steps:</span></p>
                 </div>
 
                     <!-- Finder Box with Buttons -->
@@ -56,7 +57,7 @@
 
                             <!-- FROM -->
                             <div class="custom-dropdown autocomplete-container">
-                                <input type="text" id="city-input" class="autocomplete-input" placeholder="Where do you fly from?">
+                                <input type="text" autocomplete="off" id="city-input" class="autocomplete-input" placeholder="Where do you fly from?">
                                 <div id="suggestions" class="dropdown-options"></div> <!-- Suggestions will be inserted here -->
                             </div>
 
@@ -88,7 +89,7 @@
                                     <span class="selected-dates" style="display: none"></span>
                                 </button>
                             </div>
-
+                            
                             <!-- Submit Button for "For Me" -->
                             <button id="submit-for-me" data-endpoint="for-me-endpoint"><img src="pics/plane.png" alt="Plane Icon" class="plane-img"></button>
                         </div>
@@ -136,13 +137,6 @@
                             <button id="submit-to-gift" data-endpoint="to-gift-endpoint"><img src="pics/plane.png" alt="Plane Icon" class="plane-img"></button>
                         </div>
 
-                        <!-- GO Button (hidden until criteria is met) -->
-                        <div class="button-container2" style="display: none;">
-                            <a href="index.html" data-barba="link" class="button-link3">
-                                <img src="pics/plane.png" alt="Plane Icon" style="position: relative; width: 100px; height: 100px; vertical-align: middle" class="plane-img">
-                            </a>
-                        </div>
-
                         <!-- Clouds -->
                         <div class="clouds-wrapper">
                             <div class="clouds">
@@ -180,6 +174,7 @@
                                 <svg class="cloud midsmallest" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="762px" height="331px" viewBox="0 0 762 331" enable-background="new 0 0 762 331" xml:space="preserve">
                                     <path d="M715.394,228h-16.595c0.79-5.219,1.201-10.562,1.201-16c0-58.542-47.458-106-106-106 c-8.198,0-16.178,0.932-23.841,2.693C548.279,45.434,488.199,0,417.5,0c-84.827,0-154.374,65.401-160.98,148.529 C245.15,143.684,232.639,141,219.5,141c-49.667,0-90.381,38.315-94.204,87H46.607C20.866,228,0,251.058,0,279.5 S20.866,331,46.607,331h668.787C741.133,331,762,307.942,762,279.5S741.133,228,715.394,228z"></path>
                                 </svg>
+
                             </div>
                         </div>
                     </div>
@@ -305,54 +300,13 @@
             <p style="color: rgb(0, 0, 0); font-size: 12px; margin-top: 1px; font-weight: bold;">&copy; 2024 - Vaiving Ltd.</p>
         </footer>
     </div>
-
+    
 </body>
 
     <!-- Dynamic GSAP Transition Handling for index -->
     
     <script src="scripts/scripts.js"></script>
     <script src="scripts/airpapi.js"></script>
-    <script>
-
-        function updateContent() {
-            const leftSection = document.querySelector('.section-left');
-            const rightSection = document.querySelector('.section-right');
-            const plane = document.querySelector('.button-container2'); // The button that triggers the animation
-        
-            // Create a GSAP timeline for coordinated animations
-            const tl = gsap.timeline();
-        
-            // Step 1: Animate the plane to "fly" up and down
-            tl.set(plane, { zIndex: 10 }) // Ensure it's on top during the animation
-              .to(plane, {
-                  scale: 1.5,        // Move the plane upwards
-                  opacity: 0.9,              
-                  ease: 'power1.inOut'
-
-              })
-        
-              // Step 6: Fade in the right section after plane animation finishes
-              .call(() => {
-                fetch('cities.html')
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    return response.text();
-                })
-                .then(data => {
-                    rightSection.innerHTML = data; // Set the HTML content to the fetched data
-                });
-        
-                // Reset right section's position and opacity for the next animation
-                gsap.set(rightSection, { opacity: 0, display: 'block' }); // Set to block to make it visible
-              })
-              .to(rightSection, {
-                  opacity: 1, 
-                  duration: 0.7,
-                  ease: 'power2.inOut'
-              });
-        };
-        </script>
+    <script src="scripts/popup.js"></script>
 
 </html>

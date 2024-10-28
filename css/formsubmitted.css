@@ -1,0 +1,47 @@
+/* General styling for the submitted form */
+#submitted-form {
+    max-width: 600px; /* Limit max width */
+    max-height: 1200px;
+    height: 500px;
+    font-family: "Inter Tight", serif; /* Consistent font */
+}
+
+/* Styling for the heading within the submitted form */
+#submitted-form h1 {
+    font-size: calc(1.2rem + 1.3vw); /* Dynamically adjust font size */
+    color: #000000; /* Dark grey color for text */
+    text-align: center; /* Center the heading */
+    text-wrap: nowrap;
+}
+
+/* Styling for the airport selected display */
+#airport-selected {
+    font-size: calc(0.6rem + 1.3vw); /* Dynamically adjust font size */
+    font-weight: 600;
+    color: #1c1c1c; /* Bootstrap primary color */
+    margin-top: -0.5rem;
+}
+
+/* Styling for the list of selected airports */
+#selected-airports-display {
+    margin-top: -0.8rem;
+    color: #000000; /* Medium grey color */
+    font-size: calc(0.5rem + 1.3vw); /* Dynamically adjust font size */
+    background-color: rgba(240, 248, 255, 0.8);
+}
+
+/* Styling for the list of selected airports */
+#selected-value-display {
+    margin-top: -0.8rem;
+    color: #000000; /* Medium grey color */
+    font-size: calc(0.5rem + 1.3vw); /* Dynamically adjust font size */
+    background-color: rgba(240, 248, 255, 0.8);
+}
+
+/* Styling for the list of selected airports */
+#selected-dates-display {
+    margin-top: -0.8rem;
+    color: #000000; /* Medium grey color */
+    font-size: calc(0.5rem + 1.3vw); /* Dynamically adjust font size */
+    background-color: rgba(240, 248, 255, 0.8);
+}

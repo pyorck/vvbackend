@@ -41,14 +41,14 @@
 .selected-dates {
     margin-top: 4px;
     margin-left: 1px;
-    font-size: 14px;
+    font-size: 13px;
     display: block; /* Always show the selected item */
 }
 
 .selected-dates1 {
-    margin-top: 1.5rem;
+    margin-top: 1.4rem;
     margin-left: 0.18rem;
-    font-size: 14px;
+    font-size: 13px;
     display: block; /* Always show the selected item */
 }
 

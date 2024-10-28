@@ -11,12 +11,13 @@
     width: 100%;
     max-width: clamp(250px, 30%, 600px); /* Dynamically resize based on screen width */
     z-index: 50;
-    margin-top: clamp(30vh, -5vh, -20vh); /* Min: 30px, Grow with 10vh, Max: 120px */
+    margin-top: clamp(28vh, -5vh, -20vh); /* Min: 30px, Grow with 10vh, Max: 120px */
     background-color: rgba(255, 255, 255, 0.4);
     padding: 0.5rem;
     border-radius: 1.2rem;
     scale: 1.25;
     font-family: "Inter Tight", serif;
+    position: relative;
 }
 
 /* TO BOOK - TO GIFT AND GO buttons */
@@ -231,7 +232,7 @@
 }
 
 .dropdown-options .dropdown-item.selected {
-    background-color: #e6f7ff; /* Highlight the selected item */
+    background-color: #ffffff; /* Highlight the selected item */
 }
 
 .dropdown-button.open + .dropdown-options {
