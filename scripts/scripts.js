@@ -23,22 +23,25 @@
     options.addEventListener('click', (event) => {
         const selectedOption = event.target.closest('.dropdown-item');
         if (selectedOption) {
-            const value = selectedOption.dataset.value; // This still captures the 'low', 'mid', 'high'
-            const displayValue = selectedOption.innerHTML; // Capture the inner HTML including emoji and text
+            const value = selectedOption.dataset.value;
+            const displayValue = selectedOption.innerHTML;
 
             // Update the displayed selected item
-            selectedItem.innerHTML = displayValue; // Set the selected item's HTML
-            selectedItem.style.display = 'inline'; // Ensure selected item is visible
-            placeholder.style.display = 'inline'; // Show placeholder after selection
+            selectedItem.innerHTML = displayValue;
+            selectedItem.style.display = 'inline';
+            placeholder.style.display = 'inline';
 
             // Close the dropdown
             options.style.display = 'none';
 
-            // Store the selected display value
-            selectedValues.push(displayValue); // Store the full display value in the array
-            console.log('Selected values:', selectedValues); // Log the stored values
+            // Clear the previous selection and store only the latest display value
+            selectedValues.length = 0;
+            selectedValues.push(displayValue);
+            console.log('Selected values:', selectedValues);
+            validateSelections();
         }
     });
+
 });
 
         // Close dropdowns when clicking outside
@@ -76,7 +79,8 @@ document.addEventListener("DOMContentLoaded", function() {
       element: dateInput, // Link the picker to the button
       singleMode: false,
       numberOfMonths: 1,
-      minDate: new Date(),
+      minDate: new Date(new Date().setDate(new Date().getDate() + 6)), // Set min date to 7 days in advance
+      minDays: 3,
       format: 'DD/MM/YYYY',
       autoApply: false,
       buttonText: {
@@ -86,10 +90,12 @@ document.addEventListener("DOMContentLoaded", function() {
       setup: (picker) => {
         picker.on('selected', (date1, date2) => {
             const dateString = `From <strong>${date1.format('DD/MM/YY')}</strong> to <strong>${date2 ? date2.format('DD/MM/YY') : ''}</strong>`;
+            selectedDates.length = 0; // Clear the array
             selectedDates.push(dateString); // Store the selected date string
             selectedDatesPlaceholder.innerHTML = dateString; // Render selected dates
             selectedDatesPlaceholder.style.display = 'block'; // Show selected dates placeholder
             console.log('Selected dates:', selectedDates);
+            validateSelections(); // Check if all selections are made
         });
       }
     });
@@ -124,6 +130,7 @@ document.addEventListener("DOMContentLoaded", function() {
             const pickerElement = document.querySelector('.litepicker');
             if (isCalendarOpened && pickerElement && !pickerElement.contains(event.target)) {
                 picker.show();
+                overlay.style.display = 'block'; // Show the overlay
             }
         });
 });
@@ -141,7 +148,8 @@ document.addEventListener("DOMContentLoaded", function() {
       element: dateInput, // Link the picker to the button
       singleMode: false,
       numberOfMonths: 1,
-      minDate: new Date(),
+      minDate: new Date(new Date().setDate(new Date().getDate() + 6)), // Set min date to 7 days in advance
+      minDays: 3,
       format: 'DD/MM/YYYY',
       autoApply: false,
       buttonText: {
@@ -151,10 +159,12 @@ document.addEventListener("DOMContentLoaded", function() {
       setup: (picker) => {
         picker.on('selected', (date1, date2) => {
             const dateString = `From <strong>${date1.format('DD/MM/YY')}</strong> to <strong>${date2 ? date2.format('DD/MM/YY') : ''}</strong>`;
+            selectedDates.length = 0; // Clear the array
             selectedDates.push(dateString); // Store the selected date string
             selectedDatesPlaceholder.innerHTML = dateString; // Render selected dates
             selectedDatesPlaceholder.style.display = 'block'; // Show selected dates placeholder
             console.log('Selected dates:', selectedDates);
+            validateSelections(); // Check if all selections are made
         });
       }
     });
@@ -189,6 +199,7 @@ document.addEventListener("DOMContentLoaded", function() {
             const pickerElement = document.querySelector('.litepicker');
             if (isCalendarOpened && pickerElement && !pickerElement.contains(event.target)) {
                 picker.show();
+                overlay.style.display = 'block'; // Show the overlay                
             }
         });
 });

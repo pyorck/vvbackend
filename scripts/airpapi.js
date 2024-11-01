@@ -47,7 +47,7 @@ function handleCityInput(inputId, suggestionsId) {
             } else {
                 suggestionsContainer.style.display = 'none';
             }
-        }, 350); // Wait for 0.35 seconds after user stops typing
+        }, 300); // Wait for 0.3 seconds after user stops typing
     });
 }
 
@@ -146,6 +146,7 @@ function handleSuggestionsClick(suggestionsId, inputId) {
             // Store only the most recent selected airport in the array
             selectedAirports = [selectedAirport]; // Replace previous selection
             console.log('Airports Stored:', selectedAirports); // Log the stored airports
+            validateSelections(); // Check if all selections are made
 
             // Clear selected class from all items
             const allItems = document.querySelectorAll(`#${suggestionsId} .dropdown-item`);

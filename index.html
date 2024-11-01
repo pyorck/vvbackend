@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/calendar.css">
     <link rel="stylesheet" href="css/planecloud.css">
     <link rel="stylesheet" href="css/formsubmitted.css">
-    <!--<link rel="stylesheet" href="css/pop-ups.css"> To be implemented later-->
+    <link rel="stylesheet" href="css/pop-ups.css">
     <link rel="apple-touch-icon" sizes="180x180" href="pics/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="pics/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="pics/favicon-16x16.png">
@@ -28,17 +28,60 @@
 
 <body>
     <div id="overlay" class="overlay" style="display: none;"></div>
-    <div class="site-wrapper">
-        <div data-barba="wrapper">
-            <div data-barba="container">
-                </div>
 
                 <div class="section-left">
                     <p>You vibe, we vibe. Together, we are</p><div class="logo"><img src="pics/logo-vv-v2.png" alt="Vaiving Logo"></div>
                 </div>
                 
                 <div class="section-right">
-                    
+
+                    <!-- POP-UP [1] BUDGET CLASS -->
+                        <div class="popup" id="popupContainer">
+                            <h1>Budget classes</h1>
+                            <div class="line" style="margin-top: -1.5vh";></div>
+                            <p><strong><span style="font-size: 22px; background-color: rgb(255, 230, 0);">Low-cost&nbsp;</span><span style="font-size: 25px; vertical-align: bottom;">&#128176</span></strong></p>
+                            <p>Low-cost category ensures that Vaivers can enjoy an economy/budget trip at the minimum cost possible, but in the meantime, ensuring maximum comfort. Choosing the Low-cost budget category will entail the following:</p>
+                            <p><strong>1.&nbsp;</strong>The accommodation will always be a <strong>3-star hotel</strong> (with the opportunity to upgrade later).</p>
+                            <p><strong>2.&nbsp;</strong><strong>No worries!&nbsp;</strong>It will always be located the <strong>closest possible to the city center.</strong></p>
+                            <p><strong>3.&nbsp;</strong>All flights will be operated by <strong>Low-cost Airlines</strong> (Vueling, Ryanair, ...)</p>
+                            <p><strong>4.&nbsp;</strong>The purchased tickets will not include Seat Allocation, Cabin Bag or Extra Luggage included. You will be able to do the check-in on your own, and choose upgrades at your own expense.</p>
+                            <p><strong>5.&nbsp;</strong>Rest assured, you will receive an <strong>exclusive travel guide</strong> for you trip based on your preferences, your budget, and the dates you will be visiting the designated country.</p>
+                            <p><br></p>
+                            <div class="line" style="margin-top: -1.5vh";></div>
+                            <p><strong><span style="font-size: 22px; background-color: rgb(255, 230, 0);">Mid-cost&nbsp;</span><span style="font-size: 25px; vertical-align: bottom;">&#128181</span></strong></p>
+                            <p>The Mid-cost category ensures that Vaivers get the greatest comfort for the trip and choosing this category entails the following specifications:</p>
+                            <p><strong>1.&nbsp;</strong>The accommodation will always be a <strong>4-star</strong> or <strong>5-star hotel.</strong></p>
+                            <p><strong>2.&nbsp;</strong>The hotel will always be located <strong>in the city center.</strong></p>
+                            <p><strong>3.&nbsp;</strong>The flights might be operated by either <strong>Low-cost Airlines</strong> or <strong>High-tier Airlines.</strong></p>
+                            <p><strong>4.&nbsp;</strong>If the flights are operated by a Low-cost Airline, <strong>the price will include</strong> Seat Allocation (5 first rows) and the option to include Cabin Bag or Extra Luggage. You will still be able to check-in yourself and customize according to the needs.</p>
+                            <p><strong>5.&nbsp;</strong>Rest assured, you will receive an <strong>exclusive travel guide</strong> for your trip based on your budget preferences and the dates you will be visiting the designated country, including best non-touristic restaurants, best way to commute from the airport to the hotel and back and other tips!</p>
+                            <p><br></p>
+                            <div class="line" style="margin-top: -1.5vh";></div>
+                            <p><strong><span style="font-size: 22px; background-color: rgb(255, 230, 0);">Luxury&nbsp;</span><span style="font-size: 25px; vertical-align: bottom;">&#128142</span></strong></p>
+                            <p>Are you ready for the top-notch Vaiving experience? This is a category only for the ones who can afford a top-notch &amp; luxurious traveling experience. You want to book a luxury flight, stress-free and quick, and we will do it for you. This budget category will entail the following:</p>
+                            <p><strong>1.&nbsp;</strong>The accommodation will always be a 5-star (or 5-star +) hotel with an option to upgrade to different suite sizes and categories.</p>
+                            <p><strong>2.&nbsp;</strong>The hotel will always be located in the city center. For commuting from and to the airport, a driver will be waiting upon your arrival, with the option of keeping the driver for all the trip at extra cost.</p>
+                            <p><strong>3.&nbsp;</strong>The flights will be operated by High-tier Airlines, with the option to upgrade to business/first-class at extra cost.</p>
+                            <p><strong>4.&nbsp;</strong>Further customization to your trip will be available: driver to visit the city, security, and [insert other luxury stuff].</p>
+                            <p><strong>5.&nbsp;</strong>You will get an exclusively made guide for your specific trip, based on your preferences and your budget: best places to dine and best places to visit, including a 24/7 customer service support line in case any questions arise during your trip to the designated country.&nbsp;</p>
+                            <button class="close-btn" id="closePopup">Close</button>
+                            </div>
+
+                 <!-- POP-UP [2] AIRPORTS -->
+                        <div class="popup" id="popupContainerAIR">
+                            <h1>About the Airports</h1>
+                            <div class="line" style="margin-top: -1.5vh";></div>
+                            <p><strong><span style="font-size: 18px; background-color: rgb(255, 230, 0);">From Schengen Area</span></strong></p>
+                            <p>We are happy to accept customers from all over the Schengen Area. This means that flying from will be available for all the countries in the Schengen Area, although the countries where we fly to might be limited at this moment. The countries in the Schengen Area are the following:</p>
+                            <p><strong>Germany, Austria, Belgium, Croatia, Denmark, Spain, Slovakia, Slovenia, Estonia, Finland, France, Greece, Holland, Hungary, Iceland (non-EU), Italy, Latvia, Liechtenstein (non-EU), Lithuania, Luxembourg, Malta, Norway (non-EU), Poland, Portugal, Czech Republic, Sweden and Switzerland (non-EU).</strong></p>
+                            <p><strong><span style="font-size: 18px; background-color: rgb(255, 230, 0);">From Outside the Schengen Area</span></strong></p>
+                            <p>We are also happy to accept customers flying from outside the Schengen Area. At this moment, we only operate in the European market where we are happy to offer our services to customers living in the following countries:</p>
+                            <p><strong>Bulgaria, Croatia, Cyprus, Ireland and the United Kingdom.</strong></p>
+                            <p><strong><span style="font-size: 18px; background-color: rgb(255, 230, 0);">From the rest of the world</span></strong></p>
+                            <p>As much as we would like to offer our services in all the countries in the world, <strong>the only countries we are currently operating in are the above</strong>. But hey, we might be coming to you soon! As we expand internationally, we will announce it in our Social Media, so stay tuned and make sure to follow us in <a href="https://www.instagram.com/vaivingg" target="_blank">Instagram</a> and <a href="https://www.linkedin.com/company/vaiving" target="_blank">LinkedIn</a> for updates!</p>
+                            <button class="close-btn" id="closePopupAIR">Close</button>
+                        </div>
+
                 <!-- Marketing head -->
                 <div class="marketinghead">
                     <p>Get your <span style=font-weight:bold;>Flights+Hotel</span> for your <span style=font-weight:bold;>Low-cost</span> or <span style=font-weight:bold;>Luxury</span> surprise trip following <span style=font-weight:bold;>3 simple steps:</span></p>
@@ -59,6 +102,9 @@
                             <div class="custom-dropdown autocomplete-container">
                                 <input type="text" autocomplete="off" id="city-input" class="autocomplete-input" placeholder="Where do you fly from?">
                                 <div id="suggestions" class="dropdown-options"></div> <!-- Suggestions will be inserted here -->
+                                <p id="openPopup4" style="font-size: 10px; margin-top: 0.5rem; margin-bottom: -1rem; padding-left: 0.9rem; cursor: pointer;">
+                                    <u>Learn more about the Available Airports</u>
+                                    </p>
                             </div>
 
                             <!-- BUDGET -->
@@ -80,6 +126,10 @@
                                         </div>
                                     </div>
                                 </div>
+                                <!-- Information about Budget classes -->
+                                <p id="openPopup2" style="font-size: 10px; margin-top: 0.5rem; margin-bottom: -1rem; padding-left: 0.9rem; cursor: pointer;">
+                                    <u>Learn more about the Budget Classes</u>
+                                </p>
                             </div>
 
                             <!-- Calendar -->
@@ -92,7 +142,7 @@
                             
                             <!-- Submit Button for "For Me" -->
                             <button id="submit-for-me" data-endpoint="for-me-endpoint"><img src="pics/plane.png" alt="Plane Icon" class="plane-img"></button>
-                        </div>
+                            </div>
 
 
                         <!-- Form for "TO GIFT" -->
@@ -102,7 +152,12 @@
                             <div class="custom-dropdown autocomplete-container">
                                 <input type="text" id="city-input1" class="autocomplete-input" placeholder="Where do they fly from?">
                                 <div id="suggestions1" class="dropdown-options"></div> <!-- Suggestions will be inserted here -->
+                                <p id="openPopup5" style="font-size: 10px; margin-top: 0.5rem; margin-bottom: -1rem; padding-left: 0.9rem; cursor: pointer;">
+                                    <u>Learn more about the Available Airports</u>
+                                    </p>
                             </div>
+                            <!-- Information about Budget classes -->
+
 
                             <!-- BUDGET -->
                             <div class="custom-dropdown">
@@ -123,8 +178,12 @@
                                         </div>
                                     </div>
                                 </div>
+                                <!-- Information about Budget classes -->
+                                <p id="openPopup3" style="font-size: 10px; margin-top: 0.5rem; margin-bottom: -1rem; padding-left: 0.9rem; cursor: pointer;">
+                                    <u>Learn more about the Budget Classes</u>
+                                </p>
                             </div>
-
+                            
                             <!-- Calendar -->
                             <div class="custom-dropdown">
                                 <button class="dropdown-button" id="litepicker1">
@@ -135,7 +194,7 @@
 
                             <!-- Submit Button for "To Gift" -->
                             <button id="submit-to-gift" data-endpoint="to-gift-endpoint"><img src="pics/plane.png" alt="Plane Icon" class="plane-img"></button>
-                        </div>
+                            </div>
 
                         <!-- Clouds -->
                         <div class="clouds-wrapper">
@@ -234,18 +293,18 @@
 
                     <div class="virtualcards-wrapper1">
                         <div class="virtualcards-header1">
-                            <p><span style="font-style: italic;">The fine print</span></p>
+                            <p><span style="font-style: italic;">The <s>fine</s> print</span></p>
                         </div>
                         <div class="virtualcards1">
                             <!-- First Card -->
                             <div class="card-container1">
                                 <div class="card-container__header1" style="background-image: url(pics/airplanecard.jpg); background-size: cover;"></div>
                                 <div class="card-container__content1">
-                                    <span class="title1">FAQs</span>
+                                    <span class="title1">BUDGET CLASSES</span>
                                     <div class="line"></div>
-                                    <span class="description">Can I fly from all over the world or just Europe? Are all the airports shown available to fly from? What does luxury budget mean?</span>
+                                    <span class="description">Discover our Low-Budget, Mid-Budget and Luxury classes. Learn the specifics and what do they include for your trip.</span>
                                     <common-button>
-                                        <button mat-flat-button color="primary" class="common-button1" type="button">
+                                        <button id="openPopup1" mat-flat-button color="primary" class="common-button1" type="button">
                                             <span class="button-wrapper1">
                                                 <div class="common-button__label1">Learn More</div>
                                             </span>
@@ -253,6 +312,7 @@
                                     </common-button>
                                 </div>
                             </div>
+
                             <!-- Second Card -->
                             <div class="card-container1">
                                 <div class="card-container__header1" style="background-image: url(pics/hotelex.jpg);"></div>
@@ -284,10 +344,42 @@
                                         </button>
                                     </common-button>
                                 </div>
-                            </div>                  
-                </div> <!-- End section-right -->
-            </div> <!-- End of data-barba container -->
-        </div> <!-- End of data-barba wrapper -->
+                            </div>       
+                            <!-- Fourth Card -->
+                            <div class="card-container1">
+                                <div class="card-container__header1" style="background-image: url(pics/fromplane.jpg);"></div>
+                                <div class="card-container__content1">
+                                    <span class="title1">ABOUT THE AIRPORTS</span>
+                                    <div class="line"></div>
+                                    <span class="description">Can I fly from all over the world or just Europe? Are all the airports shown available to fly from?</span>
+                                    <common-button>
+                                        <button id= "openPopup6" mat-flat-button color="primary" class="common-button1" type="button">
+                                            <span class="button-wrapper1">
+                                                <div class="common-button__label1">Join our mission!</div>
+                                            </span>
+                                        </button>
+                                    </common-button>
+                                </div>
+                            </div>  
+                            <!-- Fifth Card -->
+                            <div class="card-container1">
+                                <div class="card-container__header1" style="background-image: url(pics/space.png);"></div>
+                                <div class="card-container__content1">
+                                    <span class="title1">CARD 5</span>
+                                    <div class="line"></div>
+                                    <span class="description">From MvP to the Largest Social Media Platform for Travel. Combining Community Collaboration, AI and Blockchain.</span>
+                                    <common-button>
+                                        <button mat-flat-button color="primary" class="common-button1" type="button">
+                                            <span class="button-wrapper1">
+                                                <div class="common-button__label1">Join our mission!</div>
+                                            </span>
+                                        </button>
+                                    </common-button>
+                                </div>
+                            </div>             
+                        </div>
+                    </div>
+                </div>
 
         <!-- Footer -->
         <footer class="site-footer">
@@ -297,7 +389,8 @@
             <a href="https://www.instagram.com/vaivingg" target="_blank" class="button-link2">
                 <img src="pics/instagram.png" alt="Instagram Icon" style="width: 25px; height: 25px; vertical-align: middle">
             </a>
-            <p style="color: rgb(0, 0, 0); font-size: 12px; margin-top: 1px; font-weight: bold;">&copy; 2024 - Vaiving Ltd.</p>
+            <p style="color: rgb(0, 0, 0); font-size: 12px; margin-top: 1px; margin-bottom: -1.4rem; font-weight: bold;">&copy; 2024 - Vaiving Ltd.</p>
+            <p>&nbsp;</p>
         </footer>
     </div>
     
@@ -307,6 +400,7 @@
     
     <script src="scripts/scripts.js"></script>
     <script src="scripts/airpapi.js"></script>
-    <script src="scripts/popup.js"></script>
+    <script src="scripts/popups.js"></script>
+    <script src="scripts/search.js"></script>
 
 </html>
