@@ -47,7 +47,7 @@ function handleCityInput(inputId, suggestionsId) {
             } else {
                 suggestionsContainer.style.display = 'none';
             }
-        }, 300); // Wait for 0.3 seconds after user stops typing
+        }, 150); // Wait for 0.3 seconds after user stops typing
     });
 }
 

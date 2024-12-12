@@ -66,6 +66,7 @@ function showLoadingSpinner() {
             <div id="submitted-form">     
                 <h1>Thanks for Vaiving</h1>
                 <div class="line2"></div>
+                <div id="text1">YOUR VAIVING EXPERIENCE IS NOW READY</div>
                 <div id="airport-selected">You will fly from:</div>
                 <div id="selected-airports-display">
                 <!-- Selected airports will be displayed here -->
