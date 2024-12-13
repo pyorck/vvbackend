@@ -64,7 +64,7 @@ function showLoadingSpinner() {
         
         finderBox.innerHTML = `
             <div id="submitted-form">     
-                <h1>Thanks for Vaiving</h1>
+                <h1>Ready for take off?</h1>
                 <div class="line2"></div>
                 <div id="text1">YOUR VAIVING EXPERIENCE IS NOW READY</div>
                 <div id="airport-selected">You will fly from:</div>

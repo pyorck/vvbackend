@@ -66,6 +66,10 @@
     height: 8rem; /* Fixed height */
 }
 
+.card-container:hover {
+    background: rgb(255, 254, 240);
+}
+
 .card-container__header {
     height: 65px; /* Fixed height for the header to display the image */
     background-size: cover; /* Ensure the image covers the header area */
@@ -104,4 +108,5 @@
     cursor: pointer;
     font-family: "Inter Tight", serif;
     margin: 0; /* Remove auto margins to allow proper centering */
+    scale: 1.0;
 }
