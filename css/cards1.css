@@ -60,93 +60,138 @@
     background: transparent; /* Track background */
 }
 
-/* Ensure cards have a consistent width */
 .card-container1 {
-    flex: 0 0 auto; /* Prevent shrinking */
-    width: 210px; /* Fixed card width */
-    margin-right: 1.5rem; /* Space between cards */
+    flex: 0 0 auto;
+    width: 210px; /* Fixed width */
+    margin-right: 1.5rem;
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 15px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
     scroll-snap-align: start;
     display: flex;
     flex-direction: column;
-    max-height: 80vh; /* Set a max height */
-    height: auto; /* Allow the height to be determined by content */
+    height: 300px; /* Fixed height for consistency */
+    overflow: hidden; /* Prevent content overflow */
+    position: relative;
 }
-
-.card-container1:hover {
-    background: rgb(255, 254, 240);
-}
-
 
 .card-container__header1 {
-    height: 12vh; /* Change fixed height to auto */
-    background-size: cover; /* Ensure the image covers the header area */
-    background-position: center; /* Center the background image */
-    flex-shrink: 0; /* Prevent shrinking */
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
+    height: 101%; /* Proportional to the card height */
+    background-size: cover;
+    background-position: center;
+    flex-shrink: 0;
+    transition: transform 0.6s;
+    margin-top: -0.1rem;
+}
+
+.card-container__header1:hover {
+    transform: scale(1.2);
 }
 
 .card-container__content1 {
-    padding: 8px; /* Reduced padding for compact content */
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Ensure space between elements */
     font-family: "Inter Tight", serif;
+    text-align: center;
+    transition: opacity 0.6s ease; /* Smooth opacity animation */
+    opacity: 0; /* Initially hidden */
+    position: absolute;
+    width: 100%;
+    align-self: center;
+    height: 30%; /* Occupy the bottom 40% of the card */
+    background: rgba(255, 255, 255, 0.6); /* Semi-transparent background */
+    z-index: 1;
+    padding-top: 5rem;
+    padding-bottom: 2.5rem;
+    transition: opacity 0.6s;
+    transform: translateY(0%);
+}
+
+.card-container1:hover .card-container__content1, 
+.card-container1:focus-within .card-container__content1 {
+    opacity: 1; /* Show content */
 }
 
 .title1 {
-    font-size: clamp(1rem, 0.8vw, 1rem); /* Responsive font size */
+    font-size: 1rem; /* Fixed font size for consistency */
     font-family: "Inter Tight", serif;
-    align-items: center;
-    text-align: center;
-    font-weight: 600;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+    position: absolute; /* Allow positioning relative to card container */
+    bottom: 0.5rem; /* Position it near the top of the card */
+    left: 50%; /* Center horizontally */
+    width: 30vh;
+    transform: translateX(-50%); /* Adjust for centering */
+    z-index: 2; /* Ensure it appears above the header */
+    text-align: center; /* Center the text */
+    background-color: rgba(255, 251, 0, 0.9); /* Optional: Add a subtle background */
+    padding: 0.5rem;
 }
 
 .line {
-    width: 100%; /* Full width of container */
-    justify-items: center;
-    position: relative;
-    height: 2px; /* Thin line */
+    width: 100%;
+    height: 2px;
     background-color: black;
-    text-align: center;
-    margin-bottom: 0.2rem;
-    margin-top: 0.1rem;
+    margin: 0.2rem 0;
 }
 
 .description {
-    font-size: clamp(0.85rem, 1vw, 0.8rem); /* Responsive font size */
+    font-size: clamp(1.1rem, 1.5vw, 0.8rem);
     font-family: "Inter Tight", serif;
-    font-weight: 450;
-    text-align: center; /* Aligns text to the left */
-    width: 100%; /* Ensures it takes up the full container width */
-    margin: 0 auto; /* Centers container horizontally */
-    line-height: 1.4; /* Optional: Adjust line height for readability */
+    font-weight: 500;
+    line-height: 1.4;
+    text-align: center;
     display: flex;
-    align-items: center; /* Centers content vertically in a flex container */
-    justify-content: center; /* Centers container horizontally */
-    margin-bottom: 0.2rem;
-}
-
-.button1 {
-    display: flex; /* Flexbox to align content */
-    justify-content: center; /* Center the button horizontally */
-    margin-top: 10px; /* Reduced space above button */
-    font-family: "Inter Tight", serif;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
 }
 
 .common-button1 {
-    width: 100%; /* Width of the button */
-    background-color: #ffea0091;
-    color: rgb(0, 0, 0);
-    border-radius: 8px;
-    font-weight: bold;
-    text-align: center;
-    padding: 0.15rem; /* Adjusted padding */
-    cursor: pointer;
+    font-size: 1rem; /* Fixed font size for consistency */
     font-family: "Inter Tight", serif;
-    margin: 0; /* Remove auto margins to allow proper centering */
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+    align-self: center;
+    position: absolute; /* Allow positioning relative to card container */
+    top: 0.5rem; /* Position it near the top of the card */
+    width: 80%;
+    transform: translateX(-50%); /* Adjust for centering */
+    z-index: 2; /* Ensure it appears above the header */
+    text-align: center; /* Center the text */
+    background-color: rgba(255, 255, 255, 0.9); /* Optional: Add a subtle background */
+    padding: 0.2rem;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    opacity: 0;
+    transition: opacity 0.6s; /* Smooth transition for appearance */
+    animation: breatheAnimation 4s ease-in-out infinite; /* Adjust duration as needed */
+}
+
+@keyframes breatheAnimation {
+    0% {
+        transform: scale(1) translateY(0); /* Original size */
+    }
+    85% {
+        transform: scale(1) translateY(0); /* First large expansion */
+    }
+    90% {
+        transform: scale(1.01) translateY(0); /* First quick shrink */
+    }
+    94% {
+        transform: scale(1) translateY(0); /* Second quick expansion */
+    }
+    98% {
+        transform: scale(1.01) translateY(0); /* Second quick expansion */
+    }
+    100% {
+        transform: scale(1) translateY(0); /* Back to original size */
+    }
+}
+
+.card-container1:hover .common-button1, 
+.card-container1:focus-within .common-button1 {
+    opacity: 1; /* Ensure the button becomes fully visible */
 }

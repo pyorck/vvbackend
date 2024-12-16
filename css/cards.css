@@ -64,11 +64,21 @@
     display: flex;
     flex-direction: column;
     height: 8rem; /* Fixed height */
+    transition: all 0.6s;
 }
 
 .card-container:hover {
-    background: rgb(255, 254, 240);
+    background-color: white;
 }
+
+.card-container:hover .card-container__header {
+    transform: translateY(2.5px);
+}
+
+.card-container:hover .card-container__content {
+    transform: translateY(-2.5px);
+}
+
 
 .card-container__header {
     height: 65px; /* Fixed height for the header to display the image */
@@ -77,6 +87,7 @@
     flex-shrink: 0; /* Prevent shrinking */
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
+    transition: all 0.6s;
 }
 
 .card-container__content {
@@ -86,6 +97,7 @@
     flex-direction: column;
     justify-content: space-between; /* Ensure space between elements */
     font-family: "Inter Tight", serif;
+    transition: all 0.6s;
 }
 
 .title {
