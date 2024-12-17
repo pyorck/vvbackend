@@ -8,7 +8,7 @@
     background-color: rgba(255, 255, 255, 0); 
     margin: 0 auto;
     width: 100%;
-    max-width: clamp(250px, 70%, 500px); /* Dynamically resize based on screen width */
+    max-width: clamp(250px, 70%, 520px); /* Dynamically resize based on screen width */
     z-index: 50;
     margin-top: clamp(29vh, -5vh, -20vh); /* Min: 30px, Grow with 10vh, Max: 120px */
     background-color: rgba(255, 255, 255, 0.4);
@@ -18,6 +18,7 @@
     font-family: "Inter Tight", serif;
     position: flex;
     margin-bottom: 1.5rem;
+    padding: 0.5rem;
 }
 
     /* Ducking padding for the text to type where you fly - airport */

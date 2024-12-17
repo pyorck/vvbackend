@@ -82,31 +82,27 @@
     flex-shrink: 0;
     transition: transform 0.6s;
     margin-top: -0.1rem;
+    transition: opacity 0.6s ease-in-out;
 }
 
-.card-container__header1:hover {
-    transform: scale(1.2);
-}
+.card-container1:hover .card-container__header1, 
+.card-container1:focus-within .card-container__header1 {
+    opacity: 0.3;
 
-.description:hover .card-container__header1 {
-    transform: scale(1.2);
-}
+    }
 
 .card-container__content1 {
     font-family: "Inter Tight", serif;
-    text-align: center;
     transition: opacity 0.6s ease; /* Smooth opacity animation */
     opacity: 0; /* Initially hidden */
     position: absolute;
     width: 100%;
-    align-self: center;
-    height: 30%; /* Occupy the bottom 40% of the card */
-    background: rgba(255, 255, 255, 0.6); /* Semi-transparent background */
+    height: 35%; /* Occupy the bottom 40% of the card */
     z-index: 1;
-    padding-top: 5rem;
-    padding-bottom: 2.5rem;
-    transition: opacity 0.6s;
-    transform: translateY(0%);
+    padding-top: 4.1rem;
+    padding-bottom: 1rem;
+    transition: opacity 0.4s ease-in-out;
+    margin: 0 auto;
 }
 
 .card-container1:hover .card-container__content1, 
@@ -129,14 +125,13 @@
     text-align: center; /* Center the text */
     background-color: rgba(255, 251, 0, 0.9); /* Optional: Add a subtle background */
     padding: 0.5rem;
-    transition: all 1s;
+    transition: all 0.4s ease-in-out;
 }
 
 .card-container1:hover .title1, 
 .card-container1:focus-within .title1 {
     margin-bottom: 1rem;
-    padding: 0.8rem;
-    opacity: 0.4;
+    opacity: 0.8;
 }
 
 .line {
@@ -147,18 +142,19 @@
 }
 
 .description {
-    font-size: clamp(1.1rem, 1.5vw, 0.8rem);
+    font-size: clamp(1rem, 1.5vw, 0.7rem);
     font-family: "Inter Tight", serif;
-    font-weight: 500;
-    line-height: 1.4;
-    text-align: center;
-    display: flex;
+    font-weight: 400;
+    line-height: 1.3;
+    text-align: justify;
     justify-content: center;
     align-items: center;
+    display: flex;
     height: 100%;
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
+    margin-left: 1.1rem;
+    margin-right: 1.1rem;
 }
+
 
 .common-button1 {
     font-size: 1rem; /* Fixed font size for consistency */
@@ -173,7 +169,7 @@
     transform: translateX(-50%); /* Adjust for centering */
     z-index: 2; /* Ensure it appears above the header */
     text-align: center; /* Center the text */
-    background-color: rgba(255, 255, 255, 0.9); /* Optional: Add a subtle background */
+    background-color: rgb(255, 230, 0); /* Optional: Add a subtle background */
     padding: 0.2rem;
     cursor: pointer;
     border-radius: 0.5rem;
