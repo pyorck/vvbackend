@@ -88,6 +88,10 @@
     transform: scale(1.2);
 }
 
+.description:hover .card-container__header1 {
+    transform: scale(1.2);
+}
+
 .card-container__content1 {
     font-family: "Inter Tight", serif;
     text-align: center;
@@ -125,6 +129,14 @@
     text-align: center; /* Center the text */
     background-color: rgba(255, 251, 0, 0.9); /* Optional: Add a subtle background */
     padding: 0.5rem;
+    transition: all 1s;
+}
+
+.card-container1:hover .title1, 
+.card-container1:focus-within .title1 {
+    margin-bottom: 1rem;
+    padding: 0.8rem;
+    opacity: 0.4;
 }
 
 .line {
