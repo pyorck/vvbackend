@@ -3,7 +3,7 @@
     flex-direction: column; /* Stack header on top of cards */
     align-items: center;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(32, 32, 32, 0.4);
     margin-top: calc(1.5vh + 2.5vh); /* Adjust based on page layout */
     height: auto; /* Changed from fixed height to auto */
     padding: 0.2rem;
@@ -41,6 +41,7 @@
     border-radius: 15px;
     scale: 1.0;
 
+
     /* Optional: Show a scrollbar for desktop */
     scrollbar-width: thin; /* For Firefox */
     scrollbar-color: rgba(255, 255, 255, 0.7) transparent; /* Color for Firefox */
@@ -75,19 +76,19 @@
     position: relative;
 }
 
+
 .card-container__header1 {
     height: 101%; /* Proportional to the card height */
     background-size: cover;
     background-position: center;
     flex-shrink: 0;
-    transition: transform 0.6s;
     margin-top: -0.1rem;
-    transition: opacity 0.6s ease-in-out;
+    transition: filter 0.6s ease-in-out;
 }
 
 .card-container1:hover .card-container__header1, 
 .card-container1:focus-within .card-container__header1 {
-    opacity: 0.3;
+    filter: brightness(40%);
 
     }
 
@@ -103,6 +104,7 @@
     padding-bottom: 1rem;
     transition: opacity 0.4s ease-in-out;
     margin: 0 auto;
+    cursor: pointer;
 }
 
 .card-container1:hover .card-container__content1, 
@@ -123,15 +125,14 @@
     transform: translateX(-50%); /* Adjust for centering */
     z-index: 9999; /* Ensure it appears above the header */
     text-align: center; /* Center the text */
-    background-color: rgba(255, 251, 0, 0.9); /* Optional: Add a subtle background */
-    padding: 0.5rem;
+    background-color: rgba(255, 251, 0, 1); /* Optional: Add a subtle background */
+    padding: 0.4rem;
     transition: all 0.4s ease-in-out;
 }
 
 .card-container1:hover .title1, 
 .card-container1:focus-within .title1 {
     margin-bottom: 1rem;
-    opacity: 0.8;
 }
 
 .line {
@@ -144,22 +145,21 @@
 .description {
     font-size: clamp(1rem, 1.5vw, 0.7rem);
     font-family: "Inter Tight", serif;
-    font-weight: 400;
-    line-height: 1.3;
     text-align: justify;
     justify-content: center;
     align-items: center;
     display: flex;
     height: 100%;
-    margin-left: 1.1rem;
-    margin-right: 1.1rem;
+    margin-left: 1.2rem;
+    margin-right: 1.2rem;
+    color: white;
 }
 
 
 .common-button1 {
     font-size: 1rem; /* Fixed font size for consistency */
     font-family: "Inter Tight", serif;
-    font-weight: 800;
+    font-weight: 600;
     margin-bottom: 0.5rem;
     margin-top: 0.5rem;
     align-self: center;
@@ -169,7 +169,7 @@
     transform: translateX(-50%); /* Adjust for centering */
     z-index: 2; /* Ensure it appears above the header */
     text-align: center; /* Center the text */
-    background-color: rgb(255, 230, 0); /* Optional: Add a subtle background */
+    background-color: rgba(255, 230, 6, 0.87);
     padding: 0.2rem;
     cursor: pointer;
     border-radius: 0.5rem;
@@ -177,26 +177,27 @@
     transition: opacity 0.6s; /* Smooth transition for appearance */
     animation: breatheAnimation 4s ease-in-out infinite; /* Adjust duration as needed */
     color: black;
+    scale: 1;
 }
 
 @keyframes breatheAnimation {
     0% {
-        transform: scale(1) translateY(0); /* Original size */
+        transform: scale(1); /* Original size */
     }
     85% {
-        transform: scale(1) translateY(0); /* First large expansion */
+        transform: scale(1); /* First large expansion */
     }
     90% {
-        transform: scale(1.01) translateY(0); /* First quick shrink */
+        transform: scale(1.01); /* First quick shrink */
     }
     94% {
-        transform: scale(1) translateY(0); /* Second quick expansion */
+        transform: scale(1); /* Second quick expansion */
     }
     98% {
-        transform: scale(1.01) translateY(0); /* Second quick expansion */
+        transform: scale(1.01); /* Second quick expansion */
     }
     100% {
-        transform: scale(1) translateY(0); /* Back to original size */
+        transform: scale(1); /* Back to original size */
     }
 }
 
