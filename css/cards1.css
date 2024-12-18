@@ -8,6 +8,7 @@
     height: auto; /* Changed from fixed height to auto */
     padding: 0.2rem;
     margin-bottom: 2rem;
+    transition: all 0.4s ease-in-out;
 }
 
 .virtualcards-header1 {
@@ -75,6 +76,7 @@
     overflow: hidden; /* Prevent content overflow */
     position: relative;
     will-change: opacity, transform;
+    transition: all 0.4s ease-in-out;
 }
 
 
@@ -90,6 +92,7 @@
 .card-container1.active .card-container__header1 {
     filter: brightness(40%);
   }
+
 
 .card-container__content1 {
     font-family: "Inter Tight", serif;

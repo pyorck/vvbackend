@@ -5,6 +5,18 @@ document.querySelectorAll('.card-container1').forEach(card => {
       card.classList.toggle('active');
     });
   });
+
+  // TOGGLE BACKGROUND COLOR IF CARD-CONTAINER1 IS ACTIVE;
+document.querySelectorAll('.card-container1').forEach(card => {
+    card.addEventListener('click', () => {
+      const wrapper = document.querySelector('.virtualcards-wrapper1');
+      if (card.classList.contains('active')) {
+        wrapper.style.backgroundColor = 'rgba(0, 0, 0, 0.6)';
+      } else {
+        wrapper.style.backgroundColor = 'rgba(32, 32, 32, 0.4)';
+      }
+    });
+  });
     
     // SEARCH BOX HANDLING
 
