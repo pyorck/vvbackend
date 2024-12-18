@@ -17,6 +17,18 @@ document.querySelectorAll('.card-container1').forEach(card => {
       }
     });
   });
+
+  // FINE PRINT NOPERS
+  document.querySelectorAll('.card-container1').forEach(card => {
+    card.addEventListener('click', () => {
+      const finePrint = document.querySelector('.virtualcards-header1 .fine-print');
+      if (card.classList.contains('active')) {
+        finePrint.style.textDecoration = 'line-through'; // Apply line-through
+      } else {
+        finePrint.style.textDecoration = 'none'; // Remove line-through
+      }
+    });
+  });
     
     // SEARCH BOX HANDLING
 
