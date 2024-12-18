@@ -74,6 +74,7 @@
     height: 300px; /* Fixed height for consistency */
     overflow: hidden; /* Prevent content overflow */
     position: relative;
+    will-change: opacity, transform;
 }
 
 
@@ -83,8 +84,7 @@
     background-position: center;
     flex-shrink: 0;
     margin-top: -0.1rem;
-    transition: filter 0.6s ease-in-out;
-    transition: background-position 0.6 ease-in-out;
+    transition: all 0.4s ease-in-out;
 }
 
 .card-container1.active .card-container__header1 {
@@ -101,9 +101,10 @@
     z-index: 1;
     padding-top: 4.1rem;
     padding-bottom: 1rem;
-    transition: opacity 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
     margin: 0 auto;
     cursor: pointer;
+    will-change: opacity, transform;
 }
 
 .card-container1.active .card-container__content1 {
@@ -126,6 +127,9 @@
     background-color: rgba(255, 251, 0, 1); /* Optional: Add a subtle background */
     padding: 0.4rem;
     transition: all 0.4s ease-in-out;
+    will-change: opacity, transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 
 .card-container1.active .title1 {
@@ -171,10 +175,11 @@
     cursor: pointer;
     border-radius: 0.5rem;
     opacity: 0;
-    transition: opacity 0.6s; /* Smooth transition for appearance */
+    transition: all 0.4s ease-in-out;
     animation: breatheAnimation 4s ease-in-out infinite; /* Adjust duration as needed */
     color: black;
     scale: 1;
+    will-change: opacity, transform;
 }
 
 @keyframes breatheAnimation {
