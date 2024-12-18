@@ -1,3 +1,10 @@
+// SIMPLE EVENT LISTENER FOR CARDS
+
+document.querySelectorAll('.card-container1').forEach(card => {
+    card.addEventListener('click', () => {
+      card.classList.toggle('active');
+    });
+  });
     
     // SEARCH BOX HANDLING
 
