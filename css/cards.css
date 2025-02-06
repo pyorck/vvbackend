@@ -1,0 +1,143 @@
+.virtualcards-wrapper {
+    display: flex;
+    flex-direction: column; /* Stack header on top of cards */
+    align-items: center;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.4);
+    margin-top: calc(7.5vh + 2.5vh); /* Adjust based on page layout */
+}
+
+.virtualcards-header {
+    width: 100%;
+    text-align: center;
+}
+
+.virtualcards-header p {
+    font-size: clamp(2.2rem, 2vw, 4.5rem); /* Responsive font size */
+    font-family: "Inter Tight", serif;
+    font-weight: 500;
+    color: black;
+    text-shadow: 2px 2px 2px rgb(255, 255, 255);
+    margin: 1rem 0 2vh 0; /* Add vertical margin between header and cards */
+}
+
+.virtualcards {
+    display: flex;
+    overflow-x: auto; /* Horizontal scrolling */
+    scroll-snap-type: x mandatory; /* Snap scrolling */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling for iOS */
+    z-index: 3;
+    margin-top: calc(-1vh + 0.5vh); /* Adjust as needed for spacing */
+    height: auto;
+    max-width: calc(100% - 40px); /* Adjust width based on left padding */
+    box-sizing: border-box;
+    justify-content: flex-start; /* Align cards to the left */
+    align-items: center; /* Center cards vertically */
+    padding-bottom: 2vh;
+    box-shadow: white;
+
+    /* Optional: Show a scrollbar for desktop */
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: rgba(0, 0, 0, 0.7) transparent; /* Color for Firefox */
+}
+
+.virtualcards::-webkit-scrollbar {
+    height: 8px; /* Height of horizontal scrollbar */
+}
+
+.virtualcards::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.7); /* Color of the scrollbar thumb */
+    border-radius: 10px; /* Rounded corners */
+}
+
+.virtualcards::-webkit-scrollbar-track {
+    background: transparent; /* Track background */
+}
+
+.card-container {
+    flex: 0 0 auto; /* Prevent shrinking */
+    width: 180px; /* Fixed card width */
+    margin-right: 1.5rem; /* Space between cards */
+    background-color: rgba(255, 255, 255, 0.8);  
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    height: 8rem; /* Fixed height */
+    transition: all 0.6s;
+    cursor: pointer;
+}
+
+.card-container:hover {
+    background-color: white;
+}
+
+.card-container:hover .card-container__header {
+    transform: translateY(2.5px);
+}
+
+.card-container:hover .card-container__content {
+    transform: translateY(-2.5px);
+}
+
+
+.card-container__header {
+    height: 65px; /* Fixed height for the header to display the image */
+    background-size: cover; /* Ensure the image covers the header area */
+    background-position: center; /* Center the background image */
+    flex-shrink: 0; /* Prevent shrinking */
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    transition: all 0.6s;
+}
+
+.card-container__header[style*="pics/3howto.png"] {
+    animation: animateBackground 4s infinite ease-in-out;
+}
+
+@keyframes animateBackground {
+    0% {
+        transform: rotate(-5deg);
+    }
+    50% {
+        transform: rotate(40deg);
+    }
+    100% {
+        transform: rotate(-5deg);
+    }
+}
+
+
+.card-container__content {
+    padding: 8px; /* Reduced padding for compact content */
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ensure space between elements */
+    font-family: "Inter Tight", serif;
+    transition: all 0.6s;
+}
+
+.title {
+    font-size: clamp(1rem, 0.8vw, 1rem); /* Responsive font size */
+    font-family: "Inter Tight", serif;
+    align-items: center;
+    text-align: center;
+    font-weight: 500;
+    margin-top: -0.2rem;
+}
+
+.common-button {
+    width: 100%; /* Width of the button */
+    background-color: rgba(255, 217, 0, 0.6);  
+    color: rgb(0, 0, 0);
+    border-radius: 4px;
+    font-weight: bold;
+    text-align: center;
+    padding: 4px; /* Adjusted padding */
+    cursor: pointer;
+    font-family: "Inter Tight", serif;
+    margin: 0; /* Remove auto margins to allow proper centering */
+    scale: 1.0;
+}

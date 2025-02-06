@@ -1,0 +1,145 @@
+#litepicker {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.9);
+    cursor: pointer;
+    position: relative;
+    font-family: "Inter Tight", serif;
+    color: black;
+    box-sizing: border-box;
+    height: 60px; /* Match height with FROM and BUDGET */
+    line-height: 1.5; /* Adjust line height to move text down slightly */
+    padding-top: 32px; /* Add padding at the top to move text down */
+}
+
+#litepicker::placeholder {
+    color: #000000;
+    font-size: 14px;
+    font-family: Oswald, sans-serif;
+    font-weight: bold;
+    position: absolute;
+    top: 8px;
+    left: 12.5px;
+}
+
+.dropdown-placeholder {
+    font-size: 14px;
+    color: #000000;
+    position: absolute;
+    top: 8px;
+    left: 12.5px;
+    pointer-events: none;
+    font-weight: bold;
+}
+
+.selected-dates {
+    margin-top: 4px;
+    margin-left: 1px;
+    font-size: 13px;
+    display: block; /* Always show the selected item */
+}
+
+.selected-dates1 {
+    margin-top: 1.4rem;
+    margin-left: 0.18rem;
+    font-size: 13px;
+    display: block; /* Always show the selected item */
+}
+
+
+/* Center the calendar in the middle of the screen */
+.litepicker {
+    position: fixed !important; /* Change to fixed for centering on the screen */
+    z-index: 9999 !important; /* Ensure it's above other elements */
+    top: 50% !important; /* Center vertically */
+    left: 50% !important; /* Center horizontally */
+    transform: translate(-50%, -50%) !important; /* Offset to center */
+    display: grid; /* Use grid layout */
+    grid-template-rows: auto 50px; /* Auto height for main and fixed height for footer */
+    gap: 10px; /* Space between main content and footer */
+    
+    /* Litepicker color customizations */
+    --litepicker-container-months-color-bg: #ffffff;
+    --litepicker-container-months-box-shadow-color: #ffffff;
+    --litepicker-footer-color-bg: #ffffff;
+    --litepicker-footer-box-shadow-color: #ffffff;
+    --litepicker-tooltip-color-bg: #ffffff;
+    --litepicker-month-header-color: #000000;
+    --litepicker-button-prev-month-color: #000000;
+    --litepicker-button-next-month-color: #000000;
+    --litepicker-button-prev-month-color-hover: #ffe800;
+    --litepicker-button-next-month-color-hover: #ffe800;
+    --litepicker-month-weekday-color: #666;
+    --litepicker-month-week-number-color: #666;
+    --litepicker-day-color: #222;
+    --litepicker-day-color-hover: #ffe800;
+    --litepicker-is-today-color: #ff5722;
+    --litepicker-is-in-range-color: #fff8ad;
+    --litepicker-is-start-color: #010000;
+    --litepicker-is-start-color-bg: #ffe800;
+    --litepicker-is-end-color: #000000;
+    --litepicker-is-end-color-bg: #ffe800;
+    --litepicker-button-cancel-color: #ffffff;
+    --litepicker-button-cancel-color-bg: #000000;
+    --litepicker-button-apply-color: #000000;
+    --litepicker-button-apply-color-bg: #ffe800;
+    --litepicker-button-reset-color: #606060;
+    --litepicker-button-reset-color-hover: #ffe800;
+    --litepicker-highlighted-day-color: #222;
+    --litepicker-highlighted-day-color-bg: #ffe800;
+}
+
+/* Centering the container */
+.litepicker .container {
+    display: grid; /* Use grid layout */
+    grid-template-rows: 1fr auto; /* Make the main section grow and the footer fixed */
+    width: 100% !important; /* Allow full width */
+
+}
+
+/* Main container adjustments */
+.litepicker .container__main {
+    display: flex !important; /* Use flex for layout */
+    flex-direction: column !important; /* Column layout */
+    align-items: center !important; /* Center content inside */
+}
+
+/* Footer adjustments */
+.litepicker .container__footer {
+    display: flex !important; /* Use flexbox for layout */
+    justify-content: center !important; /* Center buttons horizontally */
+    align-items: center !important; /* Center buttons vertically */
+    padding: 10px 5px !important; /* Maintain padding */
+    margin-top: 4rem !important; /* Add margin */
+    border-radius: 15px !important;
+    scale: 1.45;
+    box-shadow: #000000 !important;
+}
+
+
+/* Ensuring months container is flexible */
+.litepicker .container__months {
+    display: flex !important; /* Maintain flex for layout */
+    flex-wrap: wrap !important; /* Allow wrapping of months */
+    justify-content: center !important; /* Center month items */
+    width: auto !important; /* Allow it to scale based on content */
+    max-width: 100% !important; /* Prevent it from overflowing */
+    scale: 1.4;
+}
+
+.overlay {
+    position: fixed; /* Cover the entire viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75); /* Darken the background */
+    z-index: 9998; /* Just below the calendar */
+    display: none; /* Hide by default */
+}

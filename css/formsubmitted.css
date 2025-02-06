@@ -1,0 +1,73 @@
+/* General styling for the submitted form */
+#submitted-form {
+    max-width: 1000px; /* Limit max width */
+    max-height: 1200px;
+    height: 500px;
+    font-family: "Inter Tight", serif; /* Consistent font */
+    width: 98%;
+}
+
+/* Styling for the heading within the submitted form */
+#submitted-form h1 {
+    font-size: calc(1.25rem + 0.4vw); /* Dynamically adjust font size */
+    color: #000000; /* Dark grey color for text */
+    text-align: center; /* Center the heading */
+    text-wrap: nowrap;
+}
+
+/* Styling for the text below header */
+#text1 {
+    font-size: calc(0.6em + 0.4vw); /* Dynamically adjust font size */
+    font-weight: 400;
+    text-align: center;
+    color: #000000; /* Bootstrap primary color */
+    margin-top: -0.7rem;
+    margin-bottom: 1.1rem;
+}
+
+/* Styling for the header of each stored selection */
+#airport-selected {
+    font-size: calc(0.7rem + 0.4vw); /* Dynamically adjust font size */
+    font-weight: 600;
+    color: #000000; /* Bootstrap primary color */
+    margin-top: -0.4rem;
+    margin-bottom: 0.8rem;
+}
+
+/* Styling for the list of selected airports */
+#selected-airports-display {
+    margin-top: -0.8rem;
+    color: #000000; /* Medium grey color */
+    font-size: calc(0.7rem + 0.4vw); /* Dynamically adjust font size */
+    background-color: rgba(240, 248, 255, 0.8);
+    padding-left: 0.2rem;
+}
+
+/* Styling for the list of selected airports */
+#selected-value-display {
+    margin-top: -0.8rem;
+    color: #000000; /* Medium grey color */
+    font-size: calc(0.7rem + 0.4vw); /* Dynamically adjust font size */
+    background-color: rgba(240, 248, 255, 0.8);
+    padding-left: 0.2rem;
+}
+
+/* Styling for the list of selected airports */
+#selected-dates-display {
+    margin-top: -0.8rem;
+    color: #000000; /* Medium grey color */
+    font-size: calc(0.7rem + 0.4vw); /* Dynamically adjust font size */
+    background-color: rgba(240, 248, 255, 0.8);
+    padding-left: 0.2rem;
+}
+
+.line2 {
+    width: 100%; /* Full width of container */
+    justify-items: center;
+    position: relative;
+    height: 1.5px; /* Thin line */
+    background-color: black;
+    text-align: center;
+    margin-top: -0.8rem;
+    margin-bottom: 1rem;
+}

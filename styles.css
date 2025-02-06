@@ -1,0 +1,179 @@
+/* BODY */
+
+body {
+    font-family: "Inter Tight", serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    max-height: none;
+    overflow-x: hidden;
+    height: 100%;
+}
+
+html {
+    overflow-x: hidden;
+    height: 100%;
+}
+
+a {
+    color: blue; /* Default color for links */
+}
+
+a:visited {
+    color: blue; /* Keeps visited links the same color */
+}   
+
+/* VAIVING TITLE + LOGO */
+
+.section-left {
+    background-color: rgb(255, 255, 255);  
+    color: rgb(0, 0, 0);       
+    display: flex;              
+    flex-direction: row;     
+    justify-content: center;      /* Center the content horizontally */
+    align-items: center;          /* Center the items vertically */
+    position: fixed;             
+    top: 0;                      /* Stick to the top of the page */
+    width: 100%;                 
+    z-index: 1000;               /* Higher z-index to keep it on top */
+    height: clamp(3rem, 8vh, 6rem); /* Adjust height responsively */
+    white-space: nowrap;          /* Prevent wrapping */
+    box-sizing: border-box;       /* Include padding in width calculation */
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2); /* Subtle bottom shadow */
+}
+
+.section-left p {
+    margin: 0;
+    display: inline-flex;
+    font-size: clamp(1.9rem, 5vw, 2.8rem); /* Smaller font size for mobile, larger for desktop */
+    font-family: "Just Another Hand", serif;
+    font-weight: 400;
+    line-height: 1;              /* Ensure consistent vertical alignment */
+    vertical-align: middle;      /* Align text in the middle with logo */
+    margin-left: 1rem;
+    margin-right: -0.2rem;
+}
+
+.logo {
+    display: inline-flex;        /* Keep the logo inline with the text */
+    align-items: center;         /* Center the logo vertically */
+    
+}
+
+.logo img {
+    height: clamp(30px, 5vh, 80px); /* Smaller logo size for mobile, larger for desktop */
+    vertical-align: middle;      /* Align logo vertically with text */
+}
+
+
+
+/* For the MAIN section */ 
+
+.section-right {
+    width: 100%;
+    height: auto; /* Height adapts to content */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #000000;
+    background-image: url('pics/background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: auto;
+}
+
+.marketinghead {
+    margin-top: 11vh;
+    position: inline-block;
+    margin-bottom: -23vh;
+}
+
+.marketinghead p {
+    margin: 0 auto;
+    width: min(80vw, 50rem); /* Responsive width up to a max */
+    font-size: calc(1.15rem + 1.3vw); /* Dynamically adjust font size */
+    line-height: 1.3; /* Adjust vertical spacing for readability */
+    max-width: 45rem; /* Ensures text wraps within a specific width */
+    text-align: center;
+    font-weight: 400;
+    text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.5); /* Subtle shadow effect */
+    font-family: "Inter Tight", serif;
+    margin-bottom: 2rem;
+    animation: bounce 12s infinite linear; /* Slow, infinite breathing effect */
+}
+
+@keyframes bounce {
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: scale(1.0);
+        text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.5); /* Subtle shadow effect */;
+        rotate: 0deg;
+    }
+
+    90% {
+        transform: scale(1.05);
+        text-shadow: 2px 2px 2px rgba(255, 255, 255, 1); /* Subtle shadow effect */
+        color: rgb(31, 31, 31);
+    }
+    
+    40% {
+        transform: scale(1.05);
+        text-shadow: 2px 2px 2px rgba(255, 255, 255, 1); /* Subtle shadow effect */
+        color: rgb(31, 31, 31);
+    }
+}   
+
+
+/* FOOTER LINKS + VAIVING LTD. */
+
+.site-footer {
+    background-color: #ffffff;
+    color: white;
+    text-align: center;
+    z-index: 10;
+    position: relative;
+    height: 10vh;
+    font-family: "Inter Tight", serif;
+    }
+
+/* Button styles (center aligned) */
+.button-link {
+    display: inline-block;
+    width: 3rem;                   /* Set fixed width to make it square */
+    height: 3rem;                  /* Set fixed height to match width */
+    background-color: #ffffff;
+    color: white;
+    border-radius: 1.5rem;         /* Slightly rounded corners */
+    text-align: center;             /* Center the content */
+    line-height: 3rem;              /* Vertically center text/icon inside */
+    font-size: 1.2rem;              /* Adjust font size to fit */
+    transition: transform 0.2s ease, background-color 0.5s ease;
+    margin-top: 0.5rem;
+}
+
+.button-link:hover {
+    background-color: #b5e4ff;      /* Hover color */
+}
+
+.button-link2 {
+    display: inline-block;
+    width: 3rem;                   /* Ensure it remains square */
+    height: 3rem;                  /* Ensure it remains square */
+    background-color: #ffffff;
+    color: white;
+    border-radius: 1.5rem;         /* Rounded corners */
+    text-align: center;
+    line-height: 3rem;              /* Vertically center content */
+    font-size: 1.2rem;              /* Ensure proper font sizing */
+    transition: transform 0.2s ease, background-color 0.5s ease;
+    margin-top: 0.5rem;
+}
+
+.button-link2:hover {
+    background-color: #ffd0a3;      /* Hover color */
+}

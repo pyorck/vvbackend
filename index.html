@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaiving</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/cards.css">
+    <link rel="stylesheet" href="css/cards1.css">
+    <link rel="stylesheet" href="css/searcher.css">
+    <link rel="stylesheet" href="css/calendar.css">
+    <link rel="stylesheet" href="css/planecloud.css">
+    <link rel="stylesheet" href="css/formsubmitted.css">
+    <link rel="stylesheet" href="css/pop-ups.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="pics/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="pics/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="pics/favicon-16x16.png">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Just+Another+Hand&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@barba/core"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/litepicker/dist/css/litepicker.css"/>
+</head>
+
+<body>
+    <div id="overlay" class="overlay" style="display: none;"></div>
+
+                <div class="section-left">
+                    <p>You vibe, we vibe. Together, we are</p><div class="logo"><img src="pics/logo-vv-v2.png" alt="Vaiving Logo"></div>
+                </div>
+                
+                <div class="section-right">
+
+                    <!-- POP-UP [1] BUDGET CLASS -->
+                        <div class="popup" id="popupContainer">
+                            <h1>Budget classes</h1>
+                            <div class="line" style="margin-top: -1.5vh";></div>
+                            <p><strong><span style="font-size: 22px; background-color: rgb(255, 230, 0);">Low-cost&nbsp;</span><span style="font-size: 25px; vertical-align: bottom;">&#128176</span></strong></p>
+                            <p>Low-cost category ensures that Vaivers can enjoy an economy/budget trip at the minimum cost possible, but in the meantime, ensuring maximum comfort. Choosing the Low-cost budget category will entail the following:</p>
+                            <p><strong>1.&nbsp;</strong>The accommodation will always be a <strong>3-star hotel</strong> (with the opportunity to upgrade later).</p>
+                            <p><strong>2.&nbsp;</strong><strong>No worries!&nbsp;</strong>It will always be located the <strong>closest possible to the city center.</strong></p>
+                            <p><strong>3.&nbsp;</strong>All flights will be operated by <strong>Low-cost Airlines</strong> (Vueling, Ryanair, ...)</p>
+                            <p><strong>4.&nbsp;</strong>The purchased tickets will not include Seat Allocation, Cabin Bag or Extra Luggage included. You will be able to do the check-in on your own, and choose upgrades at your own expense.</p>
+                            <p><strong>5.&nbsp;</strong>Rest assured, you will receive an <strong>exclusive travel guide</strong> for you trip based on your preferences, your budget, and the dates you will be visiting the designated country.</p>
+                            <p><br></p>
+                            <div class="line" style="margin-top: -1.5vh";></div>
+                            <p><strong><span style="font-size: 22px; background-color: rgb(255, 230, 0);">Mid-cost&nbsp;</span><span style="font-size: 25px; vertical-align: bottom;">&#128181</span></strong></p>
+                            <p>The Mid-cost category ensures that Vaivers get the greatest comfort for the trip and choosing this category entails the following specifications:</p>
+                            <p><strong>1.&nbsp;</strong>The accommodation will always be a <strong>4-star</strong> or <strong>5-star hotel.</strong></p>
+                            <p><strong>2.&nbsp;</strong>The hotel will always be located <strong>in the city center.</strong></p>
+                            <p><strong>3.&nbsp;</strong>The flights might be operated by either <strong>Low-cost Airlines</strong> or <strong>High-tier Airlines.</strong></p>
+                            <p><strong>4.&nbsp;</strong>If the flights are operated by a Low-cost Airline, <strong>the price will include</strong> Seat Allocation (5 first rows) and the option to include Cabin Bag or Extra Luggage. You will still be able to check-in yourself and customize according to the needs.</p>
+                            <p><strong>5.&nbsp;</strong>Rest assured, you will receive an <strong>exclusive travel guide</strong> for your trip based on your budget preferences and the dates you will be visiting the designated country, including best non-touristic restaurants, best way to commute from the airport to the hotel and back and other tips!</p>
+                            <p><br></p>
+                            <div class="line" style="margin-top: -1.5vh";></div>
+                            <p><strong><span style="font-size: 22px; background-color: rgb(255, 230, 0);">Luxury&nbsp;</span><span style="font-size: 25px; vertical-align: bottom;">&#128142</span></strong></p>
+                            <p>Are you ready for the top-notch Vaiving experience? This is a category only for the ones who can afford a top-notch &amp; luxurious traveling experience. You want to book a luxury flight, stress-free and quick, and we will do it for you. This budget category will entail the following:</p>
+                            <p><strong>1.&nbsp;</strong>The accommodation will always be a 5-star (or 5-star +) hotel with an option to upgrade to different suite sizes and categories.</p>
+                            <p><strong>2.&nbsp;</strong>The hotel will always be located in the city center. For commuting from and to the airport, a driver will be waiting upon your arrival, with the option of keeping the driver for all the trip at extra cost.</p>
+                            <p><strong>3.&nbsp;</strong>The flights will be operated by High-tier Airlines, with the option to upgrade to business/first-class at extra cost.</p>
+                            <p><strong>4.&nbsp;</strong>Further customization to your trip will be available: driver to visit the city, security, and [insert other luxury stuff].</p>
+                            <p><strong>5.&nbsp;</strong>You will get an exclusively made guide for your specific trip, based on your preferences and your budget: best places to dine and best places to visit, including a 24/7 customer service support line in case any questions arise during your trip to the designated country.&nbsp;</p>
+                            <button class="close-btn" id="closePopup">&#8617; Back</button>
+                            </div>
+
+                 <!-- POP-UP [2] AIRPORTS -->
+                        <div class="popup" id="popupContainerAIR">
+                            <h1>About the Airports</h1>
+                            <div class="line" style="margin-top: -1.5vh";></div>
+                            <p><strong><span style="font-size: 18px; background-color: rgb(255, 230, 0);">From Schengen Area</span></strong></p>
+                            <p>We are happy to accept customers from all over the Schengen Area. This means that flying from will be available for all the countries in the Schengen Area, although the countries where we fly to might be limited at this moment. The countries in the Schengen Area are the following:</p>
+                            <p><strong>Germany, Austria, Belgium, Croatia, Denmark, Spain, Slovakia, Slovenia, Estonia, Finland, France, Greece, Holland, Hungary, Iceland (non-EU), Italy, Latvia, Liechtenstein (non-EU), Lithuania, Luxembourg, Malta, Norway (non-EU), Poland, Portugal, Czech Republic, Sweden and Switzerland (non-EU).</strong></p>
+                            <p><strong><span style="font-size: 18px; background-color: rgb(255, 230, 0);">From Outside the Schengen Area</span></strong></p>
+                            <p>We are also happy to accept customers flying from outside the Schengen Area. At this moment, we only operate in the European market where we are happy to offer our services to customers living in the following countries:</p>
+                            <p><strong>Bulgaria, Croatia, Cyprus, Ireland and the United Kingdom.</strong></p>
+                            <p><strong><span style="font-size: 18px; background-color: rgb(255, 230, 0);">From the rest of the world</span></strong></p>
+                            <p>As much as we would like to offer our services in all the countries in the world, <strong>the only countries we are currently operating in are the above</strong>. But hey, we might be coming to you soon! As we expand internationally, we will announce it in our Social Media, so stay tuned and make sure to follow us in <a href="https://www.instagram.com/vaivingg" target="_blank">Instagram</a> and <a href="https://www.linkedin.com/company/vaiving" target="_blank">LinkedIn</a> for updates!</p>
+                            <button class="close-btn" id="closePopupAIR">&#8617; Back</button>
+                        </div>
+
+                <!-- Marketing head -->
+                <div class="marketinghead">
+                    <p>Say hello to <span style=font-weight:bold;>Travel 2.0</span>.<br><span style=font-weight:bold;>Flights + Hotel</span>, <span style=font-weight:bold;>Low-cost</span> or <br><span style=font-weight:bold;>Luxury</span>, in just 3 simple steps.</p>
+                </div>
+
+                    <!-- Finder Box with Buttons -->
+                    <div class="finder-box">
+                        <!-- Buttons to toggle between "For me" and "To Gift" -->
+                        <div class="button-container">
+                            <button class="toggle-button" id="for-me-button"><span style='font-weight:bold;font-size:20px;'>BOOK</span></button>
+                            <button class="toggle-button" id="to-gift-button"><span style='font-weight:bold;font-size:20px;'>GIFT &#127873;</span></button>
+                        </div>
+
+                        <!-- Form for "FOR ME" -->
+                        <div class="form-section" id="for-me-form" style="display: block;">
+
+                            <!-- FROM -->
+                            <div class="custom-dropdown autocomplete-container">
+                                <input type="text" autocomplete="off" id="city-input" class="autocomplete-input" placeholder="Where do you live?">
+                                <div class="advice">If no airport appears or you are looking for a closer airport,<br>
+                                    try typing a closer location (e.g.: a big city close to airports).<br></div>
+                                <div id="suggestions" class="dropdown-options"></div> <!-- Suggestions will be inserted here -->
+                                <p id="openPopup4" style="font-size: 10px; margin-top: 0.5rem; margin-bottom: -1rem; padding-left: 0.9rem; cursor: pointer;">
+                                    <u>Learn more about the Available Airports</u>
+                                    </p>
+                            </div>
+
+                            <!-- BUDGET -->
+                            <div class="custom-dropdown">
+                                <div class="dropdown">
+                                    <button class="dropdown-button">
+                                        <span class="dropdown-placeholder">Budget class</span>
+                                        <span class="selected-item">How much do you want to spend? <span style='font-weight:bold;font-size:14px;'>&#128184;</span>
+                                    </button>
+                                    <div class="dropdown-options">
+                                        <div class="dropdown-item" data-value="low">
+                                            Low-cost &#128176
+                                        </div>
+                                        <div class="dropdown-item" data-value="mid">
+                                            Mid-cost &#128181
+                                        </div>
+                                        <div class="dropdown-item" data-value="high">
+                                            Luxury &#128142
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Information about Budget classes -->
+                                <p id="openPopup2" style="font-size: 10px; margin-top: 0.5rem; margin-bottom: -1rem; padding-left: 0.9rem; cursor: pointer;">
+                                    <u>Learn more about the Budget Classes</u>
+                                </p>
+                            </div>
+
+                            <!-- Calendar -->
+                            <div class="custom-dropdown">
+                                <button class="dropdown-button" id="litepicker">
+                                    <span class="dropdown-placeholder">Departure - Return</span>
+                                    <span class="selected-dates" style="display: none"></span>
+                                </button>
+                            </div>
+                            
+                            <!-- Submit Button for "For Me" -->
+                            <button id="submit-for-me" data-endpoint="for-me-endpoint"><img src="pics/plane.png" alt="Plane Icon" class="plane-img"></button>
+                            </div>
+
+
+                        <!-- Form for "TO GIFT" -->
+                        <div class="form-section" id="to-gift-form" style="display: none;">
+
+                            <!-- FROM -->
+                            <div class="custom-dropdown autocomplete-container">
+                                <input type="text" id="city-input1" class="autocomplete-input" placeholder="Where does the person live?">
+                                <div class="advice">If no airport appears or you are looking for a closer airport,<br>
+                                    try typing a closer location (e.g.: a big city close to airports).<br></div>
+                                <div id="suggestions1" class="dropdown-options"></div> <!-- Suggestions will be inserted here -->
+                                <p id="openPopup5" style="font-size: 10px; margin-top: 0.5rem; margin-bottom: -1rem; padding-left: 0.9rem; cursor: pointer;">
+                                    <u>Learn more about the Available Airports</u>
+                                    </p>
+                            </div>
+                            <!-- Information about Budget classes -->
+
+
+                            <!-- BUDGET -->
+                            <div class="custom-dropdown">
+                                <div class="dropdown">
+                                    <button class="dropdown-button">
+                                        <span class="dropdown-placeholder">Budget class</span>
+                                        <span class="selected-item">How much do you love the person? <span style='font-weight:bold;font-size:14px;'>&#128157;</span>
+                                    </button>
+                                    <div class="dropdown-options">
+                                        <div class="dropdown-item" data-value="low">
+                                            Low-cost &#128176
+                                        </div>
+                                        <div class="dropdown-item" data-value="mid">
+                                            Mid-cost &#128181
+                                        </div>
+                                        <div class="dropdown-item" data-value="high">
+                                            Luxury &#128142
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Information about Budget classes -->
+                                <p id="openPopup3" style="font-size: 10px; margin-top: 0.5rem; margin-bottom: -1rem; padding-left: 0.9rem; cursor: pointer;">
+                                    <u>Learn more about the Budget Classes</u>
+                                </p>
+                            </div>
+                            
+                            <!-- Calendar -->
+                            <div class="custom-dropdown">
+                                <button class="dropdown-button" id="litepicker1">
+                                    <span class="dropdown-placeholder1">Departure - Return</span>
+                                    <span class="selected-dates1" style="display: none"></span>
+                                </button>
+                            </div>
+
+                            <!-- Submit Button for "To Gift" -->
+                            <button id="submit-to-gift" data-endpoint="to-gift-endpoint"><img src="pics/plane.png" alt="Plane Icon" class="plane-img"></button>
+                            </div>
+
+                        <!-- Clouds -->
+                        <div class="clouds-wrapper">
+                            <div class="clouds">
+                                <!-- Front slowest cloud -->
+                                <svg class="cloud big" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="762px" height="331px" viewBox="0 0 762 331" enable-background="new 0 0 762 331" xml:space="preserve">
+                                    <path d="M715.394,228h-16.595c0.79-5.219,1.201-10.562,1.201-16c0-58.542-47.458-106-106-106 c-8.198,0-16.178,0.932-23.841,2.693C548.279,45.434,488.199,0,417.5,0c-84.827,0-154.374,65.401-160.98,148.529 C245.15,143.684,232.639,141,219.5,141c-49.667,0-90.381,38.315-94.204,87H46.607C20.866,228,0,251.058,0,279.5 S20.866,331,46.607,331h668.787C741.133,331,762,307.942,762,279.5S741.133,228,715.394,228z"></path>
+                                </svg>
+            
+                                <!-- Distant smaller cloud -->
+                                <svg class="cloud distant" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="762px" height="331px" viewBox="0 0 762 331" enable-background="new 0 0 762 331" xml:space="preserve">
+                                    <path d="M715.394,228h-16.595c0.79-5.219,1.201-10.562,1.201-16c0-58.542-47.458-106-106-106 c-8.198,0-16.178,0.932-23.841,2.693C548.279,45.434,488.199,0,417.5,0c-84.827,0-154.374,65.401-160.98,148.529 C245.15,143.684,232.639,141,219.5,141c-49.667,0-90.381,38.315-94.204,87H46.607C20.866,228,0,251.058,0,279.5 S20.866,331,46.607,331h668.787C741.133,331,762,307.942,762,279.5S741.133,228,715.394,228z"></path>
+                                </svg>
+            
+                                <!-- Small slow cloud -->
+                                <svg class="cloud small" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="762px" height="331px" viewBox="0 0 762 331" enable-background="new 0 0 762 331" xml:space="preserve">
+                                    <path d="M715.394,228h-16.595c0.79-5.219,1.201-10.562,1.201-16c0-58.542-47.458-106-106-106 c-8.198,0-16.178,0.932-23.841,2.693C548.279,45.434,488.199,0,417.5,0c-84.827,0-154.374,65.401-160.98,148.529 C245.15,143.684,232.639,141,219.5,141c-49.667,0-90.381,38.315-94.204,87H46.607C20.866,228,0,251.058,0,279.5 S20.866,331,46.607,331h668.787C741.133,331,762,307.942,762,279.5S741.133,228,715.394,228z"></path>
+                                </svg>
+            
+                                <!-- Super-slow massive cloud -->
+                                <svg class="cloud massive" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="762px" height="331px" viewBox="0 0 762 331" enable-background="new 0 0 762 331" xml:space="preserve">
+                                    <path d="M715.394,228h-16.595c0.79-5.219,1.201-10.562,1.201-16c0-58.542-47.458-106-106-106 c-8.198,0-16.178,0.932-23.841,2.693C548.279,45.434,488.199,0,417.5,0c-84.827,0-154.374,65.401-160.98,148.529 C245.15,143.684,232.639,141,219.5,141c-49.667,0-90.381,38.315-94.204,87H46.607C20.866,228,0,251.058,0,279.5 S20.866,331,46.607,331h668.787C741.133,331,762,307.942,762,279.5S741.133,228,715.394,228z"></path>
+                                </svg>
+            
+                                <!-- Medium-sized cloud -->
+                                <svg class="cloud medium" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="762px" height="331px" viewBox="0 0 762 331" enable-background="new 0 0 762 331" xml:space="preserve">
+                                    <path d="M715.394,228h-16.595c0.79-5.219,1.201-10.562,1.201-16c0-58.542-47.458-106-106-106 c-8.198,0-16.178,0.932-23.841,2.693C548.279,45.434,488.199,0,417.5,0c-84.827,0-154.374,65.401-160.98,148.529 C245.15,143.684,232.639,141,219.5,141c-49.667,0-90.381,38.315-94.204,87H46.607C20.866,228,0,251.058,0,279.5 S20.866,331,46.607,331h668.787C741.133,331,762,307.942,762,279.5S741.133,228,715.394,228z"></path>
+                                </svg>
+            
+                                <!-- Smallest cloud -->
+                                <svg class="cloud smallest" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="762px" height="331px" viewBox="0 0 762 331" enable-background="new 0 0 762 331" xml:space="preserve">
+                                    <path d="M715.394,228h-16.595c0.79-5.219,1.201-10.562,1.201-16c0-58.542-47.458-106-106-106 c-8.198,0-16.178,0.932-23.841,2.693C548.279,45.434,488.199,0,417.5,0c-84.827,0-154.374,65.401-160.98,148.529 C245.15,143.684,232.639,141,219.5,141c-49.667,0-90.381,38.315-94.204,87H46.607C20.866,228,0,251.058,0,279.5 S20.866,331,46.607,331h668.787C741.133,331,762,307.942,762,279.5S741.133,228,715.394,228z"></path>
+                                </svg>
+            
+                                <!-- Mid-Smallest cloud -->
+                                <svg class="cloud midsmallest" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="762px" height="331px" viewBox="0 0 762 331" enable-background="new 0 0 762 331" xml:space="preserve">
+                                    <path d="M715.394,228h-16.595c0.79-5.219,1.201-10.562,1.201-16c0-58.542-47.458-106-106-106 c-8.198,0-16.178,0.932-23.841,2.693C548.279,45.434,488.199,0,417.5,0c-84.827,0-154.374,65.401-160.98,148.529 C245.15,143.684,232.639,141,219.5,141c-49.667,0-90.381,38.315-94.204,87H46.607C20.866,228,0,251.058,0,279.5 S20.866,331,46.607,331h668.787C741.133,331,762,307.942,762,279.5S741.133,228,715.394,228z"></path>
+                                </svg>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="virtualcards-wrapper">
+                        <div class="virtualcards-header">
+                            <p>How does it work?</p>
+                        </div>
+                        <div class="virtualcards">
+                            
+                            <!-- First Card -->
+                            <div class="card-container">
+                                <div class="card-container__header" 
+                                    style="background-image: url(pics/1howto.png); 
+                                            background-size: contain; 
+                                            background-position: center; 
+                                            background-repeat: no-repeat;
+                                            margin-top: 0.5rem;
+                                            scale: 0.8;">
+                                </div>
+                                <div class="card-container__content">
+                                    <span class="title"><span style=font-weight:bold;>Design the trip</span><br>From, Budget, When</span>
+                                    </span>
+                                </div>
+                            </div>
+                            
+                            <!-- Second Card -->
+                            <div class="card-container">
+                                <div class="card-container__header" 
+                                    style="background-image: url(pics/2howto.png); 
+                                            background-size: contain; 
+                                            background-position: center; 
+                                            background-repeat: no-repeat;
+                                            margin-top: 0.5rem;
+                                            scale: 0.8;">
+                                </div>
+                                <div class="card-container__content">
+                                    <span class="title"><span style=font-weight:bold;>Provide your details</span><br>We'll book it for you!</span>
+                                    </span>
+                                </div>
+                            </div>
+                            
+                            <!-- Third Card -->
+                            <div class="card-container">
+                                <div class="card-container__header" 
+                                    style="background-image: url(pics/3howto.png); 
+                                            background-size: contain; 
+                                            background-position: center; 
+                                            background-repeat: no-repeat;
+                                            margin-top: 0.5rem;
+                                            scale: 1.1;
+                                            rotate: -20deg;">
+                                </div>
+                                <div class="card-container__content">
+                                    <span class="title"><span style="font-weight:bold;">Pay and Vibe!</span><br>Surprise 72h before :)</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="virtualcards-wrapper1">
+                        <div class="virtualcards-header1">
+                            <p><span style="font-style: italic;">The <span class="fine-print">fine</span> print</span></p>
+                        </div>
+                        <div class="virtualcards1">
+                            <!-- First Card -->
+                            <div class="card-container1">
+                                <span class="title1">BUDGET CLASSES</span>
+                                    <button id="openPopup1" mat-flat-button color="primary" class="common-button1" type="button">
+                                        <span class="button-wrapper1">
+                                            <div class="common-button__label1">Find out your class</div>
+                                        </span>
+                                    </button>
+                                <div class="card-container__header1" style="background-image: url(pics/airplanecard.jpg);"></div>
+                                <div class="card-container__content1">
+                                    <span class="description">Low, Mid or Luxury classes, all with different and unique features. Discover our different budget categories. Find out which is your class.</span>
+                                </div>
+                            </div>
+                            <!-- Second Card -->
+                            <div class="card-container1">
+                                <span class="title1">WIN AND UPGRADE</span>
+                                <button mat-flat-button color="primary" class="common-button1" type="button">
+                                    <span class="button-wrapper1">
+                                        <div class="common-button__label1">Learn More</div>
+                                    </span>
+                                </button>
+                                <div class="card-container__header1" style="background-image: url(pics/wheel.jpg);"></div>
+                                <div class="card-container__content1">
+                                    <span class="description">Get extra features from higher budget classes cheaper. After your booking, you will get access to our Wheel of Fortune. Best of luck!</span>
+                                </div>
+                            </div>
+                            <!-- Third Card -->
+                            <div class="card-container1">
+                                <span class="title1">OUR PARTNERS</span>
+                                <button mat-flat-button color="primary" class="common-button1" type="button">
+                                    <span class="button-wrapper1">
+                                        <div class="common-button__label1">Learn & Join!</div>
+                                    </span>
+                                </button>
+                                <div class="card-container__header1" style="background-image: url(pics/hotelex.jpg);"></div>
+                                <div class="card-container__content1">
+                                    <span class="description">We only partner with the best confort providers in each city. Learn how Vaiving ensures the highest level of service.</span>
+                                </div>
+                            </div>
+                            <!-- Forth Card -->
+                            <div class="card-container1">
+                                <span class="title1">THE MISSION</span>
+                                <button mat-flat-button color="primary" class="common-button1" type="button">
+                                    <span class="button-wrapper1">
+                                        <div class="common-button__label1">Join our mission!</div>
+                                    </span>
+                                </button>
+                                <div class="card-container__header1" style="background-image: url(pics/space.png);"></div>
+                                <div class="card-container__content1">
+                                    <span class="description">Join our journey from MvP to the Go-To app for Travel 2.0. Watch Crowdsourcing, AI and Blockchain combined.</span>
+                                </div>
+                            </div>       
+                            <!-- Fifth Card -->
+                            <div class="card-container1">
+                                <span class="title1">ABOUT THE AIRPORTS</span>
+                                <button id= "openPopup6" mat-flat-button color="primary" class="common-button1" type="button">
+                                    <span class="button-wrapper1">
+                                        <div class="common-button__label1">Tell me about it!</div>
+                                    </span>
+                                </button>
+                                <div class="card-container__header1" style="background-image: url(pics/fromplane.jpg);"></div>
+                                <div class="card-container__content1">
+                                    <span class="description">Learn in which countries are we currently offering services and where can we fly now and where will we fly in the future.</span>
+                                </div>
+                            </div>  
+                            <!-- Sixth Card -->
+                            <div class="card-container1">
+                                <span class="title1">CAREERS</span>
+                                <button mat-flat-button color="primary" class="common-button1" type="button">
+                                    <span class="button-wrapper1">
+                                        <div class="common-button__label1">Become a Vaiver</div>
+                                    </span>
+                                </button>
+                                <div class="card-container__header1" style="background-image: url(pics/careers.jpg);"></div>
+                                <div class="card-container__content1">
+                                    <span class="description">We want to get to know you, Vaiver! Check our open vacancies and apply, or simply submit your CV for future job opportunities.</span>
+                                </div>
+                            </div>             
+                        </div>
+                    </div>
+                </div>
+
+        <!-- Footer -->
+        <footer class="site-footer">
+            <a href="https://www.linkedin.com/company/vaiving" target="_blank" class="button-link">
+                <img src="pics/linkedin.png" alt="LinkedIn Icon" style="width: 25px; height: 25px; vertical-align: middle">
+            </a> 
+            <a href="https://www.instagram.com/vaivingg" target="_blank" class="button-link2">
+                <img src="pics/instagram.png" alt="Instagram Icon" style="width: 25px; height: 25px; vertical-align: middle">
+            </a>
+            <p style="color: rgb(0, 0, 0); font-size: 12px; margin-top: 1px; margin-bottom: -1.4rem; font-weight: bold;">&copy; 2024 - Vaiving Ltd.</p>
+            <p>&nbsp;</p>
+        </footer>
+    </div>
+    
+</body>
+
+    <!-- Dynamic GSAP Transition Handling for index -->
+    
+    <script src="scripts/scripts.js"></script>
+    <script src="scripts/airpapi.js"></script>
+    <script src="scripts/popups.js"></script>
+    <script src="scripts/search.js"></script>
+
+</html>

@@ -1,0 +1,166 @@
+/* Plane - button */  /* Plane - button */  /* Plane - button */
+
+.button-link3 {
+    display: inline-block;
+    position: relative;
+    z-index: 10;
+    scale: 0.9;
+    animation: flyAnimation 1.5s ease-in-out infinite alternate;
+    margin-top: 3.5rem;
+}
+
+.button-container2 {
+    position: fixed;
+    z-index: 10;
+    bottom: -18vh;
+}
+
+.plane-img {
+    width: 50px;
+    height: 50px;
+    vertical-align: middle;
+    position: relative;
+    rotate: 15deg;
+    top: -1.1rem;
+    animation: breatheAnimation 2s ease-in-out infinite; /* Adjust duration as needed */
+    scale: 1.4;
+}
+
+@keyframes breatheAnimation {
+    0% {
+        transform: scale(1) translateY(0); /* Original size */
+    }
+    85% {
+        transform: scale(1) translateY(0); /* First large expansion */
+    }
+    90% {
+        transform: scale(1.2) translateY(0); /* First quick shrink */
+    }
+    94% {
+        transform: scale(1) translateY(0); /* Second quick expansion */
+    }
+    98% {
+        transform: scale(1.2) translateY(0); /* Second quick expansion */
+    }
+    100% {
+        transform: scale(1) translateY(0); /* Back to original size */
+    }
+}
+
+
+@media (max-height: 667px) {
+    .button-container2 {
+        bottom: -13vh;
+    }
+}
+
+@media (max-height: 740px) {
+    .button-container2 {
+        bottom: -13vh;
+    }
+}
+
+
+/* Clouds effect */ /* Clouds effect */ /* Clouds effect */
+
+.clouds-wrapper {
+    position: fixed; /* Now absolute within right-section */
+    width: 100%;
+    height: auto; /* No need for 100% height here */
+    z-index: 1;
+    pointer-events: none;
+    background-attachment: fixed;
+    opacity: 0.7;
+}
+
+.clouds {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.cloud {
+    position: fixed; /* Absolute within clouds-wrapper */
+    left: 0;
+    bottom: -3vh;
+    width: 100%;
+    z-index: 0;
+    animation: moveCloud 5s linear infinite;
+    scale: 0.8; /* Use transform instead of scale property */
+}
+
+/* Cloud sizes */
+
+.big {
+    width: 800px;
+    height: 300px;
+    animation-duration: 8s;
+    fill: #cecece;
+}
+
+.distant {
+    width: 350px;
+    height: 200px;
+    animation-duration: 7.5s;
+    fill: #d8d8d8;
+}
+
+.small {
+    width: 200px;
+    height: 100px;
+    animation-duration: 7s;
+    fill: #d8d8d8;
+}
+
+.massive {
+    width: 500px;
+    height: 350px;
+    animation-duration: 6.5s;
+    fill: #ffffff;
+}
+
+.medium {
+    width: 250px;
+    height: 250px;
+    animation-duration: 6s;
+    fill: #d8d8d8;
+}
+
+.smallest {
+    width: 150px;
+    height: 75px;
+    animation-duration: 5.5s;
+    fill: #ffffff;
+}
+
+.midsmallest {
+    width: 100px;
+    height: 75px;
+    animation-duration: 5s;
+    fill: #aaaaaa;
+}
+
+/* Keyframes for movement and opacity */
+@keyframes moveCloud {
+    0% {
+        opacity: 1;
+        -webkit-transform: translateX(1000px);
+        -moz-transform: translateX(1000px);
+        transform: translateX(1000px);
+      }
+      10% {
+    
+        opacity: 0.7;
+      }
+      90% {
+        opacity: 0.1;
+      }
+      100% {
+        opacity: 0;
+        -webkit-transform: translateX(-1000px);
+        -moz-transform: translateX(-1000px);
+        transform: translateX(-1000px);
+      }
+    }
